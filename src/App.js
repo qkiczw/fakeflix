@@ -17,8 +17,6 @@ function App() {
           <Col>MAIN CONTENT</Col>
         </Row>
       </Container>
-      <Button variant="danger">TEST</Button>
-      <Button variant="success">Success</Button>
     </>
   );
 }
