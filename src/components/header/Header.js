@@ -6,6 +6,9 @@ import { Container, Row, Col } from "react-bootstrap";
 // Assest
 import logo from "../../assets/logo.png";
 
+// Icons
+import { BsFillBellFill, BsFillPersonFill, BsSearch } from "react-icons/bs";
+
 const Header = () => {
   return (
     <>
@@ -14,10 +17,14 @@ const Header = () => {
           <Col xs={12} md={2}>
             <img src={logo} alt="Fakeflix logo" className="brand-logo" />
           </Col>
-          <Col>
-            <p>HOME, MY LIST, MOVIES, SERIES, ETC.</p>
+          <Col md={8} className="navigation">
+            HOME, MY LIST, MOVIES, SERIES, ETC.
           </Col>
-          <Col md={2}>ICONS, USER</Col>
+          <Col md={2} className="user-header-icons">
+            <BsSearch />
+            <BsFillBellFill />
+            <BsFillPersonFill />
+          </Col>
         </Row>
       </Container>
     </>

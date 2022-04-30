@@ -8,3 +8,14 @@
 .brand-logo {
   max-width: 200px;
 }
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.user-header-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
