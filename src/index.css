@@ -1,0 +1,10 @@
+.main-container {
+  background-color: #141414;
+  color: #fff;
+
+  min-height: 750px;
+}
+
+.brand-logo {
+  max-width: 200px;
+}
