@@ -1,12 +1,14 @@
 .main-container {
   background-color: #141414;
   color: #fff;
-
   min-height: 750px;
+}
+.header {
+  margin: 20px 0;
 }
 
 .brand-logo {
-  max-width: 200px;
+  max-width: 120px;
 }
 .navigation {
   display: flex;

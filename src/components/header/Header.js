@@ -12,15 +12,15 @@ import { BsFillBellFill, BsFillPersonFill, BsSearch } from "react-icons/bs";
 const Header = () => {
   return (
     <>
-      <Container fluid>
+      <Container className="header">
         <Row>
-          <Col xs={12} md={2}>
+          <Col xs={12} md={1}>
             <img src={logo} alt="Fakeflix logo" className="brand-logo" />
           </Col>
-          <Col md={8} className="navigation">
+          <Col md={10} className="navigation">
             HOME, MY LIST, MOVIES, SERIES, ETC.
           </Col>
-          <Col md={2} className="user-header-icons">
+          <Col md={1} className="user-header-icons">
             <BsSearch />
             <BsFillBellFill />
             <BsFillPersonFill />
