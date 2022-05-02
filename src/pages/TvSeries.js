@@ -1,18 +1,18 @@
 import React from "react";
 
 // Bootstrap components
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 export function TvSeries() {
   return (
     <>
-      <Container>
+      <main>
         <Row>
           <Col>
             <h2>TvSeries</h2>
           </Col>
         </Row>
-      </Container>
+      </main>
     </>
   );
 }

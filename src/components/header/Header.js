@@ -1,7 +1,7 @@
 import React from "react";
 
 // Bootstrap Components
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 // Assest
 import logo from "../../assets/logo.png";
@@ -12,8 +12,8 @@ import { BsFillBellFill, BsFillPersonFill, BsSearch } from "react-icons/bs";
 const Header = () => {
   return (
     <>
-      <Container className="header">
-        <Row>
+      <header>
+        <Row className="header">
           <Col xs={12} md={1}>
             <img src={logo} alt="Fakeflix logo" className="brand-logo" />
           </Col>
@@ -26,7 +26,7 @@ const Header = () => {
             <BsFillPersonFill />
           </Col>
         </Row>
-      </Container>
+      </header>
     </>
   );
 };

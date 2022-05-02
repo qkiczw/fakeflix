@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 // Bootstrap components
 import { Container, Row } from "react-bootstrap";
 
@@ -13,10 +15,8 @@ function App() {
   return (
     <>
       <Container fluid className="main-container">
-        <Row>
-          <Header />
-          <HomePage />
-        </Row>
+        <Header />
+        <HomePage />
       </Container>
     </>
   );
