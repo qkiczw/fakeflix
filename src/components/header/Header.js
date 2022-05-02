@@ -20,16 +20,16 @@ const Header = () => {
           </Col>
           <Col md={10} className="navigation">
             <nav className="main-navigation">
-              <NavLink exact to="/">
+              <NavLink activeclassname="active" to="/">
                 Home
               </NavLink>
-              <NavLink activeClassName="active" to="/movies">
+              <NavLink activeclassname="active" to="/movies">
                 Movies
               </NavLink>
-              <NavLink activeClassName="active" to="/tvseries">
+              <NavLink activeclassname="active" to="/tvseries">
                 TV Series
               </NavLink>
-              <NavLink activeClassName="active" to="/mylist">
+              <NavLink activeclassname="active" to="/mylist">
                 My list
               </NavLink>
             </nav>

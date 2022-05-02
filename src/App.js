@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
 import MyList from "./pages/MyList";
+import Footer from "./components/Footer";
 
 // Components
 import Header from "./components/header/Header";
@@ -25,6 +26,7 @@ function App() {
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
         </Routes>
+        <Footer />
       </Container>
     </>
   );
