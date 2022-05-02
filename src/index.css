@@ -1,0 +1,23 @@
+.main-container {
+  background-color: #141414;
+  color: #fff;
+  min-height: 750px;
+}
+.header {
+  margin: 20px 0;
+}
+
+.brand-logo {
+  max-width: 120px;
+}
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.user-header-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
