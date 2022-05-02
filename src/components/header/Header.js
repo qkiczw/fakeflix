@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // Bootstrap Components
 import { Row, Col } from "react-bootstrap";
@@ -18,7 +19,20 @@ const Header = () => {
             <img src={logo} alt="Fakeflix logo" className="brand-logo" />
           </Col>
           <Col md={10} className="navigation">
-            HOME, MY LIST, MOVIES, SERIES, ETC.
+            <nav className="main-navigation">
+              <NavLink exact to="/">
+                Home
+              </NavLink>
+              <NavLink activeClassName="active" to="/movies">
+                Movies
+              </NavLink>
+              <NavLink activeClassName="active" to="/tvseries">
+                TV Series
+              </NavLink>
+              <NavLink activeClassName="active" to="/mylist">
+                My list
+              </NavLink>
+            </nav>
           </Col>
           <Col md={1} className="user-header-icons">
             <BsSearch />

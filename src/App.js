@@ -1,10 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
 // Bootstrap components
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 // Pages
 import HomePage from "./pages/HomePage";
+import Movies from "./pages/Movies";
+import TvSeries from "./pages/TvSeries";
+import MyList from "./pages/MyList";
 
 // Components
 import Header from "./components/header/Header";
@@ -16,7 +19,12 @@ function App() {
     <>
       <Container fluid className="main-container">
         <Header />
-        <HomePage />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="tvseries" element={<TvSeries />} />
+          <Route path="mylist" element={<MyList />} />
+        </Routes>
       </Container>
     </>
   );

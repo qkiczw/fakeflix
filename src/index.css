@@ -1,7 +1,17 @@
+a,
+a:hover {
+  color: #fff;
+}
+
+/* css for react router NavLink */
+.active {
+  font-weight: bold;
+}
+
 .main-container {
   background-color: #141414;
   color: #fff;
-  min-height: 750px;
+  min-height: 100vh;
 }
 .header {
   padding: 20px 0;
@@ -10,11 +20,17 @@
 .brand-logo {
   max-width: 120px;
 }
+.main-container a {
+  /* color: #fff; */
+  text-decoration: none;
+  padding: 0 10px 0 0;
+}
 .navigation {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
+
 .user-header-icons {
   display: flex;
   justify-content: center;
