@@ -1,5 +1,8 @@
 // Bootstrap components
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+
+// Pages
+import HomePage from "./pages/HomePage";
 
 // Components
 import Header from "./components/header/Header";
@@ -12,9 +15,7 @@ function App() {
       <Container fluid className="main-container">
         <Row>
           <Header />
-        </Row>
-        <Row>
-          <Col>MAIN CONTENT</Col>
+          <HomePage />
         </Row>
       </Container>
     </>
