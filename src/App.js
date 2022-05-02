@@ -1,5 +1,5 @@
 // Bootstrap components
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 // Pages
 import HomePage from "./pages/HomePage";
