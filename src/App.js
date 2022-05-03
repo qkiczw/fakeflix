@@ -16,19 +16,19 @@ import Header from "./components/header/Header";
 import "./App.css";
 
 // test fetch from a themoviedb.org api
-let testFetch = async (title) => {
-  const API_KEY = "34f2b177435f8bd71d2841363f3ca2c1";
+// The end part of a query "&with_genres=28" is to fetch only with genre 28 (aciot)
+let testFetch = async () => {
   fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&query=${title}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=28`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.results);
+      const { results } = data;
+      console.log(results);
     })
     .catch((error) => console.log("error: ", error));
-  console.log("Hello Fetch!");
 };
-testFetch("hulk");
+testFetch();
 
 function App() {
   return (
