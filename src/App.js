@@ -15,6 +15,21 @@ import Header from "./components/header/Header";
 
 import "./App.css";
 
+// test fetch from a themoviedb.org api
+let testFetch = async (title) => {
+  const API_KEY = "34f2b177435f8bd71d2841363f3ca2c1";
+  fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&query=${title}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.results);
+    })
+    .catch((error) => console.log("error: ", error));
+  console.log("Hello Fetch!");
+};
+testFetch("hulk");
+
 function App() {
   return (
     <>
