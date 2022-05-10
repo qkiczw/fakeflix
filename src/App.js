@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Bootstrap components
@@ -15,22 +16,18 @@ import Header from "./components/header/Header";
 
 import "./App.css";
 
-// test fetch from a themoviedb.org api
-// The end part of a query "&with_genres=28" is to fetch only with genre 28 (aciot)
-let testFetch = async () => {
-  fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=28`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const { results } = data;
-      console.log(results);
-    })
-    .catch((error) => console.log("error: ", error));
-};
-testFetch();
-
 function App() {
+  const [recentMovies, getRecentMovies] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=28`
+    )
+      .then((response) => response.json())
+      .then((data) => getRecentMovies(recentMovies.concat(data.results)))
+      .catch((error) => console.log("error: ", error));
+  }, []);
+
   return (
     <>
       <Container fluid className="main-container">
