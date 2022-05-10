@@ -33,7 +33,7 @@ function App() {
       <Container fluid className="main-container">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage movies={recentMovies} />} />
           <Route path="movies" element={<Movies />} />
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
