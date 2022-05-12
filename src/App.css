@@ -27,6 +27,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.user-header-icons {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
 
 .App-link {
   color: #61dafb;

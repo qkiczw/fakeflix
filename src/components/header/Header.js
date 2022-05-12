@@ -35,9 +35,9 @@ const Header = () => {
             </nav>
           </Col>
           <Col md={1} className="user-header-icons">
-            <BsSearch />
-            <BsFillBellFill />
-            <BsFillPersonFill />
+            <BsSearch className="user-header-icon" />
+            <BsFillBellFill className="user-header-icon" />
+            <BsFillPersonFill className="user-header-icon" />
           </Col>
         </Row>
       </header>
