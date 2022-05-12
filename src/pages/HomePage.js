@@ -11,7 +11,7 @@ export function HomePage(props) {
   return (
     <>
       <main>
-        <h2>Main page</h2>
+        <h2>Recent Movies</h2>
         <Row>
           {movies.map((movie) => (
             <MovieCard key={movie.id} movieData={movie} />

@@ -1,17 +1,25 @@
 import React from "react";
 
 // Bootstrap components
-import { Col, Card, Button } from "react-bootstrap";
+import { Col, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 // Icons
 import {
   BsPlayCircleFill,
-  BsCheckCircle,
+  BsArrowDownCircle,
   BsEmojiHeartEyes,
+  BsPlusCircle,
 } from "react-icons/bs";
 
 const MovieCard = (props) => {
   const { movieData } = props;
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Simple tooltip
+    </Tooltip>
+  );
+
   return (
     <>
       <Col xs={12} md={4} lg={2}>
@@ -19,19 +27,19 @@ const MovieCard = (props) => {
           <Card.Img
             variant="top"
             src={`https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`}
-            className="movie-card-image"
+            className="movie-card-poster"
           />
           <Card.Body>
-            <Card.Title>{movieData.title}</Card.Title>
-            <Card.Text className="movie-card-icons">
-              {movieData.desc}
-              <span className="movie-card-icons">
-                <BsPlayCircleFill />
-                <BsCheckCircle />
-                <BsEmojiHeartEyes />
-              </span>
-            </Card.Text>
-            <Button variant="danger">Watch</Button>
+            <Card.Title className="movie-card-title">
+              {movieData.title}
+            </Card.Title>
+            <Card.Text className="movie-card-icons">{movieData.desc}</Card.Text>
+            <nav className="movie-card-icons">
+              <BsPlayCircleFill className="movie-card-icon" />
+              <BsPlusCircle className="movie-card-icon" />
+              <BsEmojiHeartEyes className="movie-card-icon" />
+              <BsArrowDownCircle className="movie-card-icon" />
+            </nav>
           </Card.Body>
         </Card>
       </Col>
