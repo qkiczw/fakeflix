@@ -1,29 +1,21 @@
 import React from "react";
 
+// Components
+import MovieCard from "../components/MovieCard/MovieCard;";
+
 // Bootstrap components
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 export function HomePage(props) {
   const { movies } = props;
   return (
     <>
       <main>
+        <h2>Main page</h2>
         <Row>
-          <Col>
-            <h2>Main page</h2>
-            <ul>
-              {movies.map((movie) => (
-                <li key={movie.id}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                    alt="test"
-                  />
-                  <h4>{movie.title}</h4>
-                  <p>{movie.overview}</p>
-                </li>
-              ))}
-            </ul>
-          </Col>
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movieData={movie} />
+          ))}
         </Row>
       </main>
     </>
