@@ -66,8 +66,8 @@
   position: relative;
 }
 .movie-card-container:hover .movie-card-icons {
-  display: flex;
-  opacity: 1;
+  position: relative;
+  visibility: visible;
 }
 .movie-card-title {
   position: absolute;
@@ -76,11 +76,12 @@
 }
 
 .movie-card-icons {
+  position: absolute;
+  top: 0;
   width: 100%;
-  display: none;
+  display: flex;
   justify-content: flex-start;
-  transition-duration: 1250ms;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .movie-card-icon {
