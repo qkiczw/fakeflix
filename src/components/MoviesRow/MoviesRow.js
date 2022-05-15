@@ -22,9 +22,11 @@ const MoviesRow = ({ genre }) => {
     <>
       <h2>{genre}</h2>
       <Row>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movieData={movie} />
-        ))}
+        {movies
+          .map((movie) => <MovieCard key={movie.id} movieData={movie} />)
+          .filter((movie, index) => {
+            return index < 6;
+          })}
       </Row>
     </>
   );
