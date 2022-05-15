@@ -17,14 +17,14 @@ import Header from "./components/header/Header";
 import "./App.css";
 
 function App() {
-  const [recentMovies, getRecentMovies] = useState([]);
+  const [movies, getMovies] = useState([]);
 
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=28`
     )
       .then((response) => response.json())
-      .then((data) => getRecentMovies(recentMovies.concat(data.results)))
+      .then((data) => getMovies(movies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
   }, []);
 
@@ -33,7 +33,7 @@ function App() {
       <Container fluid className="main-container">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage movies={recentMovies} />} />
+          <Route path="/" element={<HomePage movies={movies} />} />
           <Route path="movies" element={<Movies />} />
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
