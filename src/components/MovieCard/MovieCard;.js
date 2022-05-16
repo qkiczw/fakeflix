@@ -1,7 +1,7 @@
 import React from "react";
 
 // Bootstrap components
-import { Col, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
 
 // Icons
 import {
@@ -13,12 +13,6 @@ import {
 
 const MovieCard = (props) => {
   const { movieData } = props;
-
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Simple tooltip
-    </Tooltip>
-  );
 
   return (
     <>

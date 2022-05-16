@@ -2,6 +2,7 @@ import React from "react";
 
 // Components
 import MovieRow from "../components/MoviesRow/MoviesRow";
+import Hero from "../components/Hero/Hero";
 
 // Api calls helpers
 import { MOVIE_GENRES } from "../apicalls/apicalls";
@@ -9,6 +10,7 @@ import { MOVIE_GENRES } from "../apicalls/apicalls";
 export function HomePage() {
   return (
     <>
+      <Hero />
       <main>
         {/* <MovieRow rowTitle={"Recent Movies"} genre="Recent Movies" /> */}
         <MovieRow rowTitle={"Comedy"} genre={MOVIE_GENRES.comedy} />
