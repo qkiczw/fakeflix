@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 // Bootstrap Components
 import { Col, Row } from "react-bootstrap";
 
-const HIGHEST_MOVIE_ID = 750000;
 const getRandomMovieID = (min, max) => {
   let minID = Math.ceil(min);
   let maxID = Math.floor(max);
@@ -11,24 +10,34 @@ const getRandomMovieID = (min, max) => {
 };
 
 const Hero = () => {
-  const [movie, getMovie] = useState([]);
+  const [randomMovie, getRandomMovie] = useState([]);
 
   useEffect(() => {
+    const RANDOM_MOVIE_ID = getRandomMovieID(1, 750000);
+
     fetch(
-      `https://api.themoviedb.org/3/movie/${getRandomMovieID(
-        1,
-        HIGHEST_MOVIE_ID
-      )}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `https://api.themoviedb.org/3/movie/${RANDOM_MOVIE_ID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
-      .then((data) => console.log(data));
-    //   .then((movie) => getMovie((data) => movie.concat(data)));
+      .then((data) => getRandomMovie(randomMovie.concat(data)))
+      .catch((error) => console.log("error: ", error));
   }, []);
 
   return (
-    <section>
-      <h2>PLace for the title</h2>
-    </section>
+    <Row>
+      {console.log("rrr", randomMovie)}
+      <Col xs={12}>
+        <section className="hero">
+          <img className="hero__bacground" src="" alt="" />
+          <h2 className="hero__title">TITLE of The MOVIE </h2>
+          <p className="hero__plot">plot</p>
+          <div className="hero__buttons">
+            <button>Watch</button>
+            <button>More info</button>
+          </div>
+        </section>
+      </Col>
+    </Row>
   );
 };
 
