@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Bootstrap components
@@ -22,7 +21,7 @@ function App() {
       <Container fluid className="main-container">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="movies" element={<Movies />} />
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
