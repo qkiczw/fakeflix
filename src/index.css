@@ -51,7 +51,7 @@ a:hover {
 }
 .hero img {
   width: 100vw;
-  height: 30vw;
+  height: 80vh;
   object-fit: cover;
 }
 .hero-title {
