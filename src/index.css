@@ -12,9 +12,19 @@ a:hover {
   background-color: #141414;
   color: #fff;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 .header {
-  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.user-header-icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .brand-logo {
@@ -29,13 +39,6 @@ a:hover {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-
-.user-header-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
 
 /* Hero */
