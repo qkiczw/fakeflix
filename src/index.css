@@ -79,6 +79,9 @@ a:hover {
   padding-bottom: 1rem;
 }
 
+.main-movies-content {
+  margin: 1rem;
+}
 /* Movie Card */
 .movie-card-container {
   position: relative;

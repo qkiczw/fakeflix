@@ -54,7 +54,7 @@ export function HomePage() {
   return (
     <>
       <Hero randomMovie={randomMovie} />
-      <main>
+      <main className="main-movies-content">
         <MovieRow rowTitle={"Recent Movies"} movies={recentMovies} />
         <MovieRow rowTitle={"Comedy Movies"} movies={comedyMovies} />
         <MovieRow rowTitle={"Horror Movies"} movies={horrorMovies} />
