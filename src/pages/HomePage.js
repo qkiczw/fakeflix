@@ -19,7 +19,7 @@ export function HomePage() {
   const fetchRecentMovies = async () => {
     // set randomMovie
     await fetch(
-      `https://api.themoviedb.org/3/movie/${RANDOM_MOVIE_ID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `https://api.themoviedb.org/3/movie/${RANDOM_MOVIE_ID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=images&language=en-US&include_image_language=null,en`
     )
       .then((response) => response.json())
       .then((data) => setRandomMovie((randomMovie = { ...data })))
@@ -53,7 +53,7 @@ export function HomePage() {
 
   return (
     <>
-      <Hero randomMovie={randomMovie}/>
+      <Hero randomMovie={randomMovie} />
       <main>
         <MovieRow rowTitle={"Recent Movies"} movies={recentMovies} />
         <MovieRow rowTitle={"Comedy Movies"} movies={comedyMovies} />
