@@ -100,7 +100,7 @@ a:hover {
 }
 .movie-card-title {
   position: absolute;
-  top: 0;
+  top: 10px;
   transition-duration: 500ms;
 }
 
