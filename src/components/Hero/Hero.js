@@ -3,26 +3,26 @@ import React from "react";
 // Bootstrap Components
 import { Col, Row } from "react-bootstrap";
 
-// const setRandomMovieID = (min, max) => {
-//   let minID = Math.ceil(min);
-//   let maxID = Math.floor(max);
-//   return Math.floor(Math.random() * (maxID - minID)) + minID;
-// };
-
-const Hero = () => {
+const Hero = ({ randomMovie }) => {
+  const { title, overview, poster_path } = randomMovie;
   return (
     <Row>
       <Col xs={12}>
         <section className="hero">
-          <img className="hero-bacground" src="" alt="" />
-          <h2 className="hero-title">Place for the title</h2>
-          <p className="hero-plot">plot</p>
+          <img
+            className="hero-bacground"
+            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            alt={overview}
+          />
+          <h2 className="hero-title">{title ? title : " "}</h2>
+          <p className="hero-plot">{overview ? overview : ""}</p>
           <div className="hero-buttons">
             <button>Watch</button>
             <button>More info</button>
           </div>
         </section>
       </Col>
+      {console.log("hero random from props: ", randomMovie)}
     </Row>
   );
 };
