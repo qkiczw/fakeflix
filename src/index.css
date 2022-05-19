@@ -61,7 +61,7 @@ a:hover {
 }
 .hero-desc-and-btns {
   position: absolute;
-  padding: 1rem;
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -73,6 +73,12 @@ a:hover {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
+}
+.hero-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 .hero-overview {
   margin: 0;

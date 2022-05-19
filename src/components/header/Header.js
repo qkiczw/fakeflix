@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Bootstrap Components
-import { Row, Col, Navbar, Container, Nav } from "react-bootstrap";
+import { Col, Navbar, Container, Nav } from "react-bootstrap";
 
 // Assest
 import logo from "../../assets/logo.png";
