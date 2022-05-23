@@ -4,10 +4,15 @@ import React from "react";
 import MovieRow from "../components/MoviesRow/MoviesRow";
 import Hero from "../components/Hero/Hero";
 
-export function HomePage({ recentMovies, horrorMovies, comedyMovies }) {
+export function HomePage({
+  randomMovie,
+  recentMovies,
+  horrorMovies,
+  comedyMovies,
+}) {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero randomMovie={randomMovie} />
       <main className="main-movies-content">
         <MovieRow rowTitle={"Recent"} movies={recentMovies} />
         <MovieRow rowTitle={"Horror"} movies={horrorMovies} />

@@ -7,7 +7,8 @@ import { Col, Row, Button } from "react-bootstrap";
 import { BsCaretRightSquare, BsInfoSquareFill } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
-  const { title, overview, poster_path } = randomMovie;
+  const { title, overview, poster_path, images } = randomMovie;
+  console.log("random images: ", images);
   return (
     <Row>
       <Col xs={12}>
@@ -17,7 +18,7 @@ const Hero = ({ randomMovie }) => {
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt={overview}
           />
-          <h2 className="hero-title">{title ? title : " "}</h2>
+          <h2 className="hero-title">{title ? title : ""}</h2>
           <Col className="hero-desc-and-btns">
             <Col className="hero-btns" xs={12} md={5} lg={4}>
               <Button variant="light" size="lg" className="hero-btn">
@@ -33,7 +34,6 @@ const Hero = ({ randomMovie }) => {
           </Col>
         </section>
       </Col>
-      {console.log("hero random from props: ", randomMovie)}
     </Row>
   );
 };

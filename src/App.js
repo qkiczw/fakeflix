@@ -20,24 +20,18 @@ import "./App.css";
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
 
-const RANDOM_MOVIE_ID = Math.round(Math.random() * 10000);
-console.log(RANDOM_MOVIE_ID);
+const RANDOM_MOVIE_ID = Math.round(Math.random() * 50000);
+// console.log(RANDOM_MOVIE_ID);
 
 function App() {
   const [recentMovies, setRecentMovies] = useState([]);
   const [horrorMovies, setHorrorMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
   let [randomMovie, setRandomMovie] = useState({});
+  let [allMovies, setAllMovies] = useState([]);
 
   const fetchRecentMovies = async () => {
-    // set randomMovie
-    // await fetch(
-    //   `https://api.themoviedb.org/3/movie/${RANDOM_MOVIE_ID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=images&language=en-US&include_image_language=null,en`
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => setRandomMovie((randomMovie = { ...data })))
-    //   .catch((error) => console.log("error: ", error));
-    // set recentMovies
+    //set recentMovies
     await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
@@ -51,18 +45,37 @@ function App() {
       .then((response) => response.json())
       .then((data) => setHorrorMovies(horrorMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
-    // set comedyMovies
+    // comedyMovies
     await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy}`
     )
       .then((response) => response.json())
       .then((data) => setComedyMovies(comedyMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
+    // horror
+    await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror}`
+    )
+      .then((response) => response.json())
+      .then((data) => setAllMovies([...allMovies, ...data.results]))
+      .catch((error) => console.log("error: ", error));
+    //set randomMovie
+    await fetch(
+      `https://api.themoviedb.org/3/movie/${
+        RANDOM_MOVIE_ID ? RANDOM_MOVIE_ID : 1
+      }?api_key=${
+        process.env.REACT_APP_MOVIES_API_KEY
+      }&append_to_response=images&language=en-US&include_image_language=null,en`
+    )
+      .then((response) => response.json())
+      .then((data) => setRandomMovie((randomMovie = { ...data })))
+      .catch((error) => console.log("error: ", error));
   };
 
   useEffect(() => {
     fetchRecentMovies();
   }, []);
+
   return (
     <>
       <Container fluid className="main-container">
@@ -73,6 +86,7 @@ function App() {
             path="/"
             element={
               <HomePage
+                randomMovie={randomMovie}
                 recentMovies={recentMovies}
                 horrorMovies={horrorMovies}
                 comedyMovies={comedyMovies}
