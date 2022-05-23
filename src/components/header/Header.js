@@ -14,35 +14,6 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        {/* <Navbar variant="dark">
-          <Container>
-            <Navbar.Brand href="#home">
-              <img src={logo} alt="Fakeflix logo" className="brand-logo" />
-            </Navbar.Brand>
-            <Nav className="me-auto">
-              <NavLink activeclassname="active" to="/">
-                Home
-              </NavLink>
-              <NavLink activeclassname="active" to="/movies">
-                Movies
-              </NavLink>
-              <NavLink activeclassname="active" to="/tvseries">
-                TV Series
-              </NavLink>
-              <NavLink activeclassname="active" to="/mylist">
-                My list
-              </NavLink>
-            </Nav>
-          </Container>
-        </Navbar>
-        <Row>
-          <Col md={1} className="user-header-icons">
-            <BsSearch className="user-header-icon" />
-            <BsFillBellFill className="user-header-icon" />
-            <BsFillPersonFill className="user-header-icon" />
-          </Col>
-        </Row> */}
-
         <Navbar variant="dark" expand="lg">
           <Container>
             <Navbar.Brand href="#home">
