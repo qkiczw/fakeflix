@@ -44,7 +44,9 @@ function App() {
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror}`
     )
       .then((response) => response.json())
-      .then((data) => setHorrorMovies(horrorMovies.concat(data.results)))
+      .then((data) => {
+        setHorrorMovies(horrorMovies.concat(data.results));
+      })
       .catch((error) => console.log("error: ", error));
     // comedyMovies
     await fetch(
@@ -76,7 +78,14 @@ function App() {
               />
             }
           />
-          <Route path="movies" element={<Movies />} />
+          <Route
+            path="movies"
+            element={
+              <Movies
+                allMovies={[...recentMovies, ...horrorMovies, ...comedyMovies]}
+              />
+            }
+          />
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
         </Routes>
