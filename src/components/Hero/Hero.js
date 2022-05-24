@@ -7,15 +7,15 @@ import { Col, Row, Button } from "react-bootstrap";
 import { BsCaretRightSquare, BsInfoSquareFill } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
-  const { title, overview, poster_path, images } = randomMovie;
-  console.log("random images: ", images);
+  const { title, overview, backdrop_path } = randomMovie;
+
   return (
     <Row>
       <Col xs={12}>
         <section className="hero">
           <img
             className="hero-bacground"
-            src={`https://image.tmdb.org/t/p/original/${poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
             alt={overview}
           />
           <h2 className="hero-title">{title ? title : ""}</h2>

@@ -16,10 +16,8 @@ const Header = () => {
       <header className="header">
         <Navbar className="main-nav " variant="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#home">
-              <NavLink to="/">
-                <img src={logo} alt="Fakeflix logo" className="brand-logo" />
-              </NavLink>
+            <Navbar.Brand href="/">
+              <img src={logo} alt="Fakeflix logo" className="brand-logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
