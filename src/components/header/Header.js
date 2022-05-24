@@ -14,14 +14,16 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <Navbar variant="dark" expand="lg">
-          <Container>
+        <Navbar className="main-nav " variant="dark" expand="lg">
+          <Container fluid>
             <Navbar.Brand href="#home">
-              <img src={logo} alt="Fakeflix logo" className="brand-logo" />
+              <NavLink to="/">
+                <img src={logo} alt="Fakeflix logo" className="brand-logo" />
+              </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
+              <Nav className="nav-menu me-auto">
                 <NavLink activeclassname="active" to="/">
                   Home
                 </NavLink>
@@ -34,10 +36,10 @@ const Header = () => {
                 <NavLink activeclassname="active" to="/mylist">
                   My list
                 </NavLink>
-                <Col className="user-header-icons d-flex">
-                  <BsSearch className="user-header-icon" />
-                  <BsFillBellFill className="user-header-icon" />
-                  <BsFillPersonFill className="user-header-icon" />
+                <Col className="user-icons">
+                  <BsSearch className="user-icon" />
+                  <BsFillBellFill className="user-icon" />
+                  <BsFillPersonFill className="user-icon" />
                 </Col>
               </Nav>
             </Navbar.Collapse>
