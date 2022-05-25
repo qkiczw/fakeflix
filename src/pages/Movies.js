@@ -13,16 +13,19 @@ export function Movies({ allMovies }) {
     }
     return movies;
   }, []);
-
   return (
     <>
       <main>
         <Container fluid>
           <h2>Movies page</h2>
           <Row>
-            {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movieData={movie} />
-            ))}
+            {filteredMovies
+              .filter((movie) =>
+                movie["genre_ids"].some((genre) => genre === 28)
+              )
+              .map((movie) => (
+                <MovieCard key={movie.id} movieData={movie} />
+              ))}
           </Row>
         </Container>
       </main>
