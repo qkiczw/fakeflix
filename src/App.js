@@ -57,6 +57,18 @@ function App() {
       .catch((error) => console.log("error: ", error));
   };
 
+  // This function removes duplicate of movies (movies with the same id)
+  const filteredMovies = [
+    ...recentMovies,
+    ...horrorMovies,
+    ...comedyMovies,
+  ].reduce((movies, currentMovie) => {
+    if (!movies.some((movie) => movie.id === currentMovie.id)) {
+      movies.push(currentMovie);
+    }
+    return movies;
+  }, []);
+
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -78,14 +90,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="movies"
-            element={
-              <Movies
-                allMovies={[...recentMovies, ...horrorMovies, ...comedyMovies]}
-              />
-            }
-          />
+          <Route path="movies" element={<Movies movies={filteredMovies} />} />
           <Route path="tvseries" element={<TvSeries />} />
           <Route path="mylist" element={<MyList />} />
         </Routes>
