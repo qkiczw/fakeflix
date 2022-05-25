@@ -3,18 +3,28 @@ import React from "react";
 // Components
 import MovieCard from "../components/MovieCard/MovieCard;";
 // Bootstrap components
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 export function Movies({ allMovies }) {
+  // This function is removing duplicate of movies (movies with the same id)
+  let filteredMovies = allMovies.reduce((movies, currentMovie) => {
+    if (!movies.some((movie) => movie.id === currentMovie.id)) {
+      movies.push(currentMovie);
+    }
+    return movies;
+  }, []);
+
   return (
     <>
       <main>
-        <h2>Movies page</h2>
-        <Row>
-          {allMovies.map((movie) => (
-            <MovieCard movieData={movie} />
-          ))}
-        </Row>
+        <Container fluid>
+          <h2>Movies page</h2>
+          <Row>
+            {filteredMovies.map((movie) => (
+              <MovieCard key={movie.id} movieData={movie} />
+            ))}
+          </Row>
+        </Container>
       </main>
     </>
   );
