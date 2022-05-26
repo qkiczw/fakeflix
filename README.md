@@ -1,7 +1,7 @@
 # fakeflix
 
 It will be a Netflix clone but with movie trailers only
-Live demo (v0.1): [I'm an inline-style link](https://magenta-profiterole-ffee2c.netlify.app/)
+Live demo (v0.1): [Fakeflix demo](https://magenta-profiterole-ffee2c.netlify.app/)
 
 #---------------------------Generic info ---------------------------
 
