@@ -75,9 +75,6 @@ export function Movies({ movies }) {
           </Row>
         </Container>
       </main>
-      {console.log(
-        movies.filter((movie) => movie["genre_ids"].some((n) => n === 99))
-      )}
     </>
   );
 }
