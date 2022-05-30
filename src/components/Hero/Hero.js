@@ -18,8 +18,8 @@ const Hero = ({ randomMovie }) => {
             src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
             alt={overview}
           />
-          <h2 className="hero-title">{title ? title : ""}</h2>
           <Col className="hero-desc-and-btns">
+            <h2 className="hero-title">{title ? title : ""}</h2>
             <Col className="hero-btns" xs={12} md={5} lg={4}>
               <Button variant="light" size="lg" className="hero-btn">
                 <BsCaretRightSquare />

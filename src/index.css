@@ -64,8 +64,7 @@ a:hover {
   object-fit: cover;
 }
 .hero-title {
-  position: absolute;
-  top: 0;
+  font-size: 3.5rem;
   padding: 1rem;
 }
 .hero-desc-and-btns {
