@@ -6,7 +6,11 @@ import MovieCard from "../components/MovieCard/MovieCard;";
 import { Container, Row } from "react-bootstrap";
 
 export function Movies({ movies }) {
-  // use the filtered movies from props not the allMovies and try filter with categories with filtered array;
+  const [isFiltered, setFileterd] = useState(true);
+  const [movieGenre, setMovieGenre] = useState(35);
+
+  // use the filtered movies from props and try filter with categories with filtered array;
+
   return (
     <>
       <main>
@@ -14,9 +18,17 @@ export function Movies({ movies }) {
           <h2>Movies page</h2>
 
           <Row>
-            {movies.map((movie) => (
-              <MovieCard key={movie.id} movieData={movie} />
-            ))}
+            {isFiltered
+              ? movies
+                  .filter((movie) =>
+                    movie["genre_ids"].some((n) => n === movieGenre)
+                  )
+                  .map((movie) => (
+                    <MovieCard key={movie.id} movieData={movie} />
+                  ))
+              : movies.map((movie) => (
+                  <MovieCard key={movie.id} movieData={movie} />
+                ))}
           </Row>
         </Container>
       </main>
