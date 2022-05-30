@@ -24,6 +24,9 @@ function App() {
   const [recentMovies, setRecentMovies] = useState([]);
   const [horrorMovies, setHorrorMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
+  const [animationMovies, setAnimationMovies] = useState([]);
+  const [documentaryMovies, setDocumentaryMovies] = useState([]);
+  const [scifiMovies, setscifiMovies] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
 
   const fetchMovies = async () => {
@@ -55,6 +58,29 @@ function App() {
       .then((response) => response.json())
       .then((data) => setComedyMovies(comedyMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
+    // Animation Movies
+    await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.animation.id}`
+    )
+      .then((response) => response.json())
+      .then((data) => setAnimationMovies(animationMovies.concat(data.results)))
+      .catch((error) => console.log("error: ", error));
+    // Documentary Movies
+    await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.documentary.id}`
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        setDocumentaryMovies(documentaryMovies.concat(data.results))
+      )
+      .catch((error) => console.log("error: ", error));
+    // Sci-Fi Movies
+    await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.scifi.id}`
+    )
+      .then((response) => response.json())
+      .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
+      .catch((error) => console.log("error: ", error));
   };
 
   // This function removes duplicate of movies (movies with the same id)
@@ -62,6 +88,9 @@ function App() {
     ...recentMovies,
     ...horrorMovies,
     ...comedyMovies,
+    ...animationMovies,
+    ...documentaryMovies,
+    ...scifiMovies,
   ].reduce((movies, currentMovie) => {
     if (!movies.some((movie) => movie.id === currentMovie.id)) {
       movies.push(currentMovie);
@@ -87,6 +116,9 @@ function App() {
                 recentMovies={recentMovies}
                 horrorMovies={horrorMovies}
                 comedyMovies={comedyMovies}
+                animationMovies={animationMovies}
+                documentaryMovies={documentaryMovies}
+                scifiMovies={scifiMovies}
               />
             }
           />

@@ -9,6 +9,9 @@ export function HomePage({
   recentMovies,
   horrorMovies,
   comedyMovies,
+  animationMovies,
+  documentaryMovies,
+  scifiMovies,
 }) {
   return (
     <>
@@ -16,7 +19,10 @@ export function HomePage({
       <main className="main-movies-content">
         <MovieRow rowTitle={"Recent"} movies={recentMovies} />
         <MovieRow rowTitle={"Horror"} movies={horrorMovies} />
+        <MovieRow rowTitle={"Sci-Fi"} movies={scifiMovies} />
         <MovieRow rowTitle={"Comedy"} movies={comedyMovies} />
+        <MovieRow rowTitle={"Animation"} movies={animationMovies} />
+        <MovieRow rowTitle={"Documentary"} movies={documentaryMovies} />
       </main>
     </>
   );

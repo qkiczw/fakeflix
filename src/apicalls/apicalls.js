@@ -13,7 +13,7 @@ const MOVIE_GENRES = {
   music: { id: 10402, name: "Music" },
   mystery: { id: 9648, name: "Mystery" },
   romance: { id: 10749, name: "Romancer" },
-  "sci-fi": { id: 878, name: "Sci-Fi" },
+  scifi: { id: 878, name: "Sci-Fi" },
   "tv-movie": { id: 10770, name: "TV-Movie" },
   thriller: { id: 53, name: "Thriller" },
   war: { id: 10752, name: "War" },

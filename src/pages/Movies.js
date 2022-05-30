@@ -30,8 +30,29 @@ export function Movies({ movies }) {
         >
           Horror
         </Button>
-        <Button variant="danger" onClick={() => showCategorizedByGenre(35)}>
+        <Button
+          variant="danger"
+          onClick={() => showCategorizedByGenre(MOVIE_GENRES.comedy.id)}
+        >
           Comedy
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => showCategorizedByGenre(MOVIE_GENRES.scifi.id)}
+        >
+          Sci-Fi
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => showCategorizedByGenre(MOVIE_GENRES.animation.id)}
+        >
+          Animation
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => showCategorizedByGenre(MOVIE_GENRES.documentary.id)}
+        >
+          Documentary
         </Button>
         <Button variant="success" onClick={() => showAllMovies()}>
           All Movies
@@ -54,6 +75,9 @@ export function Movies({ movies }) {
           </Row>
         </Container>
       </main>
+      {console.log(
+        movies.filter((movie) => movie["genre_ids"].some((n) => n === 99))
+      )}
     </>
   );
 }

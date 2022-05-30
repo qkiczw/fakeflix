@@ -3,6 +3,9 @@ import React from "react";
 // Bootstrap components
 import { Col, Card } from "react-bootstrap";
 
+// Assets
+import genericThumb from "../../assets/genericThumb.jpg";
+
 // Icons
 import {
   BsPlayCircleFill,
@@ -20,7 +23,11 @@ const MovieCard = (props) => {
         <Card style={{}} className="movie-card-container">
           <Card.Img
             variant="top"
-            src={`https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`}
+            src={
+              movieData.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+                : genericThumb
+            }
             className="movie-card-poster"
           />
           <Card.Body>
