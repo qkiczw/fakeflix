@@ -41,7 +41,7 @@ function App() {
 
     // set horrorMovies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror.id}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -50,7 +50,7 @@ function App() {
       .catch((error) => console.log("error: ", error));
     // comedyMovies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy.id}`
     )
       .then((response) => response.json())
       .then((data) => setComedyMovies(comedyMovies.concat(data.results)))

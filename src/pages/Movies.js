@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Api calls helpers
+import { MOVIE_GENRES } from "../apicalls/apicalls";
+
 // Components
 import MovieCard from "../components/MovieCard/MovieCard;";
 // Bootstrap components
@@ -21,7 +24,10 @@ export function Movies({ movies }) {
     <>
       <main>
         <h3>Category</h3>
-        <Button variant="danger" onClick={() => showCategorizedByGenre(27)}>
+        <Button
+          variant="danger"
+          onClick={() => showCategorizedByGenre(MOVIE_GENRES.horror.id)}
+        >
           Horror
         </Button>
         <Button variant="danger" onClick={() => showCategorizedByGenre(35)}>
