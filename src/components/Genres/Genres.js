@@ -15,9 +15,34 @@ const Categories = ({ name, showCategorizedByGenre, showAllMovies }) => {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid className="my-3">
         <Row className="genres-container">
-          <Col xs={3} md={2} lg={2} xl={1}>
+          <Col
+            xs={
+              pageName === MOVIE_GENRES.documentary.name ||
+              pageName === MOVIE_GENRES.animation.name
+                ? 6
+                : 5
+            }
+            md={
+              pageName === MOVIE_GENRES.documentary.name ||
+              pageName === MOVIE_GENRES.animation.name
+                ? 3
+                : 2
+            }
+            lg={
+              pageName === MOVIE_GENRES.documentary.name ||
+              pageName === MOVIE_GENRES.animation.name
+                ? 3
+                : 2
+            }
+            xl={
+              pageName === MOVIE_GENRES.documentary.name ||
+              pageName === MOVIE_GENRES.animation.name
+                ? 2
+                : 1
+            }
+          >
             <h2>{pageName}</h2>
           </Col>
           <Col xs={5} md={2} lg={2} xl={1}>
