@@ -22,48 +22,14 @@ export function Movies({ movies }) {
     setFileterd(false);
   };
 
-  const TestFn = (genre) => {
-    alert(`I picked ${genre}`);
-  };
-
   return (
     <>
       <main>
-        {/* <h3>Category</h3> */}
-        {/* <Button
-          variant="danger"
-          onClick={() => showCategorizedByGenre(MOVIE_GENRES.horror.id)}
-        >
-          Horror
-        </Button>
-        <Button
-          variant="danger"
-          onClick={() => showCategorizedByGenre(MOVIE_GENRES.comedy.id)}
-        >
-          Comedy
-        </Button>
-        <Button
-          variant="danger"
-          onClick={() => showCategorizedByGenre(MOVIE_GENRES.scifi.id)}
-        >
-          Sci-Fi
-        </Button>
-        <Button
-          variant="danger"
-          onClick={() => showCategorizedByGenre(MOVIE_GENRES.animation.id)}
-        >
-          Animation
-        </Button>
-        <Button
-          variant="danger"
-          onClick={() => showCategorizedByGenre(MOVIE_GENRES.documentary.id)}
-        >
-          Documentary
-        </Button>
-        <Button variant="success" onClick={() => showAllMovies()}>
-          All Movies
-        </Button> */}
-        <Genres name="Movies" showCategorizedByGenre={showCategorizedByGenre} />
+        <Genres
+          name="Movies"
+          showCategorizedByGenre={showCategorizedByGenre}
+          showAllMovies={showAllMovies}
+        />
         <Container fluid>
           <Row>
             {isFiltered

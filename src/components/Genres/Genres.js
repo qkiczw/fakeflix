@@ -9,15 +9,16 @@ import { Container, Row, Col } from "react-bootstrap";
 // Icons
 import { BsFillCaretDownFill } from "react-icons/bs";
 
-const Categories = ({ name, showCategorizedByGenre }) => {
+const Categories = ({ name, showCategorizedByGenre, showAllMovies }) => {
   const [isGenreLisHidden, setGenreLisHidde] = useState(true);
+  const [pageName, setPageName] = useState(name);
 
   return (
     <>
       <Container fluid>
         <Row className="genres-container">
           <Col xs={3} md={2} lg={2} xl={1}>
-            <h2>{name}</h2>
+            <h2>{pageName}</h2>
           </Col>
           <Col xs={5} md={2} lg={2} xl={1}>
             <div
@@ -38,6 +39,7 @@ const Categories = ({ name, showCategorizedByGenre }) => {
               className="genre-button"
               onClick={() => {
                 showCategorizedByGenre(MOVIE_GENRES.horror.id);
+                setPageName(MOVIE_GENRES.horror.name);
                 setGenreLisHidde(true);
               }}
             >
@@ -47,6 +49,7 @@ const Categories = ({ name, showCategorizedByGenre }) => {
               className="genre-button"
               onClick={() => {
                 showCategorizedByGenre(MOVIE_GENRES.comedy.id);
+                setPageName(MOVIE_GENRES.comedy.name);
                 setGenreLisHidde(true);
               }}
             >
@@ -56,6 +59,7 @@ const Categories = ({ name, showCategorizedByGenre }) => {
               className="genre-button"
               onClick={() => {
                 showCategorizedByGenre(MOVIE_GENRES.scifi.id);
+                setPageName(MOVIE_GENRES.scifi.name);
                 setGenreLisHidde(true);
               }}
             >
@@ -65,6 +69,7 @@ const Categories = ({ name, showCategorizedByGenre }) => {
               className="genre-button"
               onClick={() => {
                 showCategorizedByGenre(MOVIE_GENRES.animation.id);
+                setPageName(MOVIE_GENRES.animation.name);
                 setGenreLisHidde(true);
               }}
             >
@@ -74,10 +79,21 @@ const Categories = ({ name, showCategorizedByGenre }) => {
               className="genre-button"
               onClick={() => {
                 showCategorizedByGenre(MOVIE_GENRES.documentary.id);
+                setPageName(MOVIE_GENRES.documentary.name);
                 setGenreLisHidde(true);
               }}
             >
               {MOVIE_GENRES.documentary.name}
+            </button>
+            <button
+              className="genre-button"
+              onClick={() => {
+                showAllMovies();
+                setPageName(name);
+                setGenreLisHidde(true);
+              }}
+            >
+              All Movies
             </button>
           </Col>
         </Row>
