@@ -92,7 +92,41 @@ a:hover {
   margin: 0;
   padding-bottom: 1rem;
 }
-
+.genres-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.genres {
+  position: relative;
+  animation-duration: 200ms;
+}
+.genres-hidden {
+  visibility: hidden;
+}
+.genres-buttons {
+  position: absolute;
+  left: 9%;
+  z-index: 100;
+  background-color: #282c34;
+  border: 1px solid #fff;
+}
+.choose-genre-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+}
+.genre-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.genre-button:hover {
+  font-weight: 500;
+  text-decoration: underline;
+}
 .main-movies-content {
   margin: 1rem;
 }

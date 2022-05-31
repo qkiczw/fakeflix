@@ -5,6 +5,8 @@ import { MOVIE_GENRES } from "../apicalls/apicalls";
 
 // Components
 import MovieCard from "../components/MovieCard/MovieCard;";
+import Genres from "../components/Genres/Genres";
+
 // Bootstrap components
 import { Container, Row, Button } from "react-bootstrap";
 
@@ -23,8 +25,8 @@ export function Movies({ movies }) {
   return (
     <>
       <main>
-        <h3>Category</h3>
-        <Button
+        {/* <h3>Category</h3> */}
+        {/* <Button
           variant="danger"
           onClick={() => showCategorizedByGenre(MOVIE_GENRES.horror.id)}
         >
@@ -56,10 +58,9 @@ export function Movies({ movies }) {
         </Button>
         <Button variant="success" onClick={() => showAllMovies()}>
           All Movies
-        </Button>
+        </Button> */}
+        <Genres name="Movies" />
         <Container fluid>
-          <h2>Movies page</h2>
-
           <Row>
             {isFiltered
               ? movies
