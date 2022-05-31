@@ -22,6 +22,10 @@ export function Movies({ movies }) {
     setFileterd(false);
   };
 
+  const TestFn = (genre) => {
+    alert(`I picked ${genre}`);
+  };
+
   return (
     <>
       <main>
@@ -59,7 +63,7 @@ export function Movies({ movies }) {
         <Button variant="success" onClick={() => showAllMovies()}>
           All Movies
         </Button> */}
-        <Genres name="Movies" />
+        <Genres name="Movies" showCategorizedByGenre={showCategorizedByGenre} />
         <Container fluid>
           <Row>
             {isFiltered
