@@ -10,9 +10,21 @@ import genericThumb from "../../assets/genericThumb.jpg";
 import {
   BsPlayCircleFill,
   BsArrowDownCircle,
-  BsEmojiHeartEyes,
   BsPlusCircle,
 } from "react-icons/bs";
+
+const addMovieToMyList = (movieId) => {
+  const myList = JSON.parse(localStorage.getItem("myList"));
+
+  if (myList) {
+    console.log("There are movies in the localstorage");
+  } else {
+    console.log("There are no movies in localstorage :(");
+  }
+
+  console.log("My List: ", myList);
+  console.log("moive ID: ", movieId);
+};
 
 const MovieCard = (props) => {
   const { movieData } = props;
@@ -37,8 +49,9 @@ const MovieCard = (props) => {
             <Card.Text className="movie-card-icons">{movieData.desc}</Card.Text>
             <nav className="movie-card-icons">
               <BsPlayCircleFill className="movie-card-icon" />
-              <BsPlusCircle className="movie-card-icon" />
-              <BsEmojiHeartEyes className="movie-card-icon" />
+              <button onClick={() => addMovieToMyList(movieData)}>
+                <BsPlusCircle className="movie-card-icon" />
+              </button>
               <BsArrowDownCircle className="movie-card-icon" />
             </nav>
           </Card.Body>

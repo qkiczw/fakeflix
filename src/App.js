@@ -28,6 +28,7 @@ function App() {
   const [documentaryMovies, setDocumentaryMovies] = useState([]);
   const [scifiMovies, setscifiMovies] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
+  const [myMoviesList, addToMyMoviesList] = useState([]);
 
   const fetchMovies = async () => {
     //set recentMovies
