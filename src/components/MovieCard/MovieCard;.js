@@ -13,19 +13,6 @@ import {
   BsPlusCircle,
 } from "react-icons/bs";
 
-const addMovieToMyList = (movieId) => {
-  const myList = JSON.parse(localStorage.getItem("myList"));
-
-  if (myList) {
-    console.log("There are movies in the localstorage");
-  } else {
-    console.log("There are no movies in localstorage :(");
-  }
-
-  console.log("My List: ", myList);
-  console.log("moive ID: ", movieId);
-};
-
 const MovieCard = (props) => {
   const { movieData } = props;
 

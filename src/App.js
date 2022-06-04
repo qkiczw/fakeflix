@@ -27,8 +27,8 @@ function App() {
   const [animationMovies, setAnimationMovies] = useState([]);
   const [documentaryMovies, setDocumentaryMovies] = useState([]);
   const [scifiMovies, setscifiMovies] = useState([]);
+  const [horrorTvSeries, setHorrorTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
-  const [myMoviesList, addToMyMoviesList] = useState([]);
 
   const fetchMovies = async () => {
     //set recentMovies
@@ -81,6 +81,14 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
+      .catch((error) => console.log("error: ", error));
+    //  Tv Series - horrors
+    await fetch(
+      `https://api.themoviedb.org/3/discover/tvseries?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => console.log("tvseries: ", data))
+      // .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
   };
 
