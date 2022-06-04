@@ -177,3 +177,17 @@ a:hover {
 .movie-card-icon:last-child {
   justify-self: flex-end;
 }
+
+.footer {
+  padding: 50px 0;
+}
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.footer-logos > img {
+  max-width: 200px;
+}

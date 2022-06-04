@@ -36,7 +36,7 @@ const MovieCard = (props) => {
             <Card.Text className="movie-card-icons">{movieData.desc}</Card.Text>
             <nav className="movie-card-icons">
               <BsPlayCircleFill className="movie-card-icon" />
-              <button onClick={() => addMovieToMyList(movieData)}>
+              <button onClick={() => alert("Do something!!!")}>
                 <BsPlusCircle className="movie-card-icon" />
               </button>
               <BsArrowDownCircle className="movie-card-icon" />
