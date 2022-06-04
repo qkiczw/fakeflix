@@ -10,11 +10,12 @@ export function TvSeries({ topRatedTvSeries }) {
   return (
     <>
       <main>
+        {console.log(topRatedTvSeries)}
         <Container fluid>
           <h2>TvSeries</h2>
           <Row>
             {topRatedTvSeries.map((movie) => (
-              <MovieCard id={movie.id} movieData={movie} />
+              <MovieCard key={movie.id} movieData={movie} />
             ))}
           </Row>
         </Container>
