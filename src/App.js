@@ -129,6 +129,7 @@ function App() {
                 animationMovies={animationMovies}
                 documentaryMovies={documentaryMovies}
                 scifiMovies={scifiMovies}
+                topRatedTvSeries={topRatedTvSeries}
               />
             }
           />

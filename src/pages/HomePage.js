@@ -12,6 +12,7 @@ export function HomePage({
   animationMovies,
   documentaryMovies,
   scifiMovies,
+  topRatedTvSeries,
 }) {
   return (
     <>
@@ -23,6 +24,10 @@ export function HomePage({
         <MovieRow rowTitle={"Comedy"} movies={comedyMovies} />
         <MovieRow rowTitle={"Animation"} movies={animationMovies} />
         <MovieRow rowTitle={"Documentary"} movies={documentaryMovies} />
+        <MovieRow
+          rowTitle={"Tv-Series - Top Rated"}
+          movies={topRatedTvSeries}
+        />
       </main>
     </>
   );
