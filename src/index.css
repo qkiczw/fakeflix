@@ -142,11 +142,13 @@ a:hover {
 }
 
 .movie-card-container:hover {
+  position: absolute;
   width: 24rem;
   cursor: pointer;
   z-index: 1;
   transition-duration: 250ms;
 }
+
 .movie-card-container:hover .movie-card-title {
   position: relative;
 }

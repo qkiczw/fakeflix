@@ -31,9 +31,14 @@ const MovieCard = (props) => {
           />
           <Card.Body>
             <Card.Title className="movie-card-title">
-              {movieData.title}
+              {movieData.title ? movieData.title : movieData.name}
             </Card.Title>
-            <Card.Text className="movie-card-icons">{movieData.desc}</Card.Text>
+            <Card.Text className="movie-card-icons">
+              {movieData.desc
+                ? movieData.desc
+                : movieData.overview.substring(0, 100)}
+              ...
+            </Card.Text>
             <nav className="movie-card-icons">
               <BsPlayCircleFill className="movie-card-icon" />
               <button onClick={() => alert("Do something!!!")}>

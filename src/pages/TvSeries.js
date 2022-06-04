@@ -1,17 +1,23 @@
 import React from "react";
 
-// Bootstrap components
-import { Row, Col } from "react-bootstrap";
+// Components
+import MovieCard from "../components/MovieCard/MovieCard;";
 
-export function TvSeries() {
+// Bootstrap components
+import { Row, Col, Container } from "react-bootstrap";
+
+export function TvSeries({ topRatedTvSeries }) {
   return (
     <>
       <main>
-        <Row>
-          <Col>
-            <h2>TvSeries</h2>
-          </Col>
-        </Row>
+        <Container fluid>
+          <h2>TvSeries</h2>
+          <Row>
+            {topRatedTvSeries.map((movie) => (
+              <MovieCard id={movie.id} movieData={movie} />
+            ))}
+          </Row>
+        </Container>
       </main>
     </>
   );

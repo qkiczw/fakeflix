@@ -27,7 +27,7 @@ function App() {
   const [animationMovies, setAnimationMovies] = useState([]);
   const [documentaryMovies, setDocumentaryMovies] = useState([]);
   const [scifiMovies, setscifiMovies] = useState([]);
-  const [horrorTvSeries, setHorrorTvSeries] = useState([]);
+  const [topRatedTvSeries, setTopRatedTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
 
   const fetchMovies = async () => {
@@ -82,13 +82,14 @@ function App() {
       .then((response) => response.json())
       .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
-    //  Tv Series - horrors
+    //  Tv Series - top_rated
     await fetch(
-      `https://api.themoviedb.org/3/discover/tvseries?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
-      .then((data) => console.log("tvseries: ", data))
-      // .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
+      .then((data) =>
+        setTopRatedTvSeries(topRatedTvSeries.concat(data.results))
+      )
       .catch((error) => console.log("error: ", error));
   };
 
@@ -132,7 +133,10 @@ function App() {
             }
           />
           <Route path="movies" element={<Movies movies={filteredMovies} />} />
-          <Route path="tvseries" element={<TvSeries />} />
+          <Route
+            path="tvseries"
+            element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
+          />
           <Route path="mylist" element={<MyList />} />
         </Routes>
         <Footer />
