@@ -4,7 +4,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 
 // Assets
-import TmdbLogo from "../assets/tmdb_logo.svg";
+import TmdbLogo from "../../assets/tmdb_logo.svg";
 
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();

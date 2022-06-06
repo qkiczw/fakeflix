@@ -18,6 +18,7 @@ export function Movies({ movies }) {
     setMovieGenre(genre);
     setFileterd(true);
   };
+
   const showAllMovies = () => {
     setFileterd(false);
   };
