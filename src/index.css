@@ -132,6 +132,38 @@ a:hover {
 .main-movies-content {
   margin: 1rem;
 }
+.movies-row-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.movies-row-title:hover .see-all-category-button {
+  opacity: 1;
+  transition-duration: 400ms;
+}
+.movies-row-title:hover
+  .see-all-category-button
+  .see-all-category-button-arrows {
+  opacity: 1;
+  transform: translateX(0px);
+  transition-duration: 400ms;
+}
+.see-all-category-button {
+  color: aqua;
+  opacity: 0;
+  font-weight: 500;
+}
+.see-all-category-button:hover {
+  color: rgb(0, 167, 167);
+  opacity: 1;
+}
+.see-all-category-button-arrows {
+  position: absolute;
+  transform: translateX(-50px);
+  transition-duration: 400ms;
+}
+
 /* Movie Card */
 .movie-card-container {
   position: relative;
