@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// Components
+import SearchComponent from "../SearchComponent/searchComponent";
+
 // Bootstrap Components
 import { Col, Navbar, Container, Nav } from "react-bootstrap";
 
@@ -35,7 +38,7 @@ const Header = () => {
                   My list
                 </NavLink>
                 <Col className="user-icons">
-                  <BsSearch className="user-icon" />
+                  <SearchComponent className="user-icon" />
                   <BsFillBellFill className="user-icon" />
                   <BsFillPersonFill className="user-icon" />
                 </Col>
