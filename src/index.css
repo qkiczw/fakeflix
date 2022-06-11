@@ -80,6 +80,22 @@ a:hover {
 .search-input-button-icon {
   color: #fff;
 }
+/* notification */
+.notification-container {
+  position: relative;
+}
+.notification-alert {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 50%;
+  width: 1rem;
+  font-size: 0.7rem;
+}
 /* Hero */
 .hero {
   position: relative;
