@@ -8,6 +8,11 @@ a:hover {
   font-weight: bold;
 }
 
+/* hidden selector */
+.hidden {
+  display: none !important;
+}
+
 .main-container {
   background-color: #141414;
   color: #fff;
@@ -86,8 +91,8 @@ a:hover {
 }
 .notification-alert {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -0.2rem;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,13 +101,30 @@ a:hover {
   width: 1rem;
   font-size: 0.7rem;
 }
+.alert-button {
+  cursor: pointer;
+}
+.alerts-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  width: 200px;
+  border: 1px solid #fff;
+  z-index: 10;
+  background-color: #141414d3;
+}
+
+.notification {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+}
 /* Hero */
 .hero {
   position: relative;
   margin: 0;
   padding: 0;
-  /* width: 100vw;
-  height: 50vh; */
 }
 .hero img {
   width: 100vw;
