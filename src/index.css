@@ -94,6 +94,8 @@ a:hover {
   right: -0.2rem;
   top: 0;
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   background-color: red;
@@ -101,6 +103,7 @@ a:hover {
   width: 1rem;
   font-size: 0.7rem;
 }
+
 .alert-button {
   cursor: pointer;
 }
@@ -109,16 +112,31 @@ a:hover {
   flex-direction: column;
   position: absolute;
   right: 0;
-  top: 2rem;
-  width: 200px;
+  top: 3rem;
+  width: 300px;
   border: 1px solid #fff;
   z-index: 10;
   background-color: #141414d3;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .notification {
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
   border-bottom: 1px solid #fff;
+  padding: 0;
+}
+.notification-thumb {
+  max-width: 100px;
+}
+.notification-desc {
+  padding-left: 0.5rem;
+}
+.notification-title,
+.notification-text {
+  margin-bottom: 5px;
 }
 /* Hero */
 .hero {

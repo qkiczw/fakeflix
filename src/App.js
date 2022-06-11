@@ -29,7 +29,7 @@ function App() {
   const [scifiMovies, setscifiMovies] = useState([]);
   const [topRatedTvSeries, setTopRatedTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
-  const [trendig, setTrending] = useState([]);
+  const [trending, setTrending] = useState([]);
 
   const fetchMovies = async () => {
     //set recentMovies
@@ -97,7 +97,7 @@ function App() {
       `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
-      .then((data) => setTrending(trendig.concat(data.results)))
+      .then((data) => setTrending(trending.concat(data.results)))
       .catch((error) => console.log("error: ", error));
   };
 
@@ -123,7 +123,7 @@ function App() {
   return (
     <>
       <Container fluid className="main-container">
-        <Header />
+        <Header trending={trending} />
         <Routes>
           <Route
             exact

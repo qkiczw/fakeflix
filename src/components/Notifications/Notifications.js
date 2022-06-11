@@ -6,7 +6,10 @@ import { Container, Row, Col } from "react-bootstrap";
 // Icons
 import { BsFillBellFill } from "react-icons/bs";
 
-const Notifications = () => {
+// Assets
+import genericThumb from "../../assets/genericThumb.jpg";
+
+const Notifications = ({ trending }) => {
   const [hideAlerts, setAlertsVisibility] = useState(false);
 
   return (
@@ -16,12 +19,27 @@ const Notifications = () => {
         <span className="notification-alert">1</span>
       </div>
       <Container fluid>
-        <Row className={`alerts-container ${hideAlerts ? "" : "hidden"}`}>
-          <Col className="notification">ALERT 01</Col>
-          <Col className="notification">ALERT 02</Col>
-          <Col className="notification">ALERT 02</Col>
-          <Col className="notification">ALERT 03</Col>
-        </Row>
+        <div className={`alerts-container ${hideAlerts ? "" : "hidden"}`}>
+          {trending.map((movie) => (
+            <Col key={movie.id} xs={12} className="notification">
+              <div>
+                <img
+                  className="notification-thumb"
+                  src={
+                    movie.backdrop_path
+                      ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                      : genericThumb
+                  }
+                  alt={movie.title}
+                />
+              </div>
+              <div className="notification-desc">
+                <p className="notification-title">{movie.title}</p>
+                <p className="notification-text">Info!!!</p>
+              </div>
+            </Col>
+          ))}
+        </div>
       </Container>
     </div>
   );
