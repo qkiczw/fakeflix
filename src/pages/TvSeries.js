@@ -4,13 +4,12 @@ import React from "react";
 import MovieCard from "../components/MovieCard/MovieCard;";
 
 // Bootstrap components
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 
 export function TvSeries({ topRatedTvSeries }) {
   return (
     <>
       <main>
-        {console.log(topRatedTvSeries)}
         <Container fluid>
           <h2>TvSeries</h2>
           <Row>

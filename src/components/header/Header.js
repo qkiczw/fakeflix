@@ -12,7 +12,7 @@ import { Col, Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 
 // Icons
-import { BsFillBellFill, BsFillPersonFill, BsSearch } from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Header = () => {
   return (
