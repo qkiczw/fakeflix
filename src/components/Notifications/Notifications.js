@@ -10,16 +10,19 @@ import { BsFillBellFill } from "react-icons/bs";
 import genericThumb from "../../assets/genericThumb.jpg";
 
 const Notifications = ({ trending }) => {
-  const [hideAlerts, setAlertsVisibility] = useState(false);
+  const [showAlerts, setAlertsVisibility] = useState(false);
 
   return (
     <div className="notification-container">
-      <div className="user-icon alert-button">
-        <BsFillBellFill onClick={() => setAlertsVisibility(!hideAlerts)} />
+      <div
+        className="user-icon alert-button"
+        onClick={() => setAlertsVisibility(!showAlerts)}
+      >
+        <BsFillBellFill />
         <span className="notification-alert">1</span>
       </div>
-      <Container fluid>
-        <div className={`alerts-container ${hideAlerts ? "" : "hidden"}`}>
+      <Container onMouseEnter={() => setAlertsVisibility(true)} fluid>
+        <div className={`alerts-container ${showAlerts ? "" : "hidden"}`}>
           {trending.map((movie) => (
             <Col key={movie.id} xs={12} className="notification">
               <div>

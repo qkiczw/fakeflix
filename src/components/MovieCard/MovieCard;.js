@@ -16,10 +16,21 @@ import {
 const MovieCard = (props) => {
   const { movieData } = props;
 
+  function checkElementXpos(event) {
+    const element = event.currentTarget;
+    console.log(window.innerWidth - element.offsetLeft);
+    if (window.innerWidth - element.offsetLeft < 300) {
+      element.style.right = "30px";
+    }
+  }
+
   return (
     <>
       <Col xs={12} md={4} lg={2}>
-        <Card style={{}} className="movie-card-container">
+        <Card
+          className="movie-card-container"
+          onMouseOver={(event) => checkElementXpos(event)}
+        >
           <Card.Img
             variant="top"
             src={
