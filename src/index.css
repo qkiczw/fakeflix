@@ -251,7 +251,7 @@ a:hover {
 }
 
 /* Movie Card */
-.movie-card-container {
+/* .movie-card-container {
   position: relative;
   width: 18rem;
   background-color: #282c34;
@@ -296,8 +296,15 @@ a:hover {
 
 .movie-card-icon:last-child {
   justify-self: flex-end;
+} */
+.movie-card-container {
+  max-width: 100%;
 }
 
+.movie-card-image > img {
+  width: 100%;
+}
+/* Footer */
 .footer {
   padding: 50px 0;
 }

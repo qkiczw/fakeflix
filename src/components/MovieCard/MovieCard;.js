@@ -16,21 +16,10 @@ import {
 const MovieCard = (props) => {
   const { movieData } = props;
 
-  function checkElementXpos(event) {
-    const element = event.currentTarget;
-    console.log(window.innerWidth - element.offsetLeft);
-    if (window.innerWidth - element.offsetLeft < 300) {
-      element.style.right = "30px";
-    }
-  }
-
   return (
     <>
-      <Col xs={12} md={4} lg={2}>
-        <Card
-          className="movie-card-container"
-          onMouseOver={(event) => checkElementXpos(event)}
-        >
+      {/* <Col>
+        <Card className="movie-card-container">
           <Card.Img
             variant="top"
             src={
@@ -59,6 +48,24 @@ const MovieCard = (props) => {
             </nav>
           </Card.Body>
         </Card>
+        </Col> */}
+
+      <Col className="movie-card-container">
+        <div className="movie-card-image">
+          <img
+            src={
+              movieData.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+                : genericThumb
+            }
+            alt={movieData.desc}
+          />
+        </div>
+        <div className="movie-card-info">
+          <div className="movie-card-title">
+            {movieData.title ? movieData.title : movieData.name}
+          </div>
+        </div>
       </Col>
     </>
   );

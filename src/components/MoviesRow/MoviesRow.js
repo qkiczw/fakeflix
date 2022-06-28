@@ -8,7 +8,7 @@ import SeeAllButton from "../SeeAllButton/SeeAllButton";
 import Slider from "react-slick";
 
 //Bootstrap Components
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const MoviesRow = ({ movies, rowTitle }) => {
   const slickSettings = {
@@ -47,26 +47,28 @@ const MoviesRow = ({ movies, rowTitle }) => {
   };
   return (
     <section className="mt-5">
-      <Row>
-        <Col className="movies-row-title">
-          <h2>{rowTitle}</h2>
-          <SeeAllButton />
-        </Col>
-      </Row>
-      <Row>
-        {/* {movies
+      <Container fluid>
+        <Row>
+          <Col className="movies-row-title">
+            <h2>{rowTitle}</h2>
+            <SeeAllButton />
+          </Col>
+        </Row>
+        <Row>
+          {/* {movies
           .map((movie) => <MovieCard key={movie.id} movieData={movie} />)
           .filter((movie, index) => {
             return index <= 5;
           })} */}
-        <Col>
-          <Slider {...slickSettings}>
-            {movies.map((movie) => (
-              <MovieCard key={movie.id} movieData={movie} />
-            ))}
-          </Slider>
-        </Col>
-      </Row>
+          <Col>
+            <Slider {...slickSettings}>
+              {movies.map((movie) => (
+                <MovieCard key={movie.id} movieData={movie} />
+              ))}
+            </Slider>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };
