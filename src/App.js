@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// React Slick carousel css
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 // Bootstrap components
 import { Container } from "react-bootstrap";
 

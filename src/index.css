@@ -298,15 +298,37 @@ a:hover {
   justify-self: flex-end;
 } */
 .movie-card-container {
-  max-width: 100%;
+  position: relative;
+  width: 100%;
 }
-
+.movie-card {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  background-color: #141414;
+}
+.movie-card:hover {
+  position: absolute;
+  max-width: 400px;
+  z-index: 100;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px,
+    rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
+}
 .movie-card-image > img {
   width: 100%;
 }
+.movie-card-title {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.5rem;
+  font-weight: 500;
+}
+
 /* Footer */
 .footer {
   padding: 50px 0;
+}
+.movie-card-icons {
 }
 
 .footer-logos {

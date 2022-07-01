@@ -1,8 +1,5 @@
 import React from "react";
 
-// Bootstrap components
-import { Col, Card } from "react-bootstrap";
-
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
@@ -49,24 +46,38 @@ const MovieCard = (props) => {
           </Card.Body>
         </Card>
         </Col> */}
-
-      <Col className="movie-card-container">
-        <div className="movie-card-image">
-          <img
-            src={
-              movieData.backdrop_path
-                ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
-                : genericThumb
-            }
-            alt={movieData.desc}
-          />
-        </div>
-        <div className="movie-card-info">
+      <div className="movie-card-container">
+        <div className="movie-card">
+          <div className="movie-card-image">
+            <img
+              src={
+                movieData.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+                  : genericThumb
+              }
+              alt={movieData.desc}
+            />
+          </div>
           <div className="movie-card-title">
             {movieData.title ? movieData.title : movieData.name}
           </div>
+          <div className="movie-card-info">
+            <div className="movie-card-desc p-2">
+              {movieData.desc
+                ? movieData.desc
+                : movieData.overview.substring(0, 100)}
+              ...
+              <div>
+                <BsPlayCircleFill className="movie-card-icon" />
+                <button onClick={() => alert("Do something!!!")}>
+                  <BsPlusCircle className="movie-card-icon" />
+                </button>
+                <BsArrowDownCircle className="movie-card-icon" />
+              </div>
+            </div>
+          </div>
         </div>
-      </Col>
+      </div>
     </>
   );
 };
