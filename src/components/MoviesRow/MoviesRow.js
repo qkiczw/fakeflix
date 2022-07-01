@@ -32,6 +32,27 @@ const MoviesRow = ({ movies, rowTitle }) => {
               return index <= 5;
             })} */}
           <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 5,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 5,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+              },
+              // when window width is >= 1024px
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 10,
+              },
+            }}
             modules={[Navigation]}
             loop={true}
             navigation={true}
@@ -39,9 +60,8 @@ const MoviesRow = ({ movies, rowTitle }) => {
             slidesPerView={6}
           >
             {movies.map((movie) => (
-              <SwiperSlide key={movie.id} movieData={movie}>
-                <h4>{movie.title}</h4>
-                <p>movie.id</p>
+              <SwiperSlide>
+                <MovieCard key={movie.id} movieData={movie} />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -145,7 +145,7 @@ a:hover {
   padding: 0;
 }
 .hero img {
-  width: 100vw;
+  width: 100%;
   height: 80vh;
   object-fit: cover;
 }
@@ -300,35 +300,24 @@ a:hover {
 .movie-card-container {
   position: relative;
   width: 100%;
-}
-.movie-card {
-  position: relative;
-  width: 100%;
   cursor: pointer;
-  background-color: #141414;
 }
-.movie-card:hover {
-  position: absolute;
-  max-width: 400px;
-  z-index: 100;
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 13px 27px -5px,
-    rgba(255, 255, 255, 0.3) 0px 8px 16px -8px;
-}
-.movie-card-image > img {
+.movie-card-image {
   width: 100%;
 }
 .movie-card-title {
   position: absolute;
-  top: 0.3rem;
-  left: 0.5rem;
+  top: 0.75rem;
+  left: 1rem;
   font-weight: 500;
+}
+.movie-card-desc {
+  display: none;
 }
 
 /* Footer */
 .footer {
   padding: 50px 0;
-}
-.movie-card-icons {
 }
 
 .footer-logos {
