@@ -8,10 +8,10 @@ import MovieCard from "../components/MovieCard/MovieCard;";
 import Genres from "../components/Genres/Genres";
 
 // Bootstrap components
-import { Container, Row, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export function Movies({ movies }) {
-  const [isFiltered, setFileterd] = useState(true);
+  const [isFiltered, setFileterd] = useState(false);
   const [movieGenre, setMovieGenre] = useState(35);
 
   const showCategorizedByGenre = (genre) => {
@@ -39,10 +39,14 @@ export function Movies({ movies }) {
                     movie["genre_ids"].some((n) => n === movieGenre)
                   )
                   .map((movie) => (
-                    <MovieCard key={movie.id} movieData={movie} />
+                    <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
+                      <MovieCard movieData={movie} />
+                    </Col>
                   ))
               : movies.map((movie) => (
-                  <MovieCard key={movie.id} movieData={movie} />
+                  <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
+                    <MovieCard key={movie.id} movieData={movie} />
+                  </Col>
                 ))}
           </Row>
         </Container>

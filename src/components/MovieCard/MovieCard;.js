@@ -48,18 +48,15 @@ const MovieCard = (props) => {
         </Col> */}
 
       <div className="movie-card-container">
-        <diV>
-          <img
-            className="movie-card-image"
-            src={
-              movieData.backdrop_path
-                ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
-                : genericThumb
-            }
-            alt={movieData.title}
-          />
-        </diV>
-
+        <img
+          className="movie-card-image"
+          src={
+            movieData.backdrop_path
+              ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+              : genericThumb
+          }
+          alt={movieData.title}
+        />
         <div className="movie-card-info">
           <div className="movie-card-title">
             {movieData.title ? movieData.title : movieData.name}

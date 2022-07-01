@@ -60,8 +60,8 @@ const MoviesRow = ({ movies, rowTitle }) => {
             slidesPerView={6}
           >
             {movies.map((movie) => (
-              <SwiperSlide>
-                <MovieCard key={movie.id} movieData={movie} />
+              <SwiperSlide key={movie.id}>
+                <MovieCard movieData={movie} />
               </SwiperSlide>
             ))}
           </Swiper>
