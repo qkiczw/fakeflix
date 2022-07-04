@@ -37,21 +37,25 @@ const MoviesRow = ({ movies, rowTitle }) => {
               320: {
                 slidesPerView: 2,
                 spaceBetween: 5,
+                slidesPerGroup: 2,
               },
               // when window width is >= 480px
               480: {
                 slidesPerView: 3,
                 spaceBetween: 5,
+                slidesPerGroup: 3,
               },
               // when window width is >= 640px
               640: {
                 slidesPerView: 4,
                 spaceBetween: 10,
+                slidesPerGroup: 4,
               },
               // when window width is >= 1024px
               1024: {
                 slidesPerView: 6,
                 spaceBetween: 10,
+                slidesPerGroup: 6,
               },
             }}
             modules={[Navigation]}
