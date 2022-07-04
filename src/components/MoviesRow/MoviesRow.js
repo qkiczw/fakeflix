@@ -25,7 +25,7 @@ const MoviesRow = ({ movies, rowTitle }) => {
             <SeeAllButton />
           </Col>
         </Row>
-        <Row className="xxx">
+        <Row>
           {/* {movies
             .map((movie) => <MovieCard key={movie.id} movieData={movie} />)
             .filter((movie, index) => {

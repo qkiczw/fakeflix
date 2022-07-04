@@ -293,6 +293,9 @@ a:hover {
 }
 .movie-card-desc {
   display: none;
+
+  transition: 0.2s all;
+  background-color: #282c34;
 }
 
 /* Footer */
