@@ -249,59 +249,32 @@ a:hover {
   transform: translateX(-50px);
   transition-duration: 400ms;
 }
+/* Swiper */
+.row-swiper {
+  overflow: visible !important ;
+}
+.swiper-slide {
+  z-index: 10 !important;
+}
+.swiper-slide:hover {
+  position: relative;
+  z-index: 20 !important;
+}
 
 /* Movie Card */
-/* .movie-card-container {
-  position: relative;
-  width: 18rem;
-  background-color: #282c34;
-  animation-duration: 0.5s;
-  z-index: 0;
-}
-
-.movie-card-container:hover {
-  position: absolute;
-  width: 24rem;
-  cursor: pointer;
-  z-index: 1;
-  transition-duration: 250ms;
-}
-
-.movie-card-container:hover .movie-card-title {
-  position: relative;
-}
-.movie-card-container:hover .movie-card-icons {
-  position: relative;
-  visibility: visible;
-}
-.movie-card-title {
-  position: absolute;
-  top: 10px;
-  transition-duration: 500ms;
-}
-
-.movie-card-icons {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  visibility: hidden;
-}
-
-.movie-card-icon {
-  margin: 0 5px;
-  font-size: 2rem;
-}
-
-.movie-card-icon:last-child {
-  justify-self: flex-end;
-} */
 .movie-card-container {
   position: relative;
   width: 100%;
+  height: auto;
   cursor: pointer;
+  transition: 0.2s all;
+  z-index: 10;
 }
+.movie-card-container:hover {
+  transform: scale(1.4);
+  z-index: 20;
+}
+
 .movie-card-image {
   width: 100%;
 }

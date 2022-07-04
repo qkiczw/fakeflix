@@ -25,13 +25,14 @@ const MoviesRow = ({ movies, rowTitle }) => {
             <SeeAllButton />
           </Col>
         </Row>
-        <Row>
+        <Row className="xxx">
           {/* {movies
             .map((movie) => <MovieCard key={movie.id} movieData={movie} />)
             .filter((movie, index) => {
               return index <= 5;
             })} */}
           <Swiper
+            className="row-swiper"
             breakpoints={{
               320: {
                 slidesPerView: 2,
