@@ -20,6 +20,7 @@ const Hero = ({ randomMovie }) => {
           />
           <Col className="hero-desc-and-btns">
             <h2 className="hero-title">{title ? title : ""}</h2>
+            <p className="hero-overview">{overview ? overview : ""}</p>
             <Col className="hero-btns" xs={12} md={5} lg={4}>
               <Button variant="light" size="lg" className="hero-btn">
                 <BsCaretRightSquare />
@@ -30,7 +31,6 @@ const Hero = ({ randomMovie }) => {
                 More Info
               </Button>
             </Col>
-            <p className="hero-overview">{overview ? overview : ""}</p>
           </Col>
         </section>
       </Col>

@@ -282,18 +282,19 @@ a:hover {
 .movie-card-container:hover {
   transform: scale(1.5);
   z-index: 20;
+  -webkit-box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
 }
 
 .movie-card-image {
   width: 100%;
 }
 .movie-card-info {
-  display: none;
-  background-color: #282c34;
+  display: flex;
+  background-color: #141414;
 }
-.movie-card-container:hover .movie-card-info {
-  display: block;
-}
+
 .movie-card-title {
   position: absolute;
   top: 0.75rem;
@@ -301,11 +302,14 @@ a:hover {
   font-weight: 500;
 }
 .movie-card-buttons {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
+/* .movie-card-container:hover .movie-card-buttons {
+  display: flex;
+} */
 .movie-card-buttons-left {
   display: inherit;
   gap: 10px;
