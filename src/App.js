@@ -12,10 +12,10 @@ import MyList from "./pages/MyList";
 import Footer from "./components/Footer/Footer";
 
 // Components
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 
 // CSS
-import "./App.css";
+import "./styles.scss";
 
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
@@ -122,7 +122,7 @@ function App() {
 
   return (
     <>
-      <Container fluid className="main-container">
+      <Container fluid className="app-container">
         <Header trending={trending} />
         <Routes>
           <Route

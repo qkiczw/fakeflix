@@ -12,8 +12,6 @@ import {
 
 import { AiOutlineDownCircle } from "react-icons/ai";
 
-const handleMyMoviesList = () => {};
-
 const MovieCard = (props) => {
   const { movieData } = props;
 
@@ -36,10 +34,7 @@ const MovieCard = (props) => {
           <div className="movie-card-buttons">
             <span className="movie-card-buttons-left">
               <BsPlayCircleFill className="movie-card-button" />
-              <BsCheckCircle
-                onClick={handleMyMoviesList}
-                className="movie-card-button"
-              />
+              <BsCheckCircle className="movie-card-button" />
               <BsHandThumbsUp className="movie-card-button" />
             </span>
             <span className="movie-card-buttons-right">
