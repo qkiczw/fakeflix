@@ -7,7 +7,7 @@ export function MyList() {
   return (
     <>
       <main>
-        <Container fluid>
+        <Container fluid className="movies-page">
           <Row></Row>
         </Container>
       </main>

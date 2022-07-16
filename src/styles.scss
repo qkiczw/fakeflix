@@ -223,6 +223,14 @@ a:hover {
 .main-movies-content {
   margin: 1rem;
 }
+
+// movies page
+.movies-page,
+.tv-series-page,
+.my-list-page {
+  position: relative;
+  z-index: 0;
+}
 .movies-row-title {
   display: flex;
   justify-content: flex-start;

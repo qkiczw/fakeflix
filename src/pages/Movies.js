@@ -31,7 +31,7 @@ export function Movies({ movies }) {
           showCategorizedByGenre={showCategorizedByGenre}
           showAllMovies={showAllMovies}
         />
-        <Container fluid>
+        <Container fluid className="movies-page">
           <Row>
             {isFiltered
               ? movies

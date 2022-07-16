@@ -10,7 +10,7 @@ export function TvSeries({ topRatedTvSeries }) {
   return (
     <>
       <main>
-        <Container fluid>
+        <Container fluid className="movies-page">
           <h2>TvSeries</h2>
           <Row>
             {topRatedTvSeries.map((movie) => (
