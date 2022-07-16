@@ -21,6 +21,8 @@ import "./styles.scss";
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
 
+export const MoreInfoContext = React.createContext();
+
 function App() {
   const [recentMovies, setRecentMovies] = useState([]);
   const [horrorMovies, setHorrorMovies] = useState([]);
@@ -32,6 +34,10 @@ function App() {
   const [randomMovie, setRandomMovie] = useState({});
   const [trending, setTrending] = useState([]);
   const [infoHidden, setInfoHidden] = useState(true);
+
+  const moreInfoStateHandler = () => {
+    setInfoHidden(!infoHidden);
+  };
 
   const fetchMovies = async () => {
     //set recentMovies
@@ -124,35 +130,37 @@ function App() {
 
   return (
     <>
-      <Container fluid className="app-container">
-        <Header trending={trending} />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <HomePage
-                randomMovie={randomMovie}
-                recentMovies={recentMovies}
-                horrorMovies={horrorMovies}
-                comedyMovies={comedyMovies}
-                animationMovies={animationMovies}
-                documentaryMovies={documentaryMovies}
-                scifiMovies={scifiMovies}
-                topRatedTvSeries={topRatedTvSeries}
-              />
-            }
-          />
-          <Route path="movies" element={<Movies movies={filteredMovies} />} />
-          <Route
-            path="tvseries"
-            element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
-          />
-          <Route path="mylist" element={<MyList />} />
-        </Routes>
-        <Footer />
-        <MoreInfo hidden={infoHidden} />
-      </Container>
+      <MoreInfoContext.Provider value={moreInfoStateHandler}>
+        <Container fluid className="app-container">
+          <Header trending={trending} />
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <HomePage
+                  randomMovie={randomMovie}
+                  recentMovies={recentMovies}
+                  horrorMovies={horrorMovies}
+                  comedyMovies={comedyMovies}
+                  animationMovies={animationMovies}
+                  documentaryMovies={documentaryMovies}
+                  scifiMovies={scifiMovies}
+                  topRatedTvSeries={topRatedTvSeries}
+                />
+              }
+            />
+            <Route path="movies" element={<Movies movies={filteredMovies} />} />
+            <Route
+              path="tvseries"
+              element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
+            />
+            <Route path="mylist" element={<MyList />} />
+          </Routes>
+          <Footer />
+          <MoreInfo hidden={infoHidden} />
+        </Container>
+      </MoreInfoContext.Provider>
     </>
   );
 }

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { MoreInfoContext } from "../../App";
 
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
@@ -13,6 +15,7 @@ import {
 import { AiOutlineDownCircle } from "react-icons/ai";
 
 const MovieCard = (props) => {
+  const moreInfoStateHandler = useContext(MoreInfoContext);
   const { movieData } = props;
 
   return (
@@ -37,7 +40,10 @@ const MovieCard = (props) => {
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
-            <AiOutlineDownCircle className="movie-card-button" />
+            <AiOutlineDownCircle
+              className="movie-card-button"
+              onClick={moreInfoStateHandler}
+            />
           </span>
         </div>
       </div>
