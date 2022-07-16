@@ -24,16 +24,19 @@ const MoreInfo = ({ hidden, movieData }) => {
         <Row>
           <Col className="more-info__content">
             <img
-              className="movie-card-image"
+              className="more-info__image"
               src={
                 movieData.backdrop_path
-                  ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+                  ? `https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`
                   : genericThumb
               }
               alt={movieData.title}
             />
-            <h2>{movieData.title}</h2>
-            <div>{movieData.overview}</div>
+            <div className="more-info__desc">
+              <h2>{movieData.title}</h2>
+              <div>{movieData.overview}</div>
+            </div>
+
             <BsXCircle
               className="movie-card-button movie-card-button-close"
               onClick={moreInfoStateHandler}
