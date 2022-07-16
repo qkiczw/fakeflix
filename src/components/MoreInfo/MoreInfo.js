@@ -5,7 +5,13 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { MoreInfoContext } from "../../App";
 
-const MoreInfo = ({ hidden }) => {
+// Icons
+import { BsXCircle } from "react-icons/bs";
+
+// Assets
+import genericThumb from "../../assets/genericThumb.jpg";
+
+const MoreInfo = ({ hidden, movieData }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
   return (
     <>
@@ -17,11 +23,23 @@ const MoreInfo = ({ hidden }) => {
       >
         <Row>
           <Col className="more-info__content">
-            <h2>Test Field</h2>
-            <div>descripition</div>
-            <button onClick={moreInfoStateHandler}>
-              BUTTTON TO TEST A CONTEXT API !
-            </button>
+            <img
+              className="movie-card-image"
+              src={
+                movieData.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
+                  : genericThumb
+              }
+              alt={movieData.title}
+            />
+            <h2>{movieData.title}</h2>
+            <div>{movieData.overview}</div>
+            <BsXCircle
+              className="movie-card-button movie-card-button-close"
+              onClick={moreInfoStateHandler}
+            >
+              Close
+            </BsXCircle>
           </Col>
         </Row>
       </Container>

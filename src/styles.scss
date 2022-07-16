@@ -336,6 +336,12 @@ a:hover {
 .movie-card-button {
   font-size: 1.75rem;
 }
+.movie-card-button-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .movie-card-button::after,
 .movie-card-button::before {
   position: relative;
@@ -366,6 +372,7 @@ a:hover {
     display: none;
   }
   &__content {
+    position: relative;
     width: 50vw;
     min-height: 300px;
     background-color: #141414;

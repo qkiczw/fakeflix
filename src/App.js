@@ -33,10 +33,13 @@ function App() {
   const [topRatedTvSeries, setTopRatedTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
   const [trending, setTrending] = useState([]);
-  const [infoHidden, setInfoHidden] = useState(true);
+  const [movieInfoShow, setMovieInfoShow] = useState(true);
+  const [movieInfoData, setMovieInfoData] = useState({});
 
-  const moreInfoStateHandler = () => {
-    setInfoHidden(!infoHidden);
+  const moreInfoStateHandler = (movieData) => {
+    setMovieInfoShow(!movieInfoShow);
+    setMovieInfoData(movieData);
+    console.log("movieData: ", movieData);
   };
 
   const fetchMovies = async () => {
@@ -158,7 +161,7 @@ function App() {
             <Route path="mylist" element={<MyList />} />
           </Routes>
           <Footer />
-          <MoreInfo hidden={infoHidden} />
+          <MoreInfo hidden={movieInfoShow} movieData={movieInfoData} />
         </Container>
       </MoreInfoContext.Provider>
     </>

@@ -10,9 +10,8 @@ import {
   BsPlayCircleFill,
   BsCheckCircle,
   BsHandThumbsUp,
+  BsExclamationCircle,
 } from "react-icons/bs";
-
-import { AiOutlineDownCircle } from "react-icons/ai";
 
 const MovieCard = (props) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
@@ -40,9 +39,9 @@ const MovieCard = (props) => {
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
-            <AiOutlineDownCircle
+            <BsExclamationCircle
               className="movie-card-button"
-              onClick={moreInfoStateHandler}
+              onClick={() => moreInfoStateHandler(movieData)}
             />
           </span>
         </div>
