@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 
 // Components
 import Header from "./components/Header/Header";
+import MoreInfo from "./components/MoreInfo/MoreInfo";
 
 // CSS
 import "./styles.scss";
@@ -30,6 +31,7 @@ function App() {
   const [topRatedTvSeries, setTopRatedTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
   const [trending, setTrending] = useState([]);
+  const [infoHidden, setInfoHidden] = useState(true);
 
   const fetchMovies = async () => {
     //set recentMovies
@@ -149,6 +151,7 @@ function App() {
           <Route path="mylist" element={<MyList />} />
         </Routes>
         <Footer />
+        <MoreInfo hidden={infoHidden} />
       </Container>
     </>
   );

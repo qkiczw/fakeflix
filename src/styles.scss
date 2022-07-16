@@ -336,10 +336,40 @@ a:hover {
 .movie-card-button {
   font-size: 1.75rem;
 }
+.movie-card-button::after,
+.movie-card-button::before {
+  position: relative;
+  content: "xxx";
+  width: 100px;
+  height: 100px;
+}
 .movie-card-desc {
   display: flex;
 
   transition: 0.2s all;
+}
+
+// More info component
+.more-info {
+  &__container {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__container--hidden {
+    display: none;
+  }
+  &__content {
+    width: 50vw;
+    min-height: 300px;
+    background-color: #141414;
+  }
 }
 
 /* Footer */
