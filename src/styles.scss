@@ -315,14 +315,20 @@ a:hover {
   font-weight: 500;
 }
 .movie-card-buttons {
-  display: none;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  opacity: 0;
+  transition: 0.2s all;
 }
-/* .movie-card-container:hover .movie-card-buttons {
-  display: flex;
-} */
+.movie-card-container:hover .movie-card-buttons {
+  z-index: 10000;
+  opacity: 1;
+}
 .movie-card-buttons-left {
   display: inherit;
   gap: 10px;
