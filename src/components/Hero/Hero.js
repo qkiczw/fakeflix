@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { MoreInfoContext } from "../../App";
 
 // Bootstrap Components
 import { Col, Row, Button } from "react-bootstrap";
@@ -8,6 +10,7 @@ import { BsCaretRightSquare, BsInfoSquareFill } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
   const { title, overview, backdrop_path } = randomMovie;
+  const moreInfoStateHandler = useContext(MoreInfoContext);
 
   return (
     <Row>
@@ -26,7 +29,12 @@ const Hero = ({ randomMovie }) => {
                 <BsCaretRightSquare />
                 Watch Trailer
               </Button>
-              <Button variant="outline-light" size="lg" className="hero-btn">
+              <Button
+                onClick={() => moreInfoStateHandler(randomMovie)}
+                variant="outline-light"
+                size="lg"
+                className="hero-btn"
+              >
                 <BsInfoSquareFill />
                 More Info
               </Button>
