@@ -8,7 +8,7 @@ const MOVIE_GENRES = {
   drama: { id: 18, name: "Drama" },
   family: { id: 10751, name: "Family" },
   fantasy: { id: 14, name: "Fantasy" },
-  history: { id: 28, name: "History" },
+  history: { id: 36, name: "History" },
   horror: { id: 27, name: "Horror" },
   music: { id: 10402, name: "Music" },
   mystery: { id: 9648, name: "Mystery" },
