@@ -37,15 +37,20 @@ const MoreInfo = ({ hidden, singleMovieData }) => {
               <h2>{singleMovieData.title}</h2>
               <div>{singleMovieData.overview}</div>
               <p>
+                Genres:
+                {singleMovieData.genre_ids
+                  ? singleMovieData.genre_ids.join(", ")
+                  : "unknown"}
+              </p>
+              <p>
                 Cast:{" "}
                 {singleMovieData.cast === undefined
-                  ? "none"
+                  ? "unknown"
                   : singleMovieData.cast
                       .slice(0, 5)
                       .map((item) => item.name)
                       .join(", ")}
               </p>
-              {console.log(`single: `, singleMovieData.cast)}
             </div>
 
             <BsXCircle
