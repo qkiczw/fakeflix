@@ -33,11 +33,11 @@ function App() {
   const [topRatedTvSeries, setTopRatedTvSeries] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
   const [trending, setTrending] = useState([]);
-  const [movieInfoShow, setMovieInfoShow] = useState(true);
+  const [movieInfoComponentShow, setMovieInfoComponentShow] = useState(true);
   const [movieInfoData, setMovieInfoData] = useState({});
 
   const moreInfoStateHandler = (movieData) => {
-    setMovieInfoShow(!movieInfoShow);
+    setMovieInfoComponentShow(!movieInfoComponentShow);
     setMovieInfoData(movieData);
     console.log("movieData: ", movieData);
   };
@@ -161,7 +161,7 @@ function App() {
             <Route path="mylist" element={<MyList />} />
           </Routes>
           <Footer />
-          <MoreInfo hidden={movieInfoShow} movieData={movieInfoData} />
+          <MoreInfo hidden={movieInfoComponentShow} movieData={movieInfoData} />
         </Container>
       </MoreInfoContext.Provider>
     </>
