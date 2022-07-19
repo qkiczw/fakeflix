@@ -11,8 +11,9 @@ import { BsXCircle } from "react-icons/bs";
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
-const MoreInfo = ({ hidden, movieData }) => {
+const MoreInfo = ({ hidden, singleMovieData }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
+
   return (
     <>
       <Container
@@ -26,15 +27,25 @@ const MoreInfo = ({ hidden, movieData }) => {
             <img
               className="more-info__image"
               src={
-                movieData.backdrop_path
-                  ? `https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`
+                singleMovieData.backdrop_path
+                  ? `https://image.tmdb.org/t/p/original/${singleMovieData.backdrop_path}`
                   : genericThumb
               }
-              alt={movieData.title}
+              alt={singleMovieData.title}
             />
             <div className="more-info__desc">
-              <h2>{movieData.title}</h2>
-              <div>{movieData.overview}</div>
+              <h2>{singleMovieData.title}</h2>
+              <div>{singleMovieData.overview}</div>
+              <p>
+                Cast:{" "}
+                {singleMovieData.cast === undefined
+                  ? "none"
+                  : singleMovieData.cast
+                      .slice(0, 5)
+                      .map((item) => item.name)
+                      .join(", ")}
+              </p>
+              {console.log(`single: `, singleMovieData.cast)}
             </div>
 
             <BsXCircle

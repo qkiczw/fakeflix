@@ -39,7 +39,15 @@ function App() {
   const moreInfoStateHandler = (movieData) => {
     setMovieInfoComponentShow(!movieInfoComponentShow);
     setMovieInfoData(movieData);
-    console.log("movieData: ", movieData);
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=34f2b177435f8bd71d2841363f3ca2c1&append_to_response=videos`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieInfoData({ ...movieData, ...data });
+      })
+      .catch((error) => console.log("error: ", error));
   };
 
   const fetchMovies = async () => {
@@ -161,7 +169,10 @@ function App() {
             <Route path="mylist" element={<MyList />} />
           </Routes>
           <Footer />
-          <MoreInfo hidden={movieInfoComponentShow} movieData={movieInfoData} />
+          <MoreInfo
+            hidden={movieInfoComponentShow}
+            singleMovieData={movieInfoData}
+          />
         </Container>
       </MoreInfoContext.Provider>
     </>
