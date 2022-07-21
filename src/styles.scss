@@ -55,6 +55,36 @@ a:hover {
   justify-content: flex-start;
   align-items: center;
 }
+// Search component
+.search {
+  position: relative;
+  &--active {
+    border: 1px solid #fff;
+    padding: 0px;
+  }
+  &__input {
+    position: relative;
+    background-color: #141414;
+    color: #fff;
+    padding-left: 40px;
+    width: 1px;
+    border: none;
+    transition: 0.4s all;
+    &--active {
+      width: 250px;
+    }
+    &__button {
+      position: relative;
+      right: 0px;
+      background: none;
+      border: none;
+      color: #fff;
+    }
+  }
+}
+.search .search__input .search__input__icon {
+  color: #fff;
+}
 /* Hero */
 .hero {
   position: relative;
@@ -143,36 +173,6 @@ a:hover {
 //   padding: 0 10px 0 0;
 // }
 
-/* Search component */
-.search-container {
-  position: relative;
-}
-.search-container-active {
-  border: 1px solid #fff;
-  padding: 5px;
-}
-.search-input {
-  position: relative;
-  background-color: #141414;
-  color: #fff;
-  padding-left: 40px;
-  width: 1px;
-  border: none;
-  transition-duration: 1s;
-}
-.search-input-active {
-  width: 250px;
-}
-
-.search-input-button {
-  position: absolute;
-  left: 10px;
-  background: none;
-  border: none;
-}
-.search-input-button-icon {
-  color: #fff;
-}
 /* notification */
 .notification-container {
   position: relative;
