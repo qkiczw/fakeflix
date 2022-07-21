@@ -18,42 +18,42 @@ const Header = ({ trending }) => {
   return (
     <>
       <header className="header">
-        <Navbar className="main-nav " variant="dark" expand="lg">
+        <Navbar className="nav" variant="dark" expand="lg">
           <Container fluid>
             <Navbar.Brand href="/">
-              <img src={logo} alt="Fakeflix logo" className="brand-logo" />
+              <img src={logo} alt="Fakeflix logo" className="nav__logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="nav-menu me-auto">
-                <NavLink className="nav-item" activeclassname="active" to="/">
+              <Nav className="nav__items me-auto">
+                <NavLink className="nav__item" activeclassname="active" to="/">
                   Home
                 </NavLink>
                 <NavLink
-                  className="nav-item"
+                  className="nav__item"
                   activeclassname="active"
                   to="/movies"
                 >
                   Movies
                 </NavLink>
                 <NavLink
-                  className="nav-item"
+                  className="nav__item"
                   activeclassname="active"
                   to="/tvseries"
                 >
                   TV Series
                 </NavLink>
                 <NavLink
-                  className="nav-item"
+                  className="nav__item"
                   activeclassname="active"
                   to="/mylist"
                 >
                   My list
                 </NavLink>
-                <Col className="user-icons">
-                  <SearchComponent className="user-icon" />
-                  <Notifications trending={trending} />
-                  <BsFillPersonFill className="user-icon" />
+                <Col className="nav__icons">
+                  <SearchComponent className="nav__icon" />
+                  <Notifications trending={trending} className="nav__icon" />
+                  <BsFillPersonFill className="nav__icon" />
                 </Col>
               </Nav>
             </Navbar.Collapse>

@@ -36,12 +36,15 @@ function App() {
   const [movieInfoComponentShow, setMovieInfoComponentShow] = useState(true);
   const [movieInfoData, setMovieInfoData] = useState({});
 
-  const moreInfoStateHandler = (movieData) => {
+  const moreInfoStateHandler = async (movieData) => {
     setMovieInfoComponentShow(!movieInfoComponentShow);
     setMovieInfoData(movieData);
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=34f2b177435f8bd71d2841363f3ca2c1&append_to_response=videos`
+    // Zrobić fetcha żeby full info pobierał i na tej podstawie zrobić i ustawić full info state !!!!
+    // Zrobić potem odnośnik do imbd i zobaczyć jak się robi wyświetlanie trailera z tutoriala !
+
+    await fetch(
+      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -142,7 +145,7 @@ function App() {
   return (
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
-        <Container fluid className="app-container">
+        <Container fluid className="app__container">
           <Header trending={trending} />
           <Routes>
             <Route

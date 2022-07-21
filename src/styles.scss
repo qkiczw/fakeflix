@@ -13,7 +13,7 @@ a:hover {
   display: none !important;
 }
 
-.app-container {
+.app__container {
   background-color: #141414;
   color: #fff;
   min-height: 100vh;
@@ -26,29 +26,29 @@ a:hover {
   justify-content: space-between;
   padding: 0 30px;
 }
-.nav-menu {
+.nav {
   width: 100%;
+  &__logo {
+    max-width: 120px;
+  }
+  &__items {
+    width: 100%;
+  }
+  &__item {
+    text-decoration: none;
+    padding: 0 0.5rem 0 0;
+  }
 }
-.nav-item {
-  text-decoration: none;
-  padding: 0 0.5rem 0 0;
-}
-.main-nav {
-  width: 100%;
-}
-.user-icons {
+.nav__icons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-}
-.user-icon {
-  font-size: 1.5rem;
+  &__icon {
+    font-size: 1.5rem;
+  }
 }
 
-.brand-logo {
-  max-width: 120px;
-}
 .main-container a {
   /* color: #fff; */
   text-decoration: none;
@@ -394,6 +394,13 @@ a:hover {
   }
   &__desc {
     margin: 1.5rem 0.5rem;
+
+    .desc__title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+    }
   }
   &__genres {
     margin-top: 1rem;
