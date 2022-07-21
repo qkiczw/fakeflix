@@ -6,7 +6,7 @@ import { MoreInfoContext } from "../../App";
 import { Col, Row, Button } from "react-bootstrap";
 
 // Icons
-import { BsCaretRightSquare, BsInfoSquareFill } from "react-icons/bs";
+import { BsCaretRightSquare, BsExclamationCircle } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
   const { title, overview, backdrop_path } = randomMovie;
@@ -35,7 +35,7 @@ const Hero = ({ randomMovie }) => {
                 size="lg"
                 className="hero__btn"
               >
-                <BsInfoSquareFill />
+                <BsExclamationCircle />
                 More Info
               </Button>
             </Col>
