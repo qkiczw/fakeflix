@@ -6,14 +6,14 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 
 const SeeAllButton = () => {
   return (
-    <>
-      <NavLink className="see-all-category-button" to="/movies">
+    <div className="see-all-category">
+      <NavLink className="see-all-category__button" to="/movies">
         See All Movies
-        <span className="see-all-category-button-arrows">
+        <span className="see-all-category__arrows">
           <BsChevronDoubleRight />
         </span>
       </NavLink>
-    </>
+    </div>
   );
 };
 

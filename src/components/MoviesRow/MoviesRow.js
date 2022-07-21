@@ -18,21 +18,16 @@ import { Container, Row, Col } from "react-bootstrap";
 const MoviesRow = ({ movies, rowTitle }) => {
   return (
     <section className="mt-5">
-      <Container fluid>
+      <Container fluid className="movies-row">
         <Row>
-          <Col className="movies-row-title">
+          <Col className="movies-row__title">
             <h2>{rowTitle}</h2>
             <SeeAllButton />
           </Col>
         </Row>
         <Row>
-          {/* {movies
-            .map((movie) => <MovieCard key={movie.id} movieData={movie} />)
-            .filter((movie, index) => {
-              return index <= 5;
-            })} */}
           <Swiper
-            className="row-swiper"
+            className="swiper__container"
             breakpoints={{
               320: {
                 slidesPerView: 2,
