@@ -44,7 +44,7 @@ function App() {
     // Zrobić potem odnośnik do imbd i zobaczyć jak się robi wyświetlanie trailera z tutoriala !
 
     await fetch(
-      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
+      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -58,7 +58,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setMovieInfoData({ ...movieData, ...data });
         console.log(`data2: `, data);
       })
       .catch((error) => console.log("error: ", error));
