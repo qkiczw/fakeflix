@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Components
-import SearchComponent from "../SearchComponent/searchComponent";
+import SearchComponent from "../SearchComponent/SearchComponent";
 import Notifications from "../Notifications/Notifications";
 
 // Bootstrap Components

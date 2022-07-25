@@ -49,6 +49,17 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setMovieInfoData({ ...movieData, ...data });
+        console.log(`data: `, data);
+      })
+      .catch((error) => console.log("error: ", error));
+
+    await fetch(
+      `https://api.themoviedb.org/3/movie/${movieData.id}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieInfoData({ ...movieData, ...data });
+        console.log(`data2: `, data);
       })
       .catch((error) => console.log("error: ", error));
   };
