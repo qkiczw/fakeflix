@@ -16,6 +16,7 @@ import {
 const MovieCard = (props) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
   const { movieData } = props;
+  const currentMovieID = movieData.id;
 
   return (
     <>
@@ -41,7 +42,9 @@ const MovieCard = (props) => {
           <span className="movie-card-buttons-right">
             <BsExclamationCircle
               className="movie-card-button"
-              onClick={() => moreInfoStateHandler(movieData)}
+              onClick={() => {
+                moreInfoStateHandler(currentMovieID);
+              }}
             />
           </span>
         </div>

@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 import { MoreInfoContext } from "../../App";
-
-// Utils
-import { genresIDtoNames } from "../../utils/helpers";
 
 // Icons
 import { BsXCircle } from "react-icons/bs";
@@ -13,8 +10,38 @@ import { BsXCircle } from "react-icons/bs";
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
-const MoreInfo = ({ hidden, singleMovieData }) => {
+const MoreInfo = ({ hidden, movieID }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
+
+  const [movieCast, setMovieCast] = useState({});
+  const [movieInfo, setMovieInfo] = useState({});
+
+  const fetchCurrentMovieData = async () => {
+    // fetching cast
+    await fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieCast(data);
+      })
+      .catch((error) => console.log("error: ", error));
+    // fetchinf movie info
+    await fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieInfo(data);
+      })
+      .catch((error) => console.log("error: ", error));
+  };
+
+  useEffect(() => {
+    if (hidden !== true) {
+      fetchCurrentMovieData();
+    }
+  }, [movieID]);
 
   return (
     <>
@@ -29,40 +56,39 @@ const MoreInfo = ({ hidden, singleMovieData }) => {
             <img
               className="more-info__image"
               src={
-                singleMovieData.backdrop_path
-                  ? `https://image.tmdb.org/t/p/original/${singleMovieData.backdrop_path}`
+                movieInfo.backdrop_path
+                  ? `https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`
                   : genericThumb
               }
-              alt={singleMovieData.title}
+              alt={movieInfo.title}
             />
             <div className="more-info__desc">
-              <h2>{singleMovieData.title}</h2>
-              <div>{singleMovieData.overview}</div>
+              <h2>{movieInfo.title}</h2>
+              <div>{movieInfo.overview}</div>
               <div className="more-info__genres">
                 <span className="more-info__section-title">Genres: </span>
-                {/* {singleMovieData.genre_ids
-                  ? singleMovieData.genre_ids.join(" ")
-                  : "unknown"} */}
-                {singleMovieData["genre_ids"] === undefined
+                {movieInfo.genres === undefined
                   ? "none"
-                  : singleMovieData["genre_ids"]
-                      .map((item) => genresIDtoNames(item))
-                      .join(", ")}
+                  : movieInfo.genres.map((genre) => genre.name).join(", ")}
               </div>
               <div className="more-info__cast">
                 <span className="more-info__section-title">Cast: </span>
-                {singleMovieData.cast === undefined
+                {movieCast.cast === undefined
                   ? "unknown"
-                  : singleMovieData.cast
+                  : movieCast.cast
                       .slice(0, 5)
-                      .map((item) => item.name)
+                      .map((cast) => cast.name)
                       .join(", ")}
               </div>
             </div>
 
             <BsXCircle
               className="movie-card-button movie-card-button-close"
-              onClick={moreInfoStateHandler}
+              onClick={() => {
+                moreInfoStateHandler();
+                setMovieInfo({});
+                setMovieCast({});
+              }}
             >
               Close
             </BsXCircle>

@@ -34,33 +34,11 @@ function App() {
   const [randomMovie, setRandomMovie] = useState({});
   const [trending, setTrending] = useState([]);
   const [movieInfoComponentShow, setMovieInfoComponentShow] = useState(true);
-  const [movieInfoData, setMovieInfoData] = useState({});
+  const [movieID, setMovieID] = useState(1);
 
-  const moreInfoStateHandler = async (movieData) => {
+  const moreInfoStateHandler = (id) => {
     setMovieInfoComponentShow(!movieInfoComponentShow);
-    setMovieInfoData(movieData);
-
-    // Zrobić fetcha żeby full info pobierał i na tej podstawie zrobić i ustawić full info state !!!!
-    // Zrobić potem odnośnik do imbd i zobaczyć jak się robi wyświetlanie trailera z tutoriala !
-
-    await fetch(
-      `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovieInfoData({ ...movieData, ...data });
-        console.log(`data: `, data);
-      })
-      .catch((error) => console.log("error: ", error));
-
-    await fetch(
-      `https://api.themoviedb.org/3/movie/${movieData.id}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(`data2: `, data);
-      })
-      .catch((error) => console.log("error: ", error));
+    setMovieID(id);
   };
 
   const fetchMovies = async () => {
@@ -182,10 +160,7 @@ function App() {
             <Route path="mylist" element={<MyList />} />
           </Routes>
           <Footer />
-          <MoreInfo
-            hidden={movieInfoComponentShow}
-            singleMovieData={movieInfoData}
-          />
+          <MoreInfo hidden={movieInfoComponentShow} movieID={movieID} />
         </Container>
       </MoreInfoContext.Provider>
     </>
