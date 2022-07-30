@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 import { MoreInfoContext } from "../../App";
@@ -8,7 +7,7 @@ import { MoreInfoContext } from "../../App";
 import { BsXCircle } from "react-icons/bs";
 
 // Assets
-import genericThumb from "../../assets/genericThumb.jpg";
+import imdbLogo from "../../assets/logo_imdb.png";
 
 const MoreInfo = ({ hidden, movieID }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
@@ -58,12 +57,24 @@ const MoreInfo = ({ hidden, movieID }) => {
               src={
                 movieInfo.backdrop_path
                   ? `https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`
-                  : genericThumb
+                  : `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`
               }
               alt={movieInfo.title}
             />
             <div className="more-info__desc">
-              <h2>{movieInfo.title}</h2>
+              <h2>
+                {movieInfo.title}
+                <a
+                  href={`https://www.imdb.com/title/${movieInfo.imdb_id}/`}
+                  target="_blank"
+                >
+                  <img
+                    className="logos__imdb"
+                    src={imdbLogo}
+                    alt={movieInfo.overview}
+                  />
+                </a>
+              </h2>
               <div>{movieInfo.overview}</div>
               <div className="more-info__genres">
                 <span className="more-info__section-title">Genres: </span>

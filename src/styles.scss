@@ -13,6 +13,13 @@ a:hover {
   display: none !important;
 }
 
+// logos
+.logos {
+  &__imdb {
+    margin-left: 1rem;
+  }
+}
+
 .app__container {
   background-color: #141414;
   color: #fff;
