@@ -9,7 +9,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import { BsCaretRightSquare, BsExclamationCircle } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
-  const { title, overview, backdrop_path } = randomMovie;
+  const { title, overview, backdrop_path, id } = randomMovie;
   const moreInfoStateHandler = useContext(MoreInfoContext);
 
   return (
@@ -30,7 +30,7 @@ const Hero = ({ randomMovie }) => {
                 Watch Trailer
               </Button>
               <Button
-                onClick={() => moreInfoStateHandler(randomMovie)}
+                onClick={() => moreInfoStateHandler(id)}
                 variant="outline-light"
                 size="lg"
                 className="hero__btn"
