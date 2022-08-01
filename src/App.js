@@ -160,8 +160,8 @@ function App() {
             <Route path="mylist" element={<MyList />} />
           </Routes>
           <Footer />
-          <MoreInfo hidden={movieInfoComponentShow} movieID={movieID} />
         </Container>
+        <MoreInfo hidden={movieInfoComponentShow} movieID={movieID} />
       </MoreInfoContext.Provider>
     </>
   );

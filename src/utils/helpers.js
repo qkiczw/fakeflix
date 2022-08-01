@@ -58,3 +58,10 @@ export const genresIDtoNames = (item) => {
       return "Unknown";
   }
 };
+
+export const freezeAppContainer = () => {
+  document.querySelector(".app__container").classList.add("frozen");
+};
+export const unFreezeAppContainer = () => {
+  document.querySelector(".app__container").classList.remove("frozen");
+};

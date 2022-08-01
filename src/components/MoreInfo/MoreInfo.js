@@ -9,6 +9,9 @@ import { BsXCircle } from "react-icons/bs";
 // Assets
 import imdbLogo from "../../assets/logo_imdb.png";
 
+// Utils
+import { unFreezeAppContainer } from "../../utils/helpers";
+
 const MoreInfo = ({ hidden, movieID }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
 
@@ -67,6 +70,7 @@ const MoreInfo = ({ hidden, movieID }) => {
                 <a
                   href={`https://www.imdb.com/title/${movieInfo.imdb_id}/`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <img
                     className="logos__imdb"
@@ -99,6 +103,7 @@ const MoreInfo = ({ hidden, movieID }) => {
                 moreInfoStateHandler();
                 setMovieInfo({});
                 setMovieCast({});
+                unFreezeAppContainer();
               }}
             >
               Close

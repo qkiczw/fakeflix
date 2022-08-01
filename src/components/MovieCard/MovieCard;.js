@@ -5,6 +5,9 @@ import { MoreInfoContext } from "../../App";
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
+// Utils
+import { freezeAppContainer } from "../../utils/helpers";
+
 // Icons
 import {
   BsPlayCircleFill,
@@ -44,6 +47,7 @@ const MovieCard = (props) => {
               className="movie-card-button"
               onClick={() => {
                 moreInfoStateHandler(currentMovieID);
+                freezeAppContainer();
               }}
             />
           </span>

@@ -12,6 +12,10 @@ a:hover {
 .hidden {
   display: none !important;
 }
+.frozen {
+  position: fixed;
+  filter: brightness(0.1);
+}
 
 // logos
 .logos {
@@ -384,25 +388,23 @@ a:hover {
 // More info component
 .more-info {
   &__container {
-    position: fixed;
-    z-index: 10000;
-    top: 0;
+    position: absolute;
+    top: 100px;
     width: 100%;
-    height: 100vh;
-    background-color: #000000c0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    z-index: 10;
     border-radius: 0.25rem;
   }
   &__container--hidden {
     display: none;
   }
   &__content {
+    width: 900px; // for 1080p res
     position: relative;
-    width: 50vw;
-    min-height: 300px;
+    min-height: 350px;
     background-color: #141414;
+    color: #fff;
     padding: 0;
     border-radius: 0.25rem;
     -webkit-box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);

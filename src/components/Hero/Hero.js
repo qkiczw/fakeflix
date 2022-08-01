@@ -5,6 +5,9 @@ import { MoreInfoContext } from "../../App";
 // Bootstrap Components
 import { Col, Row, Button } from "react-bootstrap";
 
+// Utils
+import { freezeAppContainer } from "../../utils/helpers";
+
 // Icons
 import { BsCaretRightSquare, BsExclamationCircle } from "react-icons/bs";
 
@@ -30,7 +33,10 @@ const Hero = ({ randomMovie }) => {
                 Watch Trailer
               </Button>
               <Button
-                onClick={() => moreInfoStateHandler(id)}
+                onClick={() => {
+                  freezeAppContainer();
+                  moreInfoStateHandler(id);
+                }}
                 variant="outline-light"
                 size="lg"
                 className="hero__btn"
