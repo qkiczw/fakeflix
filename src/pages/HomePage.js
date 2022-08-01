@@ -27,6 +27,7 @@ export function HomePage({
         <MovieRow
           rowTitle={"Tv-Series - Top Rated"}
           movies={topRatedTvSeries}
+          tvSeries={true}
         />
       </main>
     </>

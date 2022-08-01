@@ -35,10 +35,12 @@ function App() {
   const [trending, setTrending] = useState([]);
   const [movieInfoComponentShow, setMovieInfoComponentShow] = useState(true);
   const [movieID, setMovieID] = useState(1);
+  const [isTvSeriesCard, setTvSeriesCard] = useState(true);
 
-  const moreInfoStateHandler = (id) => {
+  const moreInfoStateHandler = (id, isTvSeries) => {
     setMovieInfoComponentShow(!movieInfoComponentShow);
     setMovieID(id);
+    setTvSeriesCard(isTvSeries);
   };
 
   const fetchMovies = async () => {
@@ -161,7 +163,11 @@ function App() {
           </Routes>
           <Footer />
         </Container>
-        <MoreInfo hidden={movieInfoComponentShow} movieID={movieID} />
+        <MoreInfo
+          hidden={movieInfoComponentShow}
+          movieID={movieID}
+          isTvSeriesCard={isTvSeriesCard}
+        />
       </MoreInfoContext.Provider>
     </>
   );

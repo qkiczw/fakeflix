@@ -15,7 +15,7 @@ export function TvSeries({ topRatedTvSeries }) {
           <Row>
             {topRatedTvSeries.map((movie) => (
               <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
-                <MovieCard key={movie.id} movieData={movie} />
+                <MovieCard key={movie.id} movieData={movie} tvSeries />
               </Col>
             ))}
           </Row>

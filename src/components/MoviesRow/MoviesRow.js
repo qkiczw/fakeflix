@@ -15,7 +15,7 @@ import SeeAllButton from "../SeeAllButton/SeeAllButton";
 //Bootstrap Components
 import { Container, Row, Col } from "react-bootstrap";
 
-const MoviesRow = ({ movies, rowTitle }) => {
+const MoviesRow = ({ movies, rowTitle, tvSeries }) => {
   return (
     <section className="mt-5">
       <Container fluid className="movies-row">
@@ -61,7 +61,7 @@ const MoviesRow = ({ movies, rowTitle }) => {
           >
             {movies.map((movie) => (
               <SwiperSlide key={movie.id}>
-                <MovieCard movieData={movie} />
+                <MovieCard movieData={movie} tvSeries={tvSeries} />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -12,7 +12,7 @@ import imdbLogo from "../../assets/logo_imdb.png";
 // Utils
 import { unFreezeAppContainer } from "../../utils/helpers";
 
-const MoreInfo = ({ hidden, movieID }) => {
+const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
 
   const [movieCast, setMovieCast] = useState({});
@@ -21,7 +21,9 @@ const MoreInfo = ({ hidden, movieID }) => {
   const fetchCurrentMovieData = async () => {
     // fetching cast
     await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `https://api.themoviedb.org/3/${
+        isTvSeriesCard ? "tv" : "movie"
+      }/${movieID}/credits?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -30,7 +32,11 @@ const MoreInfo = ({ hidden, movieID }) => {
       .catch((error) => console.log("error: ", error));
     // fetchinf movie info
     await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos`
+      `https://api.themoviedb.org/3/${
+        isTvSeriesCard ? "tv" : "movie"
+      }/${movieID}?api_key=${
+        process.env.REACT_APP_MOVIES_API_KEY
+      }&append_to_response=videos`
     )
       .then((response) => response.json())
       .then((data) => {

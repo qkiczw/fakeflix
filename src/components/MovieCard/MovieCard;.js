@@ -20,6 +20,7 @@ const MovieCard = (props) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
   const { movieData } = props;
   const currentMovieID = movieData.id;
+  const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
 
   return (
     <>
@@ -46,7 +47,7 @@ const MovieCard = (props) => {
             <BsExclamationCircle
               className="movie-card-button"
               onClick={() => {
-                moreInfoStateHandler(currentMovieID);
+                moreInfoStateHandler(currentMovieID, isTvSeries);
                 freezeAppContainer();
               }}
             />
