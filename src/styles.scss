@@ -389,7 +389,6 @@ a:hover {
 .more-info {
   &__container {
     position: absolute;
-    top: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -400,7 +399,7 @@ a:hover {
     display: none;
   }
   &__content {
-    width: 900px; // for 1080p res
+    max-width: 900px; // for 1080p res
     position: relative;
     min-height: 350px;
     background-color: #141414;
