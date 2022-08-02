@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 import { MoreInfoContext } from "../../App";
+import YouTube from "react-youtube";
 
 // Icons
 import { BsXCircle } from "react-icons/bs";
@@ -17,6 +18,18 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
 
   const [movieCast, setMovieCast] = useState({});
   const [movieInfo, setMovieInfo] = useState({});
+
+  let filteredTrailers = movieInfo?.videos?.results.filter(
+    (item) => item.type === "Trailer"
+  );
+
+  // youtube options
+  const opts = {
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  };
 
   const fetchCurrentMovieData = async () => {
     // fetching cast
@@ -61,7 +74,11 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
       >
         <Row>
           <Col className="more-info__content">
-            <img
+            <YouTube
+              className="ratio ratio-16x9"
+              videoId={filteredTrailers ? filteredTrailers[0].key : ""}
+            />
+            {/* <img
               className="more-info__image"
               src={
                 movieInfo.backdrop_path
@@ -69,7 +86,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                   : `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`
               }
               alt={movieInfo.title}
-            />
+            /> */}
             <div className="more-info__desc">
               <h2>
                 {movieInfo.title}
@@ -102,7 +119,6 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                       .join(", ")}
               </div>
             </div>
-
             <BsXCircle
               className="movie-card-button movie-card-button-close"
               onClick={() => {
