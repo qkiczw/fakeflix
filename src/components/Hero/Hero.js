@@ -22,30 +22,26 @@ const Hero = ({ randomMovie }) => {
           <img
             className="hero__background"
             src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-            alt={overview}
+            alt={title}
           />
-          <Col className="hero__description">
+          <div className="hero__description">
             <h2 className="hero__title">{title ? title : ""}</h2>
             <p className="hero__overview">{overview ? overview : ""}</p>
-            <Col className="hero__btns" xs={12}>
-              <Button variant="light" size="lg" className="hero__btn">
-                <BsCaretRightSquare />
-                Watch Trailer
-              </Button>
+            <div className="hero__btns">
               <Button
                 onClick={() => {
                   freezeAppContainer();
                   moreInfoStateHandler(id);
                 }}
-                variant="outline-light"
+                variant="light"
                 size="lg"
                 className="hero__btn"
               >
                 <BsExclamationCircle />
                 More Info
               </Button>
-            </Col>
-          </Col>
+            </div>
+          </div>
         </div>
       </Col>
     </Row>

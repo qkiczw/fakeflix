@@ -31,9 +31,13 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
     },
   };
 
-  const showAndHideTrailer = () => {
-    document.querySelector(".more-info__image").classList.toggle("hidden");
-    document.querySelector(".more-info__play-btns").classList.toggle("hidden");
+  const showTrailer = () => {
+    document.querySelector(".more-info__image").classList.add("hidden");
+    document.querySelector(".more-info__play-btns").classList.add("hidden");
+  };
+  const hideTrailer = () => {
+    document.querySelector(".more-info__image").classList.remove("hidden");
+    document.querySelector(".more-info__play-btns").classList.remove("hidden");
   };
 
   const fetchCurrentMovieData = async () => {
@@ -94,7 +98,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                 alt={movieInfo.title}
               />
               <div className="more-info__play-btns">
-                <BsPlayCircle onClick={() => showAndHideTrailer()} />
+                <BsPlayCircle onClick={() => showTrailer()} />
               </div>
             </div>
 
@@ -137,7 +141,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                 setMovieInfo({});
                 setMovieCast({});
                 unFreezeAppContainer();
-                showAndHideTrailer();
+                hideTrailer();
               }}
             >
               Close
