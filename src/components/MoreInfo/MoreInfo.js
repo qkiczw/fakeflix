@@ -5,7 +5,7 @@ import { MoreInfoContext } from "../../App";
 import YouTube from "react-youtube";
 
 // Icons
-import { BsXCircle } from "react-icons/bs";
+import { BsXCircle, BsPlayCircle } from "react-icons/bs";
 
 // Assets
 import imdbLogo from "../../assets/logo_imdb.png";
@@ -29,6 +29,11 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
+  };
+
+  const showAndHideTrailer = () => {
+    document.querySelector(".more-info__image").classList.toggle("hidden");
+    document.querySelector(".more-info__play-btns").classList.toggle("hidden");
   };
 
   const fetchCurrentMovieData = async () => {
@@ -74,19 +79,25 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
       >
         <Row>
           <Col className="more-info__content">
-            <YouTube
-              className="ratio ratio-16x9"
-              videoId={filteredTrailers ? filteredTrailers[0].key : ""}
-            />
-            {/* <img
-              className="more-info__image"
-              src={
-                movieInfo.backdrop_path
-                  ? `https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`
-                  : `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`
-              }
-              alt={movieInfo.title}
-            /> */}
+            <div className="more-info__media">
+              <YouTube
+                className="more-info__video ratio ratio-16x9"
+                videoId={filteredTrailers ? filteredTrailers[0].key : ""}
+              />
+              <img
+                className="more-info__image"
+                src={
+                  movieInfo.backdrop_path
+                    ? `https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`
+                    : `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`
+                }
+                alt={movieInfo.title}
+              />
+              <div className="more-info__play-btns">
+                <BsPlayCircle onClick={() => showAndHideTrailer()} />
+              </div>
+            </div>
+
             <div className="more-info__desc">
               <h2>
                 {movieInfo.title}
@@ -126,6 +137,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                 setMovieInfo({});
                 setMovieCast({});
                 unFreezeAppContainer();
+                showAndHideTrailer();
               }}
             >
               Close
