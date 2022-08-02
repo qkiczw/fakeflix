@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // BootstrapComponents
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 
 // Icons
 import { BsFillBellFill } from "react-icons/bs";

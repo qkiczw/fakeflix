@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-// Api calls helpers
-import { MOVIE_GENRES } from "../apicalls/apicalls";
-
 // Components
 import MovieCard from "../components/MovieCard/MovieCard;";
 import Genres from "../components/Genres/Genres";

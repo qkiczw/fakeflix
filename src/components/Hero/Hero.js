@@ -9,7 +9,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import { freezeAppContainer } from "../../utils/helpers";
 
 // Icons
-import { BsCaretRightSquare, BsExclamationCircle } from "react-icons/bs";
+import { BsExclamationCircle } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
   const { title, overview, backdrop_path, id } = randomMovie;

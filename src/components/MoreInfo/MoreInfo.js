@@ -24,7 +24,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
   );
 
   // youtube options
-  const opts = {
+  const youTubeOpts = {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
@@ -87,6 +87,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
               <YouTube
                 className="more-info__video ratio ratio-16x9"
                 videoId={filteredTrailers ? filteredTrailers[0].key : ""}
+                opts={youTubeOpts}
               />
               <img
                 className="more-info__image"
