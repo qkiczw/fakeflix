@@ -306,6 +306,7 @@ a:hover {
   color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 10px;
+  display: none;
 }
 
 /* Movie Card */
@@ -505,5 +506,9 @@ a:hover {
     &__title {
       font-size: 2rem;
     }
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: block;
   }
 }
