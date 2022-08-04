@@ -118,6 +118,12 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                   />
                 </a>
               </h2>
+              <div>
+                <span className="more-info__section-title">Released: </span>{" "}
+                {movieInfo["release_date"]
+                  ? movieInfo["release_date"].substring(0, 4)
+                  : "unknown"}
+              </div>
               <div>{movieInfo.overview}</div>
               <div className="more-info__genres">
                 <span className="more-info__section-title">Genres: </span>
