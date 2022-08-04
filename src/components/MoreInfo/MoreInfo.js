@@ -23,6 +23,14 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
     (item) => item.type === "Trailer"
   );
 
+  const runtimeConverter = (time) => {
+    let hours = time / 60;
+    let hour = Math.floor(hours);
+    let minutes = Math.floor((hours - hour) * 60);
+
+    return `${hour}h ${minutes}min`;
+  };
+
   // youtube options
   const youTubeOpts = {
     playerVars: {
@@ -118,13 +126,21 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                   />
                 </a>
               </h2>
-              <div>
-                <span className="more-info__section-title">Released: </span>{" "}
-                {movieInfo["release_date"]
-                  ? movieInfo["release_date"].substring(0, 4)
-                  : "unknown"}
+              <div className="more-info__date-and-time-info">
+                <div>
+                  <span className="more-info__section-title">Released: </span>
+                  {movieInfo["release_date"]
+                    ? movieInfo["release_date"].substring(0, 4)
+                    : "unknown"}
+                </div>
+                <div>
+                  <span className="more-info__section-title">Runtime: </span>
+                  {movieInfo.runtime
+                    ? runtimeConverter(movieInfo.runtime)
+                    : "unknown"}
+                </div>
               </div>
-              <div>{movieInfo.overview}</div>
+              <div className="more-info__overwiev">{movieInfo.overview}</div>
               <div className="more-info__genres">
                 <span className="more-info__section-title">Genres: </span>
                 {movieInfo.genres === undefined
