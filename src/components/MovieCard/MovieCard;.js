@@ -6,7 +6,10 @@ import { MoreInfoContext } from "../../App";
 import genericThumb from "../../assets/genericThumb.jpg";
 
 // Utils
-import { freezeAppContainer } from "../../utils/helpers";
+import {
+  freezeAppContainer,
+  sendDatatoLocalStorage,
+} from "../../utils/helpers";
 
 // Icons
 import {
@@ -21,6 +24,13 @@ const MovieCard = (props) => {
   const { movieData } = props;
   const currentMovieID = movieData.id;
   const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
+
+  // const localStorageData = () => {
+  //   let data = localStorage.getItem("myMoviesList");
+
+  //   console.log(`LSdata: `, data);
+  // };
+  // localStorageData();
 
   return (
     <>
@@ -40,7 +50,10 @@ const MovieCard = (props) => {
         <div className="movie-card-buttons">
           <span className="movie-card-buttons-left">
             <BsPlayCircleFill className="movie-card-button" />
-            <BsCheckCircle className="movie-card-button" />
+            <BsCheckCircle
+              className="movie-card-button"
+              onClick={() => sendDatatoLocalStorage(movieData.id)}
+            />
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">

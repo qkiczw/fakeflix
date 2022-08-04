@@ -66,3 +66,17 @@ export const freezeAppContainer = () => {
 export const unFreezeAppContainer = () => {
   document.querySelector(".app__container").classList.remove("frozen");
 };
+
+export const sendDatatoLocalStorage = (id) => {
+  if (localStorage.getItem("myMoviesList") === null) {
+    localStorage.setItem("myMoviesList", JSON.stringify([id]));
+  } else {
+    let data = JSON.parse(localStorage.getItem("myMoviesList"));
+    data.push(id);
+    localStorage.setItem("myMoviesList", JSON.stringify(data));
+    console.log(`data,`, data);
+    console.log(`id `, id);
+  }
+
+  return;
+};
