@@ -15,6 +15,7 @@ import {
 import {
   BsPlayCircleFill,
   BsCheckCircle,
+  BsCheckCircleFill,
   BsHandThumbsUp,
   BsExclamationCircle,
 } from "react-icons/bs";
@@ -25,12 +26,7 @@ const MovieCard = (props) => {
   const currentMovieID = movieData.id;
   const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
 
-  // const localStorageData = () => {
-  //   let data = localStorage.getItem("myMoviesList");
-
-  //   console.log(`LSdata: `, data);
-  // };
-  // localStorageData();
+  let localStorageMoviesList = JSON.parse(localStorage.getItem("myMoviesList"));
 
   return (
     <>
@@ -51,10 +47,23 @@ const MovieCard = (props) => {
           <span className="movie-card-buttons-left">
             <BsPlayCircleFill className="movie-card-button" />
             {/* Place here a ternary operator to check wheter the movie is in the LocalStorage or not and set a proper icon  */}
-            <BsCheckCircle
+            {localStorageMoviesList.some(
+              (movie) => movie.id === movieData.id
+            ) ? (
+              <BsCheckCircleFill
+                className="movie-card-button"
+                onClick={() => sendDatatoLocalStorage(movieData)}
+              />
+            ) : (
+              <BsCheckCircle
+                className="movie-card-button"
+                onClick={() => sendDatatoLocalStorage(movieData)}
+              />
+            )}
+            {/* <BsCheckCircle
               className="movie-card-button"
               onClick={() => sendDatatoLocalStorage(movieData)}
-            />
+            /> */}
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
