@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
+// Components
+import MovieCard from "../components/MovieCard/MovieCard;";
+
 // Bootstrap components
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export function MyList() {
   const [myMoviesList, setMyMoviesList] = useState(
@@ -12,9 +15,14 @@ export function MyList() {
     <>
       <main>
         <Container fluid className="movies-page">
+          <h2 className="" gap={3}>
+            My Movies
+          </h2>
           <Row>
-            {JSON.parse(myMoviesList).map((item) => (
-              <p>Movie ID {item.title}</p>
+            {JSON.parse(myMoviesList).map((movie) => (
+              <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
+                <MovieCard movieData={movie} />
+              </Col>
             ))}
             {/* MyMoviesList has to be an array of objects with movie data */}
           </Row>
