@@ -67,20 +67,22 @@ export const unFreezeAppContainer = () => {
   document.querySelector(".app__container").classList.remove("frozen");
 };
 
-export const sendDatatoLocalStorage = (movieData) => {
+export const handleLocalStorageData = (movieData) => {
   const myMoviesList = localStorage.getItem("myMoviesList");
   if (myMoviesList === null) {
     localStorage.setItem("myMoviesList", JSON.stringify([movieData]));
   } else {
-    let data = JSON.parse(myMoviesList);
+    let localStorageData = JSON.parse(myMoviesList);
 
-    if (data.some((item) => item.id === movieData.id)) {
-      alert("Movie is on my List, I will delete the Movie! ");
+    if (localStorageData.some((item) => item.id === movieData.id)) {
+      const filteredData = localStorageData.filter(
+        (item) => item.id !== movieData.id
+      );
+      localStorage.setItem("myMoviesList", JSON.stringify(filteredData));
+    } else {
+      localStorageData.push(movieData);
+      localStorage.setItem("myMoviesList", JSON.stringify(localStorageData));
     }
-
-    data.push(movieData);
-    localStorage.setItem("myMoviesList", JSON.stringify(data));
-    console.log(`data,`, movieData);
   }
 
   return;

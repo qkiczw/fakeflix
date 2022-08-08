@@ -19,11 +19,15 @@ export function MyList() {
             My Movies
           </h2>
           <Row>
-            {JSON.parse(myMoviesList).map((movie) => (
-              <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
-                <MovieCard movieData={movie} />
-              </Col>
-            ))}
+            {myMoviesList ? (
+              JSON.parse(myMoviesList).map((movie) => (
+                <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
+                  <MovieCard movieData={movie} />
+                </Col>
+              ))
+            ) : (
+              <p>Yo have not picked any movie yet!</p>
+            )}
           </Row>
         </Container>
       </main>

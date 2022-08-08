@@ -8,7 +8,7 @@ import genericThumb from "../../assets/genericThumb.jpg";
 // Utils
 import {
   freezeAppContainer,
-  sendDatatoLocalStorage,
+  handleLocalStorageData,
 } from "../../utils/helpers";
 
 // Icons
@@ -26,7 +26,8 @@ const MovieCard = (props) => {
   const currentMovieID = movieData.id;
   const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
 
-  let localStorageMoviesList = JSON.parse(localStorage.getItem("myMoviesList"));
+  let localStorageMoviesList =
+    JSON.parse(localStorage.getItem("myMoviesList")) ?? [];
 
   return (
     <>
@@ -51,12 +52,12 @@ const MovieCard = (props) => {
             ) ? (
               <BsCheckCircleFill
                 className="movie-card-button"
-                onClick={() => sendDatatoLocalStorage(movieData)}
+                onClick={() => handleLocalStorageData(movieData)}
               />
             ) : (
               <BsCheckCircle
                 className="movie-card-button"
-                onClick={() => sendDatatoLocalStorage(movieData)}
+                onClick={() => handleLocalStorageData(movieData)}
               />
             )}
             <BsHandThumbsUp className="movie-card-button" />
