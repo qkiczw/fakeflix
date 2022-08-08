@@ -68,10 +68,16 @@ export const unFreezeAppContainer = () => {
 };
 
 export const sendDatatoLocalStorage = (movieData) => {
-  if (localStorage.getItem("myMoviesList") === null) {
+  const myMoviesList = localStorage.getItem("myMoviesList");
+  if (myMoviesList === null) {
     localStorage.setItem("myMoviesList", JSON.stringify([movieData]));
   } else {
-    let data = JSON.parse(localStorage.getItem("myMoviesList"));
+    let data = JSON.parse(myMoviesList);
+
+    if (data.some((item) => item.id === movieData.id)) {
+      alert("Movie is on my List, I will delete the Movie! ");
+    }
+
     data.push(movieData);
     localStorage.setItem("myMoviesList", JSON.stringify(data));
     console.log(`data,`, movieData);
