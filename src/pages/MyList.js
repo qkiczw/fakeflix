@@ -24,7 +24,6 @@ export function MyList() {
                 <MovieCard movieData={movie} />
               </Col>
             ))}
-            {/* MyMoviesList has to be an array of objects with movie data */}
           </Row>
         </Container>
       </main>

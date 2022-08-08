@@ -46,7 +46,6 @@ const MovieCard = (props) => {
         <div className="movie-card-buttons">
           <span className="movie-card-buttons-left">
             <BsPlayCircleFill className="movie-card-button" />
-            {/* Place here a ternary operator to check wheter the movie is in the LocalStorage or not and set a proper icon  */}
             {localStorageMoviesList.some(
               (movie) => movie.id === movieData.id
             ) ? (
@@ -60,10 +59,6 @@ const MovieCard = (props) => {
                 onClick={() => sendDatatoLocalStorage(movieData)}
               />
             )}
-            {/* <BsCheckCircle
-              className="movie-card-button"
-              onClick={() => sendDatatoLocalStorage(movieData)}
-            /> */}
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
