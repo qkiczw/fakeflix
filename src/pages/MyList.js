@@ -14,7 +14,7 @@ export function MyList() {
         <Container fluid className="movies-page">
           <Row>
             {JSON.parse(myMoviesList).map((item) => (
-              <p>Movie ID {item}</p>
+              <p>Movie ID {item.title}</p>
             ))}
             {/* MyMoviesList has to be an array of objects with movie data */}
           </Row>

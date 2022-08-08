@@ -67,15 +67,14 @@ export const unFreezeAppContainer = () => {
   document.querySelector(".app__container").classList.remove("frozen");
 };
 
-export const sendDatatoLocalStorage = (id) => {
+export const sendDatatoLocalStorage = (movieData) => {
   if (localStorage.getItem("myMoviesList") === null) {
-    localStorage.setItem("myMoviesList", JSON.stringify([id]));
+    localStorage.setItem("myMoviesList", JSON.stringify([movieData]));
   } else {
     let data = JSON.parse(localStorage.getItem("myMoviesList"));
-    data.push(id);
+    data.push(movieData);
     localStorage.setItem("myMoviesList", JSON.stringify(data));
-    console.log(`data,`, data);
-    console.log(`id `, id);
+    console.log(`data,`, movieData);
   }
 
   return;

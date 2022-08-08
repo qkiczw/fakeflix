@@ -50,9 +50,10 @@ const MovieCard = (props) => {
         <div className="movie-card-buttons">
           <span className="movie-card-buttons-left">
             <BsPlayCircleFill className="movie-card-button" />
+            {/* Place here a ternary operator to check wheter the movie is in the LocalStorage or not and set a proper icon  */}
             <BsCheckCircle
               className="movie-card-button"
-              onClick={() => sendDatatoLocalStorage(movieData.id)}
+              onClick={() => sendDatatoLocalStorage(movieData)}
             />
             <BsHandThumbsUp className="movie-card-button" />
           </span>
