@@ -87,3 +87,13 @@ export const handleLocalStorageData = (movieData) => {
 
   return;
 };
+
+// export const checkXposFromRight = () => {
+//   const body = document.querySelector("body").getBoundingClientRect();
+//   const movieCard = document
+//     .querySelector(".movie-card__container")
+//     .getBoundingClientRect();
+
+//   console.log(`body`, body.left);
+//   console.log(`movieCard`, movieCard.left);
+// };

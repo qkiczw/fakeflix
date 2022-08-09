@@ -29,9 +29,39 @@ const MovieCard = (props) => {
   let localStorageMoviesList =
     JSON.parse(localStorage.getItem("myMoviesList")) ?? [];
 
+  // This function check wheter the movie card is near the screen border or not
+  function handleMovieCardXpos(event) {
+    const currentMovieCard = event.currentTarget;
+    const currentMovieCardXpos =
+      event.currentTarget.getBoundingClientRect().right;
+    const bodyWidth = document
+      .querySelector("body")
+      .getBoundingClientRect().width;
+
+    let cardPos = currentMovieCardXpos + 100;
+    currentMovieCard.style.transform = `scale(1.5)`;
+
+    if (cardPos > bodyWidth) {
+      currentMovieCard.style.transform = `translateX(-100px) scale(1.5)`;
+    }
+    if (currentMovieCardXpos < 350) {
+      currentMovieCard.style.transform = `translateX(100px) scale(1.5)`;
+    }
+  }
+
+  // This function reset scale and translate styles on mouse leave listener
+  function resetMovieCardXpos(event) {
+    const currentMovieCard = event.currentTarget;
+    currentMovieCard.style.transform = `translateX(0) scale(1)`;
+  }
+
   return (
     <>
-      <div className="movie-card__container">
+      <div
+        className="movie-card__container"
+        onMouseOver={(e) => handleMovieCardXpos(e)}
+        onMouseLeave={(e) => resetMovieCardXpos(e)}
+      >
         <img
           className="movie-card-image"
           src={
