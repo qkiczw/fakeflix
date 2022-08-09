@@ -31,7 +31,7 @@ const MovieCard = (props) => {
 
   return (
     <>
-      <div className="movie-card-container">
+      <div className="movie-card__container">
         <img
           className="movie-card-image"
           src={

@@ -310,7 +310,7 @@ a:hover {
 }
 
 /* Movie Card */
-.movie-card-container {
+.movie-card__container {
   position: relative;
   width: 100%;
   height: auto;
@@ -320,7 +320,7 @@ a:hover {
   overflow: hidden;
   border-radius: 0.25rem;
 }
-.movie-card-container:hover {
+.movie-card__container:hover {
   transform: scale(1.5);
   z-index: 20;
   -webkit-box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
@@ -353,7 +353,7 @@ a:hover {
   opacity: 0;
   transition: 0.2s all;
 }
-.movie-card-container:hover .movie-card-buttons {
+.movie-card__container:hover .movie-card-buttons {
   z-index: 10000;
   opacity: 1;
 }
