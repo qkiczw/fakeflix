@@ -32,19 +32,25 @@ const MovieCard = (props) => {
   // This function check wheter the movie card is near the screen border or not
   function handleMovieCardXpos(event) {
     const currentMovieCard = event.currentTarget;
-    const currentMovieCardXpos =
+    const currentMovieCardRightXpos =
+      event.currentTarget.getBoundingClientRect().right;
+    const currentMovieCardLeftXpos =
       event.currentTarget.getBoundingClientRect().right;
     const bodyWidth = document
       .querySelector("body")
       .getBoundingClientRect().width;
 
-    let cardPos = currentMovieCardXpos + 100;
+    let cardPos = currentMovieCardRightXpos + 100;
     currentMovieCard.style.transform = `scale(1.5)`;
 
+    console.log(`from left: `, currentMovieCardLeftXpos);
+
+    // TODO: maybe use ternary operator with screen width detect and set correct values in translate on differen screens
     if (cardPos > bodyWidth) {
       currentMovieCard.style.transform = `translateX(-100px) scale(1.5)`;
     }
-    if (currentMovieCardXpos < 350) {
+    // this works for 1080p
+    if (currentMovieCardLeftXpos < 450) {
       currentMovieCard.style.transform = `translateX(100px) scale(1.5)`;
     }
   }
