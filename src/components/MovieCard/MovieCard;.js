@@ -35,23 +35,22 @@ const MovieCard = (props) => {
     const currentMovieCardRightXpos =
       event.currentTarget.getBoundingClientRect().right;
     const currentMovieCardLeftXpos =
-      event.currentTarget.getBoundingClientRect().right;
+      event.currentTarget.getBoundingClientRect().left;
     const bodyWidth = document
       .querySelector("body")
       .getBoundingClientRect().width;
 
     let cardPos = currentMovieCardRightXpos + 100;
-    currentMovieCard.style.transform = `scale(1.5)`;
 
-    console.log(`from left: `, currentMovieCardLeftXpos);
-
-    // TODO: maybe use ternary operator with screen width detect and set correct values in translate on differen screens
     if (cardPos > bodyWidth) {
-      currentMovieCard.style.transform = `translateX(-100px) scale(1.5)`;
+      currentMovieCard.style.transform = `${
+        window.innerWidth < 768 ? "translateX(-50px)" : "translateX(-100px)"
+      } scale(1.5)`;
     }
-    // this works for 1080p
-    if (currentMovieCardLeftXpos < 450) {
-      currentMovieCard.style.transform = `translateX(100px) scale(1.5)`;
+    if (currentMovieCardLeftXpos < 100) {
+      currentMovieCard.style.transform = `${
+        window.innerWidth < 768 ? "translateX(50px)" : "translateX(100px)"
+      } scale(1.5)`;
     }
   }
 
