@@ -12,7 +12,11 @@ const activeInputHandler = (e) => {
   searchContainer.classList.toggle("search--active");
 };
 
-const SearchComponent = () => {
+// const testFN = (e) => {
+//   console.log(`event`, e.target.value);
+// };
+
+const SearchComponent = ({ searchMovie }) => {
   let navigate = useNavigate();
   const redirectToSearchPage = () => {
     navigate("search");
@@ -25,7 +29,10 @@ const SearchComponent = () => {
         <input
           id="search__input"
           className="search__input"
-          onKeyUp={() => redirectToSearchPage()}
+          onKeyUp={(event) => {
+            searchMovie(event.target.value);
+            redirectToSearchPage();
+          }}
         />
         <button onClick={activeInputHandler} className="search__input__button">
           <BsSearch className="search__input__icon user__icon" />

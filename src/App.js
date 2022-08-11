@@ -37,6 +37,12 @@ function App() {
   const [movieInfoComponentShow, setMovieInfoComponentShow] = useState(true);
   const [movieID, setMovieID] = useState(1);
   const [isTvSeriesCard, setTvSeriesCard] = useState(true);
+  const [searchedMovieData, setSearchedMovieData] = useState("");
+
+  const searchMovie = (data) => {
+    setSearchedMovieData(data);
+    // console.log(`data`, data);
+  };
 
   const moreInfoStateHandler = (id, isTvSeries) => {
     setMovieInfoComponentShow(!movieInfoComponentShow);
@@ -137,7 +143,7 @@ function App() {
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
         <Container fluid className="app__container">
-          <Header trending={trending} />
+          <Header trending={trending} searchMovie={searchMovie} />
           <Routes>
             <Route
               exact
@@ -161,7 +167,15 @@ function App() {
               element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
             />
             <Route path="mylist" element={<MyList />} />
-            <Route path="search" element={<Search />} />
+            <Route
+              path="search"
+              element={
+                <Search
+                  searchedData={searchedMovieData}
+                  allMoviesFiltered={filteredMovies}
+                />
+              }
+            />
           </Routes>
           <Footer />
         </Container>
