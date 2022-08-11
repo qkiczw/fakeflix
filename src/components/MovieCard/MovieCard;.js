@@ -42,6 +42,8 @@ const MovieCard = (props) => {
 
     let cardPos = currentMovieCardRightXpos + 100;
 
+    currentMovieCard.style.transform = "scale(1.5)";
+
     if (cardPos > bodyWidth) {
       currentMovieCard.style.transform = `${
         window.innerWidth < 768 ? "translateX(-50px)" : "translateX(-100px)"
