@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
 import MyList from "./pages/MyList";
+import Search from "./pages/Search";
 import Footer from "./components/Footer/Footer";
 
 // Components
@@ -160,6 +161,7 @@ function App() {
               element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
             />
             <Route path="mylist" element={<MyList />} />
+            <Route path="search" element={<Search />} />
           </Routes>
           <Footer />
         </Container>
