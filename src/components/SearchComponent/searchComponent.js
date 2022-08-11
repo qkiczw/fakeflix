@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // icons
 import { BsSearch } from "react-icons/bs";
@@ -12,11 +13,20 @@ const activeInputHandler = (e) => {
 };
 
 const SearchComponent = () => {
+  let navigate = useNavigate();
+  const redirectToSearchPage = () => {
+    navigate("search");
+  };
+
   return (
     <>
       <form className="search">
         <label htmlFor="search__input"></label>
-        <input id="search__input" className="search__input" />
+        <input
+          id="search__input"
+          className="search__input"
+          onKeyUp={() => redirectToSearchPage()}
+        />
         <button onClick={activeInputHandler} className="search__input__button">
           <BsSearch className="search__input__icon user__icon" />
         </button>
