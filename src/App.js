@@ -41,7 +41,6 @@ function App() {
 
   const searchMovie = (data) => {
     setSearchedMovieData(data);
-    // console.log(`data`, data);
   };
 
   const moreInfoStateHandler = (id, isTvSeries) => {
@@ -171,7 +170,7 @@ function App() {
               path="search"
               element={
                 <Search
-                  searchedData={searchedMovieData}
+                  searchedMovieData={searchedMovieData}
                   allMoviesFiltered={filteredMovies}
                 />
               }
