@@ -6,10 +6,10 @@ import { Container } from "react-bootstrap";
 
 // Pages
 import HomePage from "./pages/HomePage";
-import Movies from "./pages/Movies";
-import TvSeries from "./pages/TvSeries";
-import MyList from "./pages/MyList";
-import Search from "./pages/Search";
+import Movies from "./pages/MoviesPage";
+import TvSeries from "./pages/TvSeriesPage";
+import MyList from "./pages/MyListPage";
+import Search from "./pages/SearchPage";
 import Footer from "./components/Footer/Footer";
 
 // Components
