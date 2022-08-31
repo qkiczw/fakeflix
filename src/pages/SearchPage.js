@@ -6,9 +6,12 @@ import MovieCard from "../components/MovieCard/MovieCard;";
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 
+// Utils
+import { changeTitleToLowerCase } from "../utils/helpers";
+
 export function Search({ searchedMovieData, allMoviesFiltered }) {
   const [allMovies, setAllMovies] = useState(allMoviesFiltered);
-  const [searchedMovie, setSearchedMovie] = useState("xxx");
+  const [searchedMovie, setSearchedMovie] = useState("");
 
   // TODO: Change all titles, cast to lower case
 
@@ -25,7 +28,11 @@ export function Search({ searchedMovieData, allMoviesFiltered }) {
           </h2>
           <Row>
             {allMovies
-              .filter((movie) => movie.title.includes(searchedMovie))
+              .filter((movie) =>
+                changeTitleToLowerCase(movie.title).includes(
+                  changeTitleToLowerCase(searchedMovie)
+                )
+              )
               .map((movie) => (
                 <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
                   <MovieCard movieData={movie} />
