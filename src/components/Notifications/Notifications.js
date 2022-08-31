@@ -38,7 +38,7 @@ const Notifications = ({ trending }) => {
               </div>
               <div className="notification-desc">
                 <p className="notification-title">
-                  {movie.title ? movie.title : movie.name}
+                  <strong>{movie.title ? movie.title : movie.name}</strong>
                 </p>
                 <p className="notification-text">Comming Soon.</p>
               </div>

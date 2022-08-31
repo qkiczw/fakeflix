@@ -38,6 +38,7 @@ function App() {
   const [movieID, setMovieID] = useState(1);
   const [isTvSeriesCard, setTvSeriesCard] = useState(true);
   const [searchedMovieData, setSearchedMovieData] = useState("");
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
 
   const searchMovie = (data) => {
     setSearchedMovieData(data);
@@ -116,6 +117,14 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => setTrending(trending.concat(data.results)))
+      .catch((error) => console.log("error: ", error));
+
+    // Upcoming Movies
+    await fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&language=en-US&language=en-US&page=1`
+    )
+      .then((response) => response.json())
+      .then((data) => setUpcomingMovies(upcomingMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
   };
 
