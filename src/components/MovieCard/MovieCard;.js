@@ -13,11 +13,11 @@ import {
 
 // Icons
 import {
-  BsPlayCircleFill,
   BsCheckCircle,
   BsCheckCircleFill,
   BsHandThumbsUp,
-  BsExclamationCircle,
+  BsInfoCircle,
+  BsPlusCircle,
 } from "react-icons/bs";
 
 const MovieCard = (props) => {
@@ -83,7 +83,6 @@ const MovieCard = (props) => {
         </div>
         <div className="movie-card-buttons">
           <span className="movie-card-buttons-left">
-            <BsPlayCircleFill className="movie-card-button" />
             {localStorageMoviesList.some(
               (movie) => movie.id === movieData.id
             ) ? (
@@ -92,15 +91,16 @@ const MovieCard = (props) => {
                 onClick={() => handleLocalStorageData(movieData)}
               />
             ) : (
-              <BsCheckCircle
+              <BsPlusCircle
                 className="movie-card-button"
                 onClick={() => handleLocalStorageData(movieData)}
               />
             )}
+            {/* TODO: if statement with icons (thumb down if rating is bad, thumb up if it is average and two thumbs up is is good) */}
             <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
-            <BsExclamationCircle
+            <BsInfoCircle
               className="movie-card-button"
               onClick={() => {
                 moreInfoStateHandler(currentMovieID, isTvSeries);
