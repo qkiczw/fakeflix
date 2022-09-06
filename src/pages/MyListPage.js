@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export function MyList() {
   const [myMoviesList, setMyMoviesList] = useState(
-    localStorage.getItem("myMoviesList")
+    JSON.parse(localStorage.getItem("myMoviesList"))
   );
 
   return (
@@ -20,7 +20,7 @@ export function MyList() {
           </h2>
           <Row>
             {myMoviesList ? (
-              JSON.parse(myMoviesList).map((movie) => (
+              myMoviesList.map((movie) => (
                 <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
                   <MovieCard movieData={movie} />
                 </Col>
