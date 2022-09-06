@@ -51,9 +51,10 @@ function App() {
   };
 
   const fetchMovies = async () => {
+    const fetchURL = `https://api.themoviedb.org/3`;
     //set recentMovies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=images&language=en-US&include_image_language=null,en`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=images&language=en-US&include_image_language=null,en`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -65,7 +66,7 @@ function App() {
 
     // set horrorMovies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror.id}`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror.id}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -74,21 +75,21 @@ function App() {
       .catch((error) => console.log("error: ", error));
     // comedyMovies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy.id}`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy.id}`
     )
       .then((response) => response.json())
       .then((data) => setComedyMovies(comedyMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
     // Animation Movies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.animation.id}`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.animation.id}`
     )
       .then((response) => response.json())
       .then((data) => setAnimationMovies(animationMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
     // Documentary Movies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.documentary.id}`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.documentary.id}`
     )
       .then((response) => response.json())
       .then((data) =>
@@ -97,14 +98,14 @@ function App() {
       .catch((error) => console.log("error: ", error));
     // Sci-Fi Movies
     await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.scifi.id}`
+      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.scifi.id}`
     )
       .then((response) => response.json())
       .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
       .catch((error) => console.log("error: ", error));
     //  Tv Series - top_rated
     await fetch(
-      `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `${fetchURL}/tv/top_rated?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) =>
@@ -113,7 +114,7 @@ function App() {
       .catch((error) => console.log("error: ", error));
     // Trending
     await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+      `${fetchURL}/trending/all/day?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => setTrending(trending.concat(data.results)))
@@ -121,7 +122,7 @@ function App() {
 
     // Upcoming Movies
     await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&language=en-US&language=en-US&page=1`
+      `${fetchURL}/movie/upcoming?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&language=en-US&language=en-US&page=1`
     )
       .then((response) => response.json())
       .then((data) => setUpcomingMovies(upcomingMovies.concat(data.results)))
