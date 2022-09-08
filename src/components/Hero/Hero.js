@@ -9,7 +9,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import { freezeAppContainer } from "../../utils/helpers";
 
 // Icons
-import { BsExclamationCircle } from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
 
 const Hero = ({ randomMovie }) => {
   const { title, overview, backdrop_path, id } = randomMovie;
@@ -37,7 +37,7 @@ const Hero = ({ randomMovie }) => {
                 size="lg"
                 className="hero__btn"
               >
-                <BsExclamationCircle />
+                <BsInfoCircle />
                 More Info
               </Button>
             </div>

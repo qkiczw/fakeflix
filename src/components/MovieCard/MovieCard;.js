@@ -20,9 +20,6 @@ const MovieCard = (props) => {
   const currentMovieID = movieData.id;
   const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
 
-  // let localStorageMoviesList =
-  //   JSON.parse(localStorage.getItem("myMoviesList")) ?? [];
-
   // This function check wheter the movie card is near the screen border or not
   function handleMovieCardXpos(event) {
     const currentMovieCard = event.currentTarget;
