@@ -117,7 +117,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
 
             <div className="more-info__desc">
               <h2>
-                {movieInfo.title}
+                {movieInfo.title ? movieInfo.title : movieInfo.name}
                 <a
                   href={`https://www.imdb.com/title/${movieInfo.imdb_id}/`}
                   target="_blank"
@@ -134,14 +134,14 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                 <div>
                   <span className="more-info__section-title">Released: </span>
                   {movieInfo["release_date"]
-                    ? movieInfo["release_date"].substring(0, 4)
-                    : "unknown"}
+                    ? movieInfo["release_date"]
+                    : movieInfo["first_air_date"]}
                 </div>
                 <div>
                   <span className="more-info__section-title">Runtime: </span>
                   {movieInfo.runtime
                     ? runtimeConverter(movieInfo.runtime)
-                    : "unknown"}
+                    : runtimeConverter(movieInfo["episode_run_time"])}
                 </div>
               </div>
               <div className="more-info__overwiev">{movieInfo.overview}</div>
