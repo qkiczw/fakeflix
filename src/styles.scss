@@ -359,23 +359,22 @@ a:hover {
   z-index: 10000;
   opacity: 1;
 }
+.actionButton {
+  font-size: 1.75rem;
+}
 .actionButtons {
   display: flex;
   justify-content: flex-start;
   gap: 0.75rem;
-
-  .actionButton {
-    font-size: 1.75rem;
-  }
 }
-.movie-card-button-close {
+.actionButton__close {
   position: absolute;
   top: 1rem;
   right: 1rem;
   transition: 0.2s all;
   cursor: pointer;
 }
-.movie-card-button-close:hover {
+.actionButton:hover {
   transform: scale(1.05);
 }
 

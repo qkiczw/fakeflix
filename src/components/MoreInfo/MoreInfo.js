@@ -158,7 +158,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
               </div>
             </div>
             <BsXCircle
-              className="movie-card-button movie-card-button-close"
+              className="actionButton actionButton__close"
               onClick={() => {
                 moreInfoStateHandler();
                 setMovieInfo({});

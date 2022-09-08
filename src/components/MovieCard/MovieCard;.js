@@ -77,22 +77,6 @@ const MovieCard = (props) => {
         </div>
         <div className="movie-card-buttons">
           <ActionButtons movieData={movieData} />
-          <span className="movie-card-buttons-left">
-            {/* {localStorageMoviesList.some(
-              (movie) => movie.id === movieData.id
-            ) ? (
-              <BsCheckCircleFill
-                className="movie-card-button"
-                onClick={() => handleLocalStorageData(movieData)}
-              />
-            ) : (
-              <BsPlusCircle
-                className="movie-card-button"
-                onClick={() => handleLocalStorageData(movieData)}
-              />
-            )}
-            {/* TODO: if statement with icons (thumb down if rating is bad, thumb up if it is average and two thumbs up is is good) */}
-          </span>
           <span className="movie-card-buttons-right">
             <BsInfoCircle
               className="movie-card-button"
