@@ -1,4 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+
+// Components
+import ActionButtons from "../ActionButtons/ActionButtons";
+
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 import { MoreInfoContext } from "../../App";
@@ -155,6 +159,9 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                       .slice(0, 5)
                       .map((cast) => cast.name)
                       .join(", ")}
+              </div>
+              <div className="mt-4">
+                <ActionButtons movieData={movieInfo} />
               </div>
             </div>
             <BsXCircle

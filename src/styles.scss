@@ -340,8 +340,8 @@ a:hover {
 
 .movie-card-title {
   position: absolute;
-  top: 0.75rem;
-  left: 1rem;
+  top: 0.25rem;
+  left: 0.5rem;
   font-weight: 500;
 }
 .movie-card-buttons {
@@ -360,7 +360,10 @@ a:hover {
   opacity: 1;
 }
 .actionButton {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+}
+.actionButtons--more-info {
+  margin-top: 1rem;
 }
 .actionButtons {
   display: flex;
@@ -504,6 +507,16 @@ a:hover {
       margin: 2rem;
       width: 75%;
     }
+  }
+
+  .movie-card-title {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-weight: 500;
+  }
+  .actionButton {
+    font-size: 1.75rem;
   }
 }
 
