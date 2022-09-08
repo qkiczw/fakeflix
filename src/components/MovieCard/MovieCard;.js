@@ -2,23 +2,17 @@ import React, { useContext } from "react";
 
 import { MoreInfoContext } from "../../App";
 
+// Components
+import ActionButtons from "../ActionButtons/ActionButtons";
+
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
 // Utils
-import {
-  freezeAppContainer,
-  handleLocalStorageData,
-} from "../../utils/helpers";
+import { freezeAppContainer } from "../../utils/helpers";
 
 // Icons
-import {
-  BsCheckCircle,
-  BsCheckCircleFill,
-  BsHandThumbsUp,
-  BsInfoCircle,
-  BsPlusCircle,
-} from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
 
 const MovieCard = (props) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
@@ -82,8 +76,9 @@ const MovieCard = (props) => {
           {movieData.title ? movieData.title : movieData.name}
         </div>
         <div className="movie-card-buttons">
+          <ActionButtons movieData={movieData} />
           <span className="movie-card-buttons-left">
-            {localStorageMoviesList.some(
+            {/* {localStorageMoviesList.some(
               (movie) => movie.id === movieData.id
             ) ? (
               <BsCheckCircleFill
@@ -97,7 +92,6 @@ const MovieCard = (props) => {
               />
             )}
             {/* TODO: if statement with icons (thumb down if rating is bad, thumb up if it is average and two thumbs up is is good) */}
-            <BsHandThumbsUp className="movie-card-button" />
           </span>
           <span className="movie-card-buttons-right">
             <BsInfoCircle
