@@ -15,7 +15,7 @@ import { BsXCircle, BsPlayCircle } from "react-icons/bs";
 import imdbLogo from "../../assets/logo_imdb.png";
 
 // Utils
-import { unFreezeAppContainer } from "../../utils/helpers";
+import { unFreezeAppContainer, runtimeConverter } from "../../utils/helpers";
 
 const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
@@ -26,14 +26,6 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
   let filteredTrailers = movieInfo?.videos?.results.filter(
     (item) => item.type === "Trailer"
   );
-
-  const runtimeConverter = (time) => {
-    let hours = time / 60;
-    let hour = Math.floor(hours);
-    let minutes = Math.floor((hours - hour) * 60);
-
-    return `${hour}h ${minutes}min`;
-  };
 
   // youtube options
   const youTubeOpts = {

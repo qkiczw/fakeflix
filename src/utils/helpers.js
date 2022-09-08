@@ -93,3 +93,15 @@ export const changeTitleToLowerCase = (title) =>
   Array.from(title)
     .map((letter) => letter.toLowerCase())
     .join("");
+
+// RunTime Converter
+export const runtimeConverter = (time) => {
+  const hours = time / 60;
+  const hour = Math.floor(hours);
+  const minutes = Math.floor((hours - hour) * 60);
+
+  const timeWithHours = `${hour}h ${minutes}min`;
+  const timeWithoutHours = `${minutes}min`;
+
+  return hours >= 1 ? timeWithHours : timeWithoutHours;
+};
