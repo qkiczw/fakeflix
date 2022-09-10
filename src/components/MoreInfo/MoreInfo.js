@@ -9,7 +9,7 @@ import { MoreInfoContext } from "../../App";
 import YouTube from "react-youtube";
 
 // Icons
-import { BsXCircle, BsPlayCircle } from "react-icons/bs";
+import { BsXCircle, BsPlayCircle, BsFillStarFill } from "react-icons/bs";
 
 // Assets
 import imdbLogo from "../../assets/logo_imdb.png";
@@ -122,7 +122,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                   />
                 </a>
               </h2>
-              <div className="more-info__date-and-time-info">
+              <div className="more-info__rating-date-and-time-info">
                 <div>
                   <span className="more-info__section-title">Released: </span>
                   {movieInfo["release_date"]
@@ -134,6 +134,10 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                   {movieInfo.runtime
                     ? runtimeConverter(movieInfo.runtime)
                     : runtimeConverter(movieInfo["episode_run_time"])}
+                </div>
+                <div>
+                  <span className="more-info__section-title">Rating: </span>
+                  {Number(movieInfo["vote_average"]).toFixed(1)}/10
                 </div>
               </div>
               <div className="more-info__overwiev">{movieInfo.overview}</div>
@@ -152,7 +156,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
                       .map((cast) => cast.name)
                       .join(", ")}
               </div>
-              <div className="mt-4">
+              <div className="mt-4 more-info__action-buttons">
                 <ActionButtons movieData={movieInfo} />
               </div>
             </div>

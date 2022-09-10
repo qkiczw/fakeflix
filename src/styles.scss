@@ -421,9 +421,9 @@ a:hover {
     -moz-box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
     box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 1);
   }
-  &__date-and-time-info {
+  &__rating-date-and-time-info {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
   }
   &__overwiev {
     margin-top: 1rem;
@@ -478,6 +478,9 @@ a:hover {
     margin-top: 1rem;
     color: #8b8888;
   }
+  &__action-buttons {
+    display: flex;
+  }
 }
 
 /* Footer */
@@ -509,6 +512,10 @@ a:hover {
     }
   }
 
+  .more-info__rating-date-and-time-info {
+    flex-direction: row;
+    gap: 1rem;
+  }
   .movie-card-title {
     position: absolute;
     top: 0.75rem;
