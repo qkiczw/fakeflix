@@ -105,3 +105,15 @@ export const runtimeConverter = (time) => {
 
   return hours >= 1 ? timeWithHours : timeWithoutHours;
 };
+
+export const isMovieReleased = (date) => {
+  const releaseDateOfAMovie = Date.parse(date);
+  const now = Date.now();
+
+  if (releaseDateOfAMovie < now) {
+    return `Released`;
+  }
+  if (releaseDateOfAMovie > now) {
+    return `Coming soon`;
+  }
+};

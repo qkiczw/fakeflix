@@ -13,7 +13,7 @@ import { BsFillBellFill } from "react-icons/bs";
 import genericThumb from "../../assets/genericThumb.jpg";
 
 // helper
-import { freezeAppContainer } from "../../utils/helpers";
+import { freezeAppContainer, isMovieReleased } from "../../utils/helpers";
 
 const Notifications = ({ upcoming }) => {
   const [showAlerts, setAlertsVisibility] = useState(false);
@@ -57,7 +57,9 @@ const Notifications = ({ upcoming }) => {
                 >
                   <strong>{movie.title ? movie.title : movie.name}</strong>
                 </p>
-                <p className="notification-text">Comming Soon.</p>
+                <p className="notification-text">
+                  {isMovieReleased(movie["release_date"])}
+                </p>
               </div>
             </Col>
           ))}
