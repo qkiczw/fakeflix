@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+// ContexAPI
+import { MoreInfoContext } from "../../App";
 
 // BootstrapComponents
 import { Container, Col } from "react-bootstrap";
@@ -9,8 +12,12 @@ import { BsFillBellFill } from "react-icons/bs";
 // Assets
 import genericThumb from "../../assets/genericThumb.jpg";
 
-const Notifications = ({ trending }) => {
+// helper
+import { freezeAppContainer } from "../../utils/helpers";
+
+const Notifications = ({ upcoming }) => {
   const [showAlerts, setAlertsVisibility] = useState(false);
+  const moreInfoStateHandler = useContext(MoreInfoContext);
 
   return (
     <div className="notification-container">
@@ -23,7 +30,7 @@ const Notifications = ({ trending }) => {
       </div>
       <Container onMouseEnter={() => setAlertsVisibility(true)} fluid>
         <div className={`alerts-container ${showAlerts ? "" : "hidden"}`}>
-          {trending.map((movie) => (
+          {upcoming.map((movie) => (
             <Col key={movie.id} xs={12} className="notification">
               <div>
                 <img
@@ -34,10 +41,20 @@ const Notifications = ({ trending }) => {
                       : genericThumb
                   }
                   alt={movie.title}
+                  onClick={() => {
+                    moreInfoStateHandler(movie.id, false);
+                    freezeAppContainer();
+                  }}
                 />
               </div>
               <div className="notification-desc">
-                <p className="notification-title">
+                <p
+                  className="notification-title"
+                  onClick={() => {
+                    moreInfoStateHandler(movie.id, false);
+                    freezeAppContainer();
+                  }}
+                >
                   <strong>{movie.title ? movie.title : movie.name}</strong>
                 </p>
                 <p className="notification-text">Comming Soon.</p>

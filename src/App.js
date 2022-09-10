@@ -152,7 +152,7 @@ function App() {
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
         <Container fluid className="app__container">
-          <Header trending={trending} searchMovie={searchMovie} />
+          <Header upcoming={upcomingMovies} searchMovie={searchMovie} />
           <Routes>
             <Route
               exact

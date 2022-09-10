@@ -14,7 +14,7 @@ import logo from "../../assets/logo.png";
 // Icons
 import { BsFillPersonFill } from "react-icons/bs";
 
-const Header = ({ trending, searchMovie }) => {
+const Header = ({ upcoming, searchMovie }) => {
   return (
     <>
       <header className="header">
@@ -55,7 +55,7 @@ const Header = ({ trending, searchMovie }) => {
                     className="nav__icon"
                     searchMovie={searchMovie}
                   />
-                  <Notifications trending={trending} className="nav__icon" />
+                  <Notifications upcoming={upcoming} className="nav__icon" />
                   <BsFillPersonFill className="nav__icon" />
                 </Col>
               </Nav>

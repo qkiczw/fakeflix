@@ -231,9 +231,11 @@ a:hover {
 }
 .notification-thumb {
   max-width: 100px;
+  cursor: pointer;
 }
 .notification-title {
   margin-bottom: 0;
+  cursor: pointer;
 }
 .notification-desc {
   padding-left: 0.5rem;
