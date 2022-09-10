@@ -76,7 +76,7 @@ const MovieCard = (props) => {
           <ActionButtons movieData={movieData} />
           <div>
             <BsInfoCircle
-              className="actionButton"
+              className="actionButton actionButton__info"
               onClick={() => {
                 moreInfoStateHandler(currentMovieID, isTvSeries);
                 freezeAppContainer();
