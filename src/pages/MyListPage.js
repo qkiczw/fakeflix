@@ -6,6 +6,8 @@ import MovieCard from "../components/MovieCard/MovieCard;";
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 
+import { BsXCircle, BsPlayCircle, BsFillStarFill } from "react-icons/bs";
+
 export function MyList() {
   const [myMoviesList, setMyMoviesList] = useState(
     JSON.parse(localStorage.getItem("myMoviesList"))

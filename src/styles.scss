@@ -1,6 +1,29 @@
+html {
+  font-size: 62.5%; // from now 1rem === 10px
+}
+body {
+  font-size: 1.6rem; // we set default font size value to the 16px as it was
+}
+
 a,
 a:hover {
   color: #fff;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  color: #fff;
+}
+.button__icon {
+  color: white;
+  font-size: 3rem;
 }
 
 /* css for react router NavLink */
