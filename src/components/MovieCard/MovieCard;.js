@@ -33,25 +33,42 @@ const MovieCard = (props) => {
 
     let cardPos = currentMovieCardRightXpos + 100;
 
-    currentMovieCard.style.transform = "scale(1.5)";
+    // currentMovieCard.style.transform = "scale(1.5)";
 
-    if (cardPos > bodyWidth) {
-      currentMovieCard.style.transform = `${
-        window.innerWidth < 768 ? "translateX(-50px)" : "translateX(-100px)"
-      } scale(1.5)`;
-    }
-    if (currentMovieCardLeftXpos < 100) {
-      currentMovieCard.style.transform = `${
-        window.innerWidth < 768 ? "translateX(50px)" : "translateX(100px)"
-      } scale(1.5)`;
-    }
+    // if (cardPos > bodyWidth) {
+    //   currentMovieCard.style.transform = `${
+    //     window.innerWidth < 768 ? "translateX(-50px)" : "translateX(-100px)"
+    //   } `;
+    // }
+    // if (currentMovieCardLeftXpos < 100) {
+    //   currentMovieCard.style.transform = `${
+    //     window.innerWidth < 768 ? "translateX(50px)" : "translateX(100px)"
+    //   } `;
+    // }
   }
 
-  const resizeMovieCard = (event) => {
-    console.log("Screen Touched!");
+  const movieCardResizer = (event) => {
+    const screenWidth = document
+      .querySelector("body")
+      .getBoundingClientRect().width;
     const currentMovieCard = event.currentTarget;
-    currentMovieCard.classList.toggle("movie-card__container--active");
-    console.log(`movieCard:`, currentMovieCard);
+    const currentMovieCardRightXpos =
+      screenWidth - event.currentTarget.getBoundingClientRect().right;
+    const currentMovieCardLeftXpos =
+      event.currentTarget.getBoundingClientRect().left;
+
+    console.log(`currenLeftPos: `, currentMovieCardLeftXpos);
+    console.log(`currenRightPos: `, currentMovieCardRightXpos);
+
+    if (currentMovieCardLeftXpos <= 50) {
+      console.log(`Movie card is on the left`);
+    }
+    if (currentMovieCardRightXpos <= 50) {
+      console.log(`Movie card is on the right`);
+    }
+    if (currentMovieCardLeftXpos >= 50 && currentMovieCardRightXpos >= 50) {
+      console.log("Movie Card is centered");
+    }
   };
 
   // This function reset scale and translate styles on mouse leave listener
@@ -66,7 +83,7 @@ const MovieCard = (props) => {
         className="movie-card__container"
         onMouseOver={(event) => handleMovieCardXpos(event)}
         onMouseLeave={(event) => resetMovieCardXpos(event)}
-        onTouchStart={(event) => resizeMovieCard(event)}
+        onTouchStart={(event) => movieCardResizer(event)}
       >
         <img
           className="movie-card-image"
