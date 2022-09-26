@@ -47,6 +47,13 @@ const MovieCard = (props) => {
     }
   }
 
+  const resizeMovieCard = (event) => {
+    console.log("Screen Touched!");
+    const currentMovieCard = event.currentTarget;
+    currentMovieCard.classList.toggle("movie-card__container--active");
+    console.log(`movieCard:`, currentMovieCard);
+  };
+
   // This function reset scale and translate styles on mouse leave listener
   function resetMovieCardXpos(event) {
     const currentMovieCard = event.currentTarget;
@@ -57,8 +64,9 @@ const MovieCard = (props) => {
     <>
       <div
         className="movie-card__container"
-        onMouseOver={(e) => handleMovieCardXpos(e)}
-        onMouseLeave={(e) => resetMovieCardXpos(e)}
+        onMouseOver={(event) => handleMovieCardXpos(event)}
+        onMouseLeave={(event) => resetMovieCardXpos(event)}
+        onTouchStart={(event) => resizeMovieCard(event)}
       >
         <img
           className="movie-card-image"
@@ -76,7 +84,7 @@ const MovieCard = (props) => {
           <ActionButtons movieData={movieData} />
           <div>
             <BsInfoCircle
-              className="actionButton actionButton__info"
+              className="actionButton actionButton__info hidden"
               onClick={() => {
                 moreInfoStateHandler(currentMovieID, isTvSeries);
                 freezeAppContainer();

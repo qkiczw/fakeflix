@@ -24,23 +24,23 @@ const ActionButtons = ({ movieData }) => {
           {isMovieOnTheList ? (
             <BsCheckCircleFill
               className="actionButton"
-              onClick={() => {
+              onClick={(e) => {
+                // setMovieOnTheList(!isMovieOnTheList);
                 handleLocalStorageData(movieData);
-                setMovieOnTheList(!isMovieOnTheList);
               }}
             />
           ) : (
             <BsPlusCircle
               className="actionButton"
-              onClick={() => {
+              onClick={(e) => {
+                // setMovieOnTheList(!isMovieOnTheList);
                 handleLocalStorageData(movieData);
-                setMovieOnTheList(!isMovieOnTheList);
               }}
             />
           )}
           {/* TODO: if statement with icons (thumb down if rating is bad, thumb up if it is average and two thumbs up is is good) */}
         </div>
-        <div className="actionButtons__button">
+        <div className="actionButtons__button ">
           <BsHandThumbsUp className="actionButton" />
         </div>
       </div>
