@@ -31,7 +31,7 @@ const MovieCard = (props) => {
       .querySelector("body")
       .getBoundingClientRect().width;
 
-    let cardPos = currentMovieCardRightXpos + 100;
+    // let cardPos = currentMovieCardRightXpos + 100;
 
     // currentMovieCard.style.transform = "scale(1.5)";
 
@@ -47,43 +47,67 @@ const MovieCard = (props) => {
     // }
   }
 
-  const movieCardResizer = (event) => {
+  const movieCardPositionChecker = (event) => {
     const screenWidth = document
       .querySelector("body")
       .getBoundingClientRect().width;
-    const currentMovieCard = event.currentTarget;
+    // const currentMovieCard = event.currentTarget;
     const currentMovieCardRightXpos =
       screenWidth - event.currentTarget.getBoundingClientRect().right;
     const currentMovieCardLeftXpos =
       event.currentTarget.getBoundingClientRect().left;
 
-    console.log(`currenLeftPos: `, currentMovieCardLeftXpos);
-    console.log(`currenRightPos: `, currentMovieCardRightXpos);
+    // console.log(`currenLeftPos: `, currentMovieCardLeftXpos);
+    // console.log(`currenRightPos: `, currentMovieCardRightXpos);
 
     if (currentMovieCardLeftXpos <= 50) {
-      console.log(`Movie card is on the left`);
+      // console.log(`Movie card is on the left`);
+      return `left`;
     }
     if (currentMovieCardRightXpos <= 50) {
-      console.log(`Movie card is on the right`);
+      // console.log(`Movie card is on the right`);
+      return `right`;
     }
     if (currentMovieCardLeftXpos >= 50 && currentMovieCardRightXpos >= 50) {
-      console.log("Movie Card is centered");
+      // console.log("Movie Card is centered");
+      return `center`;
+    }
+  };
+
+  const movieCardResizer = (event) => {
+    const currentMovieCard = event.currentTarget;
+    console.log(movieCardPositionChecker(event));
+
+    if (movieCardPositionChecker(event) === "left") {
+      // console.log(`Card is on the left side`);
+      currentMovieCard.classList.add("movie-card__container--active");
+    }
+    if (movieCardPositionChecker(event) === "right") {
+      // console.log(`Card is on the right side`);
+      currentMovieCard.classList.add("movie-card__container--active");
+    }
+    if (movieCardPositionChecker(event) === "center") {
+      // console.log(`Card is on the center of the app`);
+      currentMovieCard.classList.add("movie-card__container--active");
     }
   };
 
   // This function reset scale and translate styles on mouse leave listener
-  function resetMovieCardXpos(event) {
+  function resetMovieCardsize(event) {
     const currentMovieCard = event.currentTarget;
-    currentMovieCard.style.transform = `translateX(0) scale(1)`;
+    currentMovieCard.classList.remove("movie-card__container--active");
   }
 
   return (
     <>
       <div
         className="movie-card__container"
-        onMouseOver={(event) => handleMovieCardXpos(event)}
-        onMouseLeave={(event) => resetMovieCardXpos(event)}
-        onTouchStart={(event) => movieCardResizer(event)}
+        onTouchStart={(event) => movieCardPositionChecker(event)}
+        onMouseOver={(event) => {
+          movieCardResizer(event);
+          movieCardPositionChecker(event);
+        }}
+        onMouseLeave={(event) => resetMovieCardsize(event)}
       >
         <img
           className="movie-card-image"
