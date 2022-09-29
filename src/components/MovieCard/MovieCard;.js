@@ -58,12 +58,11 @@ const MovieCard = (props) => {
       .querySelector("body")
       .getBoundingClientRect().width;
     const currentMovieCard = event.currentTarget;
-    const marginFromTheLefOrRightSide = screenWidth < 768 ? `10` : `75`;
+    const marginFromTheLefOrRightSide = screenWidth < 768 ? `50` : `75`;
 
     if (movieCardPositionChecker(event) === "left") {
       currentMovieCard.classList.add("movie-card__container--active");
       currentMovieCard.style.transform = `scale(1.5) translateX(${marginFromTheLefOrRightSide}px)`;
-      console.log(marginFromTheLefOrRightSide);
     }
     if (movieCardPositionChecker(event) === "right") {
       currentMovieCard.classList.add("movie-card__container--active");
@@ -109,7 +108,7 @@ const MovieCard = (props) => {
           <ActionButtons movieData={movieData} />
           <div>
             <BsInfoCircle
-              className="actionButton actionButton__info hidden"
+              className="actionButton actionButton__info"
               onClick={() => {
                 moreInfoStateHandler(currentMovieID, isTvSeries);
                 freezeAppContainer();
