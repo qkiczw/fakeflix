@@ -54,17 +54,24 @@ const MovieCard = (props) => {
   };
 
   const movieCardResizer = (event) => {
+    const screenWidth = document
+      .querySelector("body")
+      .getBoundingClientRect().width;
     const currentMovieCard = event.currentTarget;
-    console.log(movieCardPositionChecker(event));
+    const marginFromTheLefOrRightSide = screenWidth < 768 ? `10` : `75`;
 
     if (movieCardPositionChecker(event) === "left") {
       currentMovieCard.classList.add("movie-card__container--active");
+      currentMovieCard.style.transform = `scale(1.5) translateX(${marginFromTheLefOrRightSide}px)`;
+      console.log(marginFromTheLefOrRightSide);
     }
     if (movieCardPositionChecker(event) === "right") {
       currentMovieCard.classList.add("movie-card__container--active");
+      currentMovieCard.style.transform = `scale(1.5) translateX(${-marginFromTheLefOrRightSide}px)`;
     }
     if (movieCardPositionChecker(event) === "center") {
       currentMovieCard.classList.add("movie-card__container--active");
+      currentMovieCard.style.transform = `scale(1.5) translateX(0px)`;
     }
   };
 
@@ -72,6 +79,7 @@ const MovieCard = (props) => {
   function resetMovieCardsize(event) {
     const currentMovieCard = event.currentTarget;
     currentMovieCard.classList.remove("movie-card__container--active");
+    currentMovieCard.style.transform = `scale(1) translateX(0px)`;
   }
 
   return (
