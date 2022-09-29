@@ -30,21 +30,6 @@ const MovieCard = (props) => {
     const bodyWidth = document
       .querySelector("body")
       .getBoundingClientRect().width;
-
-    // let cardPos = currentMovieCardRightXpos + 100;
-
-    // currentMovieCard.style.transform = "scale(1.5)";
-
-    // if (cardPos > bodyWidth) {
-    //   currentMovieCard.style.transform = `${
-    //     window.innerWidth < 768 ? "translateX(-50px)" : "translateX(-100px)"
-    //   } `;
-    // }
-    // if (currentMovieCardLeftXpos < 100) {
-    //   currentMovieCard.style.transform = `${
-    //     window.innerWidth < 768 ? "translateX(50px)" : "translateX(100px)"
-    //   } `;
-    // }
   }
 
   const movieCardPositionChecker = (event) => {
@@ -57,19 +42,13 @@ const MovieCard = (props) => {
     const currentMovieCardLeftXpos =
       event.currentTarget.getBoundingClientRect().left;
 
-    // console.log(`currenLeftPos: `, currentMovieCardLeftXpos);
-    // console.log(`currenRightPos: `, currentMovieCardRightXpos);
-
     if (currentMovieCardLeftXpos <= 50) {
-      // console.log(`Movie card is on the left`);
       return `left`;
     }
     if (currentMovieCardRightXpos <= 50) {
-      // console.log(`Movie card is on the right`);
       return `right`;
     }
     if (currentMovieCardLeftXpos >= 50 && currentMovieCardRightXpos >= 50) {
-      // console.log("Movie Card is centered");
       return `center`;
     }
   };
@@ -79,15 +58,12 @@ const MovieCard = (props) => {
     console.log(movieCardPositionChecker(event));
 
     if (movieCardPositionChecker(event) === "left") {
-      // console.log(`Card is on the left side`);
       currentMovieCard.classList.add("movie-card__container--active");
     }
     if (movieCardPositionChecker(event) === "right") {
-      // console.log(`Card is on the right side`);
       currentMovieCard.classList.add("movie-card__container--active");
     }
     if (movieCardPositionChecker(event) === "center") {
-      // console.log(`Card is on the center of the app`);
       currentMovieCard.classList.add("movie-card__container--active");
     }
   };
