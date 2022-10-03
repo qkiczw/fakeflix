@@ -20,21 +20,21 @@ const Notifications = ({ upcoming }) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
 
   return (
-    <div className="notification-container">
+    <div className="notifications__container">
       <div
-        className="user-icon alert-button"
+        className="user-icon alert__button"
         onClick={() => setAlertsVisibility(!showAlerts)}
       >
         <BsFillBellFill />
-        <span className="notification-alert">1</span>
+        <span className="notifications__alert">1</span>
       </div>
       <Container onMouseEnter={() => setAlertsVisibility(true)} fluid>
-        <div className={`alerts-container ${showAlerts ? "" : "hidden"}`}>
+        <div className={`alerts__container ${showAlerts ? "" : "hidden"}`}>
           {upcoming.map((movie) => (
             <Col key={movie.id} xs={12} className="notification">
               <div>
                 <img
-                  className="notification-thumb"
+                  className="notification__thumb"
                   src={
                     movie.backdrop_path
                       ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
@@ -47,9 +47,9 @@ const Notifications = ({ upcoming }) => {
                   }}
                 />
               </div>
-              <div className="notification-desc">
+              <div className="notification__desc">
                 <p
-                  className="notification-title"
+                  className="notification__title"
                   onClick={() => {
                     moreInfoStateHandler(movie.id, false);
                     freezeAppContainer();

@@ -74,6 +74,7 @@ const MovieCard = (props) => {
     }
   };
 
+ 
   // This function reset scale and translate styles on mouse leave listener
   function resetMovieCardsize(event) {
     const currentMovieCard = event.currentTarget;
@@ -85,7 +86,9 @@ const MovieCard = (props) => {
     <>
       <div
         className="movie-card__container"
-        onTouchStart={(event) => movieCardPositionChecker(event)}
+        onTouchStart={(event) => {
+          movieCardPositionChecker(event);
+        }}
         onMouseOver={(event) => {
           movieCardResizer(event);
           movieCardPositionChecker(event);
