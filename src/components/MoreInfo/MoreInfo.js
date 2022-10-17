@@ -35,6 +35,15 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
     },
   };
 
+  // Test function to close the component after clik oustisde moreinfo componemt
+  const OutsideClickDetector = (e) => {
+    // console.log("MoreInfo Click", e.target);
+    const clickedArea = e.target;
+    clickedArea.classList.contains("more-info__container")
+      ? console.log("outside area")
+      : console.log("moreInfo ara :/");
+  };
+
   const showTrailer = () => {
     document.querySelector(".more-info__image").classList.add("hidden");
     document.querySelector(".more-info__play-btns").classList.add("hidden");
@@ -80,6 +89,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
   return (
     <>
       <Container
+        onClick={(e) => OutsideClickDetector(e)}
         fluid
         className={`more-info__container ${
           hidden ? "more-info__container--hidden" : ""
