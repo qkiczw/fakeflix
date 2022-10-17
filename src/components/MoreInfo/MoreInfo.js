@@ -41,7 +41,7 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
     const clickedArea = e.target;
     clickedArea.classList.contains("more-info__container")
       ? console.log("outside area")
-      : console.log("moreInfo ara :/");
+      : console.log("moreInfo area :/");
   };
 
   const showTrailer = () => {
