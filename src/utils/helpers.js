@@ -61,7 +61,6 @@ export const genresIDtoNames = (item) => {
 
 export const freezeAppContainer = () => {
   document.querySelector(".app__container").classList.add("frozen");
-  document.querySelector(".more-info__container").style.top = `150px`;
 };
 export const unFreezeAppContainer = () => {
   document.querySelector(".app__container").classList.remove("frozen");
