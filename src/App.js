@@ -58,6 +58,13 @@ function App() {
     unFreezeAppContainer();
   };
 
+  const closeNotificationsMenu = (e) => {
+    console.log(e.target);
+
+    // set default state (false) via props to notifications component when user
+    // clicks on the outside area of notifications container
+  };
+
   const fetchMovies = async () => {
     const fetchURL = `https://api.themoviedb.org/3`;
     //set recentMovies
@@ -159,7 +166,11 @@ function App() {
   return (
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
-        <Container fluid className="app__container">
+        <Container
+          fluid
+          className="app__container"
+          onClick={(e) => closeNotificationsMenu(e)}
+        >
           <Header upcoming={upcomingMovies} searchMovie={searchMovie} />
           <Routes>
             <Route
