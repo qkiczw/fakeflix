@@ -17,7 +17,12 @@ import imdbLogo from "../../assets/logo_imdb.png";
 // Utils
 import { unFreezeAppContainer, runtimeConverter } from "../../utils/helpers";
 
-const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
+const MoreInfo = ({
+  hidden,
+  movieID,
+  isTvSeriesCard,
+  closeMoreInfoComponent,
+}) => {
   const moreInfoStateHandler = useContext(MoreInfoContext);
 
   const [movieCast, setMovieCast] = useState({});
@@ -37,11 +42,11 @@ const MoreInfo = ({ hidden, movieID, isTvSeriesCard }) => {
 
   // Test function to close the component after clik oustisde moreinfo componemt
   const OutsideClickDetector = (e) => {
-    // console.log("MoreInfo Click", e.target);
     const clickedArea = e.target;
-    clickedArea.classList.contains("more-info__container")
-      ? console.log("outside area")
-      : console.log("moreInfo area :/");
+
+    if (clickedArea.classList.contains("more-info__container")) {
+      closeMoreInfoComponent();
+    }
   };
 
   const showTrailer = () => {

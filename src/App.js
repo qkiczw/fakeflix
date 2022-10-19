@@ -16,6 +16,9 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MoreInfo from "./components/MoreInfo/MoreInfo";
 
+// Utils
+import { unFreezeAppContainer } from "./utils/helpers";
+
 // CSS
 import "./styles.scss";
 
@@ -48,6 +51,11 @@ function App() {
     setMovieInfoComponentShow(!movieInfoComponentShow);
     setMovieID(id);
     setTvSeriesCard(isTvSeries);
+  };
+
+  const closeMoreInfoComponent = () => {
+    setMovieInfoComponentShow(true);
+    unFreezeAppContainer();
   };
 
   const fetchMovies = async () => {
@@ -192,6 +200,7 @@ function App() {
           hidden={movieInfoComponentShow}
           movieID={movieID}
           isTvSeriesCard={isTvSeriesCard}
+          closeMoreInfoComponent={closeMoreInfoComponent}
         />
       </MoreInfoContext.Provider>
     </>
