@@ -9,7 +9,7 @@ import { MoreInfoContext } from "../../App";
 import YouTube from "react-youtube";
 
 // Icons
-import { BsXCircle, BsPlayCircle, BsFillStarFill } from "react-icons/bs";
+import { BsXCircle, BsPlayCircle } from "react-icons/bs";
 
 // Assets
 import imdbLogo from "../../assets/logo_imdb.png";
@@ -46,6 +46,11 @@ const MoreInfo = ({
 
     if (clickedArea.classList.contains("more-info__container")) {
       closeMoreInfoComponent();
+      moreInfoStateHandler();
+      setMovieInfo({});
+      setMovieCast({});
+      unFreezeAppContainer();
+      hideTrailer();
     }
   };
 
