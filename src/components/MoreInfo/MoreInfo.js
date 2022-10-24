@@ -27,6 +27,7 @@ const MoreInfo = ({
 
   const [movieCast, setMovieCast] = useState({});
   const [movieInfo, setMovieInfo] = useState({});
+  const [movieProviders, setMovieProvbiders] = useState({});
 
   let filteredTrailers = movieInfo?.videos?.results.filter(
     (item) => item.type === "Trailer"
@@ -75,6 +76,7 @@ const MoreInfo = ({
         setMovieCast(data);
       })
       .catch((error) => console.log("error: ", error));
+
     // fetchinf movie info
     await fetch(
       `https://api.themoviedb.org/3/${
@@ -86,6 +88,20 @@ const MoreInfo = ({
       .then((response) => response.json())
       .then((data) => {
         setMovieInfo(data);
+      })
+      .catch((error) => console.log("error: ", error));
+
+    // fetch providers
+    await fetch(
+      `https://api.themoviedb.org/3/${
+        isTvSeriesCard ? "tv" : "movie"
+      }/${movieID}/watch/providers?api_key=${
+        process.env.REACT_APP_MOVIES_API_KEY
+      }&append_to_response=videos`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieProvbiders(data.results["US"]);
       })
       .catch((error) => console.log("error: ", error));
   };

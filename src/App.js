@@ -59,8 +59,7 @@ function App() {
   };
 
   const closeNotificationsMenu = (e) => {
-    console.log(e.target);
-
+    // console.log(e.target);
     // set default state (false) via props to notifications component when user
     // clicks on the outside area of notifications container
   };
