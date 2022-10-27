@@ -193,7 +193,7 @@ const MoreInfo = ({
                       .map((cast) => cast.name)
                       .join(", ")}
               </div>
-              <Providers />
+              <Providers movieProviders={movieProviders} />
               <div className="mt-4 more-info__action-buttons">
                 <ActionButtons movieData={movieInfo} />
               </div>
