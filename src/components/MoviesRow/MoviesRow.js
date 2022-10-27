@@ -17,11 +17,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const MoviesRow = ({ movies, rowTitle, tvSeries }) => {
   return (
-    <section className="mt-5">
+    <section className="mt-5 pt-5">
       <Container fluid className="movies-row">
         <Row>
           <Col className="movies-row__title">
-            <h2>{rowTitle}</h2>
+            <h2 className="movies-row__genre">{rowTitle}</h2>
             <SeeAllButton />
           </Col>
         </Row>

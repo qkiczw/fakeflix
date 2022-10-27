@@ -181,6 +181,10 @@ a:hover {
     transform: translateX(0px);
     transition: 400ms all;
   }
+  &__genre {
+    font-size: 2.6rem;
+    font-weight: bold;
+  }
 }
 .see-all-category {
   &__button {
@@ -549,7 +553,11 @@ a:hover {
       width: 75%;
     }
   }
-
+  .movies-row {
+    &__genre {
+      font-size: 3rem;
+    }
+  }
   .more-info__rating-date-and-time-info {
     flex-direction: row;
     gap: 1rem;
@@ -574,11 +582,19 @@ a:hover {
       width: 40%;
     }
     &__title {
-      font-size: 2rem;
+      font-size: 3.6rem;
     }
   }
   .swiper-button-prev::after,
   .swiper-button-next::after {
     display: block;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .movies-row {
+    &__genre {
+      font-size: 3.6rem;
+    }
   }
 }
