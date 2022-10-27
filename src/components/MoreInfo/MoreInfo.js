@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 // Components
 import ActionButtons from "../ActionButtons/ActionButtons";
+import Providers from "../Providers/Providers";
 
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
@@ -192,6 +193,7 @@ const MoreInfo = ({
                       .map((cast) => cast.name)
                       .join(", ")}
               </div>
+              <Providers />
               <div className="mt-4 more-info__action-buttons">
                 <ActionButtons movieData={movieInfo} />
               </div>
