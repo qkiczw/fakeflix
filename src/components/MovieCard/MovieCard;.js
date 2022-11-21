@@ -21,16 +21,16 @@ const MovieCard = (props) => {
   const isTvSeries = props.tvSeries; // Detect is card for a tv-series or for movie
 
   // This function check wheter the movie card is near the screen border or not
-  function handleMovieCardXpos(event) {
-    const currentMovieCard = event.currentTarget;
-    const currentMovieCardRightXpos =
-      event.currentTarget.getBoundingClientRect().right;
-    const currentMovieCardLeftXpos =
-      event.currentTarget.getBoundingClientRect().left;
-    const bodyWidth = document
-      .querySelector("body")
-      .getBoundingClientRect().width;
-  }
+  // function handleMovieCardXpos(event) {
+  //   const currentMovieCard = event.currentTarget;
+  //   const currentMovieCardRightXpos =
+  //     event.currentTarget.getBoundingClientRect().right;
+  //   const currentMovieCardLeftXpos =
+  //     event.currentTarget.getBoundingClientRect().left;
+  //   const bodyWidth = document
+  //     .querySelector("body")
+  //     .getBoundingClientRect().width;
+  // }
 
   const movieCardPositionChecker = (event) => {
     const screenWidth = document

@@ -28,7 +28,7 @@ const MoreInfo = ({
 
   const [movieCast, setMovieCast] = useState({});
   const [movieInfo, setMovieInfo] = useState({});
-  const [movieProviders, setMovieProvbiders] = useState({});
+  const [movieProviders, setMovieProviders] = useState({});
 
   let filteredTrailers = movieInfo?.videos?.results.filter(
     (item) => item.type === "Trailer"
@@ -102,7 +102,7 @@ const MoreInfo = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        setMovieProvbiders(data.results["US"]);
+        setMovieProviders(data.results["US"]);
       })
       .catch((error) => console.log("error: ", error));
   };
