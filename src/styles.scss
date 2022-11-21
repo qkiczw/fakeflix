@@ -423,13 +423,6 @@ a:hover {
   transform: scale(1.05);
 }
 
-// .movie-card-button::after,
-// .movie-card-button::before {
-//   position: relative;
-//   content: "xxx";
-//   width: 100px;
-//   height: 100px;
-// }
 .movie-card-desc {
   display: flex;
 
@@ -522,6 +515,22 @@ a:hover {
   }
   &__action-buttons {
     display: flex;
+  }
+}
+.providers {
+  &__list {
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+
+    .provider {
+      &__logo {
+        border-radius: 7px;
+        max-width: 75px;
+      }
+    }
   }
 }
 
