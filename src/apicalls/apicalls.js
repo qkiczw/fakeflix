@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const MOVIE_GENRES = {
   action: { id: 28, name: "Action" },
   adventure: { id: 12, name: "Adventure" },
@@ -39,4 +41,16 @@ const TV_GENRES = {
   western: { id: 37, name: "Western" },
 };
 
+// Axios test field
+
+const testApiCall = () => {
+
+  axios.get('https://jsonplaceholder.typicode.com/users').then( response => {
+    console.log("users: ", response.data)
+  }).catch( error => console.log(error))
+};
+
+testApiCall();
+
 export { MOVIE_GENRES, TV_GENRES };
+
