@@ -43,14 +43,17 @@ const TV_GENRES = {
 
 // Axios test field
 
-const testApiCall = () => {
-
-  axios.get('https://jsonplaceholder.typicode.com/users').then( response => {
-    console.log("users: ", response.data)
-  }).catch( error => console.log(error))
+const getMoviesByGenre = (genre) => {
+  const fetchURL = `https://api.themoviedb.org/3/`;
+  axios.get(`${fetchURL}discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${genre}`)
+  .then( response => {
+  console.log(`Movies: `, response.data);
+  })
+  .catch( error => console.log(error))
 };
-
-testApiCall();
+getMoviesByGenre(MOVIE_GENRES.horror.id);
 
 export { MOVIE_GENRES, TV_GENRES };
+
+
 
