@@ -34,6 +34,8 @@ const MoreInfo = ({
     (item) => item.type === "Trailer"
   );
 
+  console.log(`trailers: `, filteredTrailers);
+
   // youtube options
   const youTubeOpts = {
     playerVars: {
@@ -127,9 +129,15 @@ const MoreInfo = ({
             <div className="more-info__media">
               <YouTube
                 className="more-info__video ratio ratio-16x9"
-                videoId={filteredTrailers ? filteredTrailers[0].key : ""}
+                videoId={
+                  filteredTrailers === undefined ||
+                  filteredTrailers[0].key === undefined
+                    ? ""
+                    : filteredTrailers[0].key
+                }
                 opts={youTubeOpts}
               />
+
               <img
                 className="more-info__image"
                 src={
