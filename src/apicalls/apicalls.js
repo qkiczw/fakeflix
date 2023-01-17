@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const MOVIE_GENRES = {
   action: { id: 28, name: "Action" },
   adventure: { id: 12, name: "Adventure" },
@@ -41,20 +39,4 @@ const TV_GENRES = {
   western: { id: 37, name: "Western" },
 };
 
-// Axios test field
-
-export const getMoviesByGenre = (genre) => {
-  const fetchURL = `https://api.themoviedb.org/3/`;
-  axios.get(`${fetchURL}discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${genre}`)
-  .then( response => {
-    console.log(response.data);
-    
-  })
-  .catch( error => console.log(error))
-};
-getMoviesByGenre(MOVIE_GENRES.horror.id);
-
 export { MOVIE_GENRES, TV_GENRES };
-
-
-

@@ -16,6 +16,10 @@ function Footer() {
         <Row>
           <Col className="footer-logos">
             <img src={TmdbLogo} alt="TMDB logo" />
+            <p>
+              This product uses the TMDB API but is not endorsed or certified by
+              TMDB.
+            </p>
           </Col>
         </Row>
         <Row>

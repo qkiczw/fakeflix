@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios, { all } from "axios";
 
 // Bootstrap components
 import { Container } from "react-bootstrap";
@@ -42,6 +43,25 @@ function App() {
   const [isTvSeriesCard, setTvSeriesCard] = useState(true);
   const [searchedMovieData, setSearchedMovieData] = useState("");
   const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [allMovies, setMovieTest] = useState([]);
+
+  // test
+  const getMoviesByGenreFromApi = async (genre) => {
+    const fetchURL = `https://api.themoviedb.org/3/`;
+
+    axios
+      .get(
+        `${fetchURL}discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${genre}`
+      )
+      .then((response) => {
+        const movies = response.data.results;
+        console.log(`movies:`, movies);
+
+        setMovieTest(new Set([...allMovies, ...movies]));
+      })
+      .catch((error) => console.log(error));
+  };
+  // test
 
   const searchMovie = (data) => {
     setSearchedMovieData(data);
@@ -65,6 +85,11 @@ function App() {
   };
 
   const fetchMovies = async () => {
+    // test
+    getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
+
+    // test
+
     const fetchURL = `https://api.themoviedb.org/3`;
     //set recentMovies
     await fetch(
