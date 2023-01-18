@@ -88,11 +88,15 @@ function App() {
     // clicks on the outside area of notifications container
   };
 
-  const newFetch = () => {
-    // test
-    getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
+  const newFetch = async () => {
     getMoviesByGenreFromApi(MOVIE_GENRES.horror.id);
-    // test
+    getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.animation.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.documentary.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.scifi.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.drama.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.romance.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.western.id);
   };
 
   const fetchMovies = async () => {
