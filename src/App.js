@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios, { all } from "axios";
+import axios from "axios";
 
 // Bootstrap components
 import { Container } from "react-bootstrap";
@@ -46,18 +46,22 @@ function App() {
   const [allMovies, setMovieTest] = useState([]);
 
   // test
-  const getMoviesByGenreFromApi = async (genre) => {
+  const getMoviesByGenreFromApi = (genre) => {
     const fetchURL = `https://api.themoviedb.org/3/`;
-
     axios
       .get(
         `${fetchURL}discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${genre}`
       )
       .then((response) => {
-        const movies = response.data.results;
-        console.log(`movies:`, movies);
-
-        setMovieTest(new Set([...allMovies, ...movies]));
+        // setMovieTest((allMovies) => allMovies.concat(response.data.results));
+        setMovieTest(
+          (allMovies) =>
+            new Set([
+              ...allMovies,
+              ...response.data.results,
+              ...response.data.results,
+            ])
+        );
       })
       .catch((error) => console.log(error));
   };
@@ -84,12 +88,14 @@ function App() {
     // clicks on the outside area of notifications container
   };
 
-  const fetchMovies = async () => {
+  const newFetch = () => {
     // test
     getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
-
+    getMoviesByGenreFromApi(MOVIE_GENRES.horror.id);
     // test
+  };
 
+  const fetchMovies = async () => {
     const fetchURL = `https://api.themoviedb.org/3`;
     //set recentMovies
     await fetch(
@@ -185,6 +191,7 @@ function App() {
 
   useEffect(() => {
     fetchMovies();
+    newFetch();
   }, []);
 
   return (
