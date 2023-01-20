@@ -210,7 +210,7 @@ function App() {
   return (
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
-        <AllMoviesContext.Provider value={allMovies}>
+        <AllMoviesContext.Provider value={[...allMovies]}>
           <Container
             fluid
             className="app__container"
@@ -252,7 +252,6 @@ function App() {
                   />
                 }
               />
-              {console.log("test: ", allMovies)}
             </Routes>
             <Footer />
           </Container>

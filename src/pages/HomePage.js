@@ -18,7 +18,15 @@ export function HomePage({
   topRatedTvSeries,
 }) {
   const allMovies = useContext(AllMoviesContext);
-  console.log("w homepage: ", allMovies);
+  //TODO: Create a function that filter and return movies by concrete genre
+  // console.log(`allMovies`, [
+  //   ...new Set(
+  //     allMovies
+  //       .filter((movie) => movie["genre_ids"].some((id) => id === 16))
+  //       .map((movie) => movie.title)
+  //   ),
+  // ]);
+
   return (
     <>
       <Hero randomMovie={randomMovie} />
