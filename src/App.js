@@ -88,15 +88,22 @@ function App() {
     // clicks on the outside area of notifications container
   };
 
-  const newFetch = async () => {
-    getMoviesByGenreFromApi(MOVIE_GENRES.horror.id);
-    getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
+  const getMoviesFromAPI = async () => {
+    getMoviesByGenreFromApi(MOVIE_GENRES.action.id);
     getMoviesByGenreFromApi(MOVIE_GENRES.animation.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.comedy.id);
     getMoviesByGenreFromApi(MOVIE_GENRES.documentary.id);
-    getMoviesByGenreFromApi(MOVIE_GENRES.scifi.id);
     getMoviesByGenreFromApi(MOVIE_GENRES.drama.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.family.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.history.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.horror.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.music.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.mystery.id);
     getMoviesByGenreFromApi(MOVIE_GENRES.romance.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.scifi.id);
     getMoviesByGenreFromApi(MOVIE_GENRES.western.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES.war.id);
+    getMoviesByGenreFromApi(MOVIE_GENRES["tv-movie"].id);
   };
 
   const fetchMovies = async () => {
@@ -195,7 +202,7 @@ function App() {
 
   useEffect(() => {
     fetchMovies();
-    newFetch();
+    getMoviesFromAPI();
   }, []);
 
   return (
@@ -239,6 +246,7 @@ function App() {
                 />
               }
             />
+            {console.log("test: ", allMovies)}
           </Routes>
           <Footer />
         </Container>
