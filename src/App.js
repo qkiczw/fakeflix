@@ -26,6 +26,8 @@ import "./styles.scss";
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
 
+// Context
+import { AllMoviesContext } from "./utils/pageContexts";
 export const MoreInfoContext = React.createContext();
 
 function App() {
@@ -208,54 +210,59 @@ function App() {
   return (
     <>
       <MoreInfoContext.Provider value={moreInfoStateHandler}>
-        <Container
-          fluid
-          className="app__container"
-          onClick={(e) => closeNotificationsMenu(e)}
-        >
-          <Header upcoming={upcomingMovies} searchMovie={searchMovie} />
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <HomePage
-                  randomMovie={randomMovie}
-                  recentMovies={recentMovies}
-                  horrorMovies={horrorMovies}
-                  comedyMovies={comedyMovies}
-                  animationMovies={animationMovies}
-                  documentaryMovies={documentaryMovies}
-                  scifiMovies={scifiMovies}
-                  topRatedTvSeries={topRatedTvSeries}
-                />
-              }
-            />
-            <Route path="movies" element={<Movies movies={filteredMovies} />} />
-            <Route
-              path="tvseries"
-              element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
-            />
-            <Route path="mylist" element={<MyList />} />
-            <Route
-              path="search"
-              element={
-                <Search
-                  searchedMovieData={searchedMovieData}
-                  allMoviesFiltered={filteredMovies}
-                />
-              }
-            />
-            {console.log("test: ", allMovies)}
-          </Routes>
-          <Footer />
-        </Container>
-        <MoreInfo
-          hidden={movieInfoComponentShow}
-          movieID={movieID}
-          isTvSeriesCard={isTvSeriesCard}
-          closeMoreInfoComponent={closeMoreInfoComponent}
-        />
+        <AllMoviesContext.Provider value={allMovies}>
+          <Container
+            fluid
+            className="app__container"
+            onClick={(e) => closeNotificationsMenu(e)}
+          >
+            <Header upcoming={upcomingMovies} searchMovie={searchMovie} />
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <HomePage
+                    randomMovie={randomMovie}
+                    recentMovies={recentMovies}
+                    horrorMovies={horrorMovies}
+                    comedyMovies={comedyMovies}
+                    animationMovies={animationMovies}
+                    documentaryMovies={documentaryMovies}
+                    scifiMovies={scifiMovies}
+                    topRatedTvSeries={topRatedTvSeries}
+                  />
+                }
+              />
+              <Route
+                path="movies"
+                element={<Movies movies={filteredMovies} />}
+              />
+              <Route
+                path="tvseries"
+                element={<TvSeries topRatedTvSeries={topRatedTvSeries} />}
+              />
+              <Route path="mylist" element={<MyList />} />
+              <Route
+                path="search"
+                element={
+                  <Search
+                    searchedMovieData={searchedMovieData}
+                    allMoviesFiltered={filteredMovies}
+                  />
+                }
+              />
+              {console.log("test: ", allMovies)}
+            </Routes>
+            <Footer />
+          </Container>
+          <MoreInfo
+            hidden={movieInfoComponentShow}
+            movieID={movieID}
+            isTvSeriesCard={isTvSeriesCard}
+            closeMoreInfoComponent={closeMoreInfoComponent}
+          />
+        </AllMoviesContext.Provider>
       </MoreInfoContext.Provider>
     </>
   );

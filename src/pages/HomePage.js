@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // Components
 import MovieRow from "../components/MoviesRow/MoviesRow";
 import Hero from "../components/Hero/Hero";
+
+// context
+import { AllMoviesContext } from "../utils/pageContexts";
 
 export function HomePage({
   randomMovie,
@@ -14,6 +17,8 @@ export function HomePage({
   scifiMovies,
   topRatedTvSeries,
 }) {
+  const allMovies = useContext(AllMoviesContext);
+  console.log("w homepage: ", allMovies);
   return (
     <>
       <Hero randomMovie={randomMovie} />
