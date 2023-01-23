@@ -59,6 +59,7 @@ const MoreInfo = ({
   const showTrailer = () => {
     document.querySelector(".more-info__image").classList.add("hidden");
     document.querySelector(".more-info__play-btns").classList.add("hidden");
+    console.log("movieinfo:", movieInfo);
   };
   const hideTrailer = () => {
     document.querySelector(".more-info__image").classList.remove("hidden");
@@ -102,7 +103,18 @@ const MoreInfo = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        setMovieProviders(data.results["US"]);
+        // TODO: Reapair code in case in results is an empty object!!! Maybe create an dummy array with a flatrate object
+        //
+
+        const dummyObj = {
+          logo_path: "",
+          provider_id: 666,
+          provider_name: "",
+          display_priority: 666,
+        };
+        setMovieProviders(
+          data.results ? data.results["US"].flatrate : dummyObj
+        );
       })
       .catch((error) => console.log("error: ", error));
   };
@@ -127,7 +139,9 @@ const MoreInfo = ({
             <div className="more-info__media">
               <YouTube
                 className="more-info__video ratio ratio-16x9"
-                videoId={filteredTrailers ? filteredTrailers[0].key : ""}
+                videoId={
+                  filteredTrailers ? filteredTrailers[0].key : "jNaOHROJjkU"
+                }
                 opts={youTubeOpts}
               />
 

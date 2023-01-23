@@ -4,7 +4,9 @@ import React from "react";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 
 const Providers = ({ movieProviders }) => {
-  const providers = movieProviders.flatrate || [];
+  const providers = movieProviders.flatrate || {
+    flatrate: { logo_path: "none" },
+  };
 
   return (
     <div className="mt-5 mb-5 providers">
