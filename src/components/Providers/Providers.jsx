@@ -4,15 +4,13 @@ import React from "react";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 
 const Providers = ({ movieProviders }) => {
-  const providers = movieProviders.flatrate || {
-    flatrate: { logo_path: "none" },
-  };
+  const providers = movieProviders || {};
 
   return (
     <div className="mt-5 mb-5 providers">
       <h3 className="providers__title">Available on:</h3>
       <ul className="providers__list mt-4">
-        {!providers[0] ? (
+        {!providers[0] || providers[0]["display_priority"] === 666 ? (
           <span>
             <BsFillEmojiFrownFill /> Sorry, the movie is unavailable on any
             platform

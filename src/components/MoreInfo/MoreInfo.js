@@ -103,17 +103,20 @@ const MoreInfo = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        // TODO: Reapair code in case in results is an empty object!!! Maybe create an dummy array with a flatrate object
-        //
-
-        const dummyObj = {
-          logo_path: "",
-          provider_id: 666,
-          provider_name: "",
-          display_priority: 666,
-        };
+        const dummyArr = [
+          {
+            logo_path: "",
+            provider_id: 666,
+            provider_name: "",
+            display_priority: 666,
+          },
+        ];
         setMovieProviders(
-          data.results ? data.results["US"].flatrate : dummyObj
+          data.results["US"]
+            ? data.results["US"].flatrate
+              ? data.results["US"].flatrate
+              : data.results["US"].rent
+            : dummyArr
         );
       })
       .catch((error) => console.log("error: ", error));
@@ -219,6 +222,7 @@ const MoreInfo = ({
                 moreInfoStateHandler();
                 setMovieInfo({});
                 setMovieCast({});
+                setMovieProviders({});
                 unFreezeAppContainer();
                 hideTrailer();
               }}
