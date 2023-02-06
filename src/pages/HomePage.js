@@ -7,6 +7,10 @@ import Hero from "../components/Hero/Hero";
 // context
 import { AllMoviesContext } from "../utils/pageContexts";
 
+// utils
+import { filterMoviesByGenre } from "../utils/helpers";
+import { MOVIE_GENRES, TV_GENRES } from "../apicalls/apicalls";
+
 export function HomePage({
   randomMovie,
   recentMovies,
@@ -18,14 +22,8 @@ export function HomePage({
   topRatedTvSeries,
 }) {
   const allMovies = useContext(AllMoviesContext);
-  //TODO: Create a function that filter and return movies by concrete genre
-  // console.log(`allMovies`, [
-  //   ...new Set(
-  //     allMovies
-  //       .filter((movie) => movie["genre_ids"].some((id) => id === 16))
-  //       .map((movie) => movie.title)
-  //   ),
-  // ]);
+
+  // TODO Filtered function works, now i have to add fieltered array to every movie row componenet via props => filterMoviesByGenre(allMovies, MOVIE_GENRES.fantasy.id)
 
   return (
     <>
