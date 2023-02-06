@@ -116,3 +116,10 @@ export const isMovieReleased = (date) => {
     return `Coming soon`;
   }
 };
+
+// Filter movies by genre
+export const filteredMoviesByGenre = (movies, movieGenre) => {
+  return [...new Set(movies)].filter((movie) =>
+    movie["genre_ids"].some((genre) => genre === movieGenre)
+  );
+};

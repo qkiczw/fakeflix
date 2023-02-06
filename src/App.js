@@ -25,6 +25,7 @@ import "./styles.scss";
 
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
+import { filteredMoviesByGenre } from "./utils/helpers";
 
 // Context
 import { AllMoviesContext } from "./utils/pageContexts";
@@ -61,13 +62,27 @@ function App() {
             new Set([
               ...allMovies,
               ...response.data.results,
-              ...response.data.results,
+              // ...response.data.results,
             ])
         );
       })
       .catch((error) => console.log(error));
   };
   // test
+
+  // Filter movies by Genre test field
+
+  // const filteredMoviesByGenre = (movies, movieGenre) => {
+  //   return [...new Set(movies)].filter((movie) =>
+  //     movie["genre_ids"].some((genre) => genre === movieGenre)
+  //   );
+  // };
+
+  setTimeout(
+    () => console.log(`Filtered movies:`, filteredMoviesByGenre(allMovies, 14)),
+    3000
+  );
+  // End of Filter movies
 
   const searchMovie = (data) => {
     setSearchedMovieData(data);
