@@ -25,7 +25,6 @@ import "./styles.scss";
 
 // Api calls helpers
 import { MOVIE_GENRES } from "./apicalls/apicalls";
-import { filteredMoviesByGenre } from "./utils/helpers";
 
 // Context
 import { AllMoviesContext } from "./utils/pageContexts";
@@ -56,33 +55,13 @@ function App() {
         `${fetchURL}discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${genre}`
       )
       .then((response) => {
-        // setMovieTest((allMovies) => allMovies.concat(response.data.results));
         setMovieTest(
-          (allMovies) =>
-            new Set([
-              ...allMovies,
-              ...response.data.results,
-              // ...response.data.results,
-            ])
+          (allMovies) => new Set([...allMovies, ...response.data.results])
         );
       })
       .catch((error) => console.log(error));
   };
   // test
-
-  // Filter movies by Genre test field
-
-  // const filteredMoviesByGenre = (movies, movieGenre) => {
-  //   return [...new Set(movies)].filter((movie) =>
-  //     movie["genre_ids"].some((genre) => genre === movieGenre)
-  //   );
-  // };
-
-  setTimeout(
-    () => console.log(`Filtered movies:`, filteredMoviesByGenre(allMovies, 14)),
-    3000
-  );
-  // End of Filter movies
 
   const searchMovie = (data) => {
     setSearchedMovieData(data);
