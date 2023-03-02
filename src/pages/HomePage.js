@@ -8,8 +8,7 @@ import Hero from "../components/Hero/Hero";
 import { AllMoviesContext } from "../utils/pageContexts";
 
 // utils
-import { filterMoviesByGenre } from "../utils/helpers";
-import { MOVIE_GENRES, TV_GENRES } from "../apicalls/apicalls";
+import { filterMoviesByGenre, MOVIE_GENRES, TV_GENRES } from "../utils/helpers";
 
 export function HomePage({
   randomMovie,
@@ -30,7 +29,11 @@ export function HomePage({
       <Hero randomMovie={randomMovie} />
       <main className="main-movies-content">
         <MovieRow rowTitle={"Recent"} movies={recentMovies} />
-        <MovieRow rowTitle={"Horror"} movies={horrorMovies} />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.horror.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.horror.id)}
+        />
+        ;{/* <MovieRow rowTitle={"Horror"} movies={horrorMovies} /> */}
         <MovieRow rowTitle={"Sci-Fi"} movies={scifiMovies} />
         <MovieRow rowTitle={"Comedy"} movies={comedyMovies} />
         <MovieRow rowTitle={"Animation"} movies={animationMovies} />
