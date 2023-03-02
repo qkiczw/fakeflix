@@ -24,7 +24,7 @@ import { unFreezeAppContainer } from "./utils/helpers";
 import "./styles.scss";
 
 // Api calls helpers
-import { MOVIE_GENRES } from "./apicalls/apicalls";
+import { MOVIE_GENRES } from "./utils/helpers";
 
 // Context
 import { AllMoviesContext } from "./utils/pageContexts";
@@ -117,44 +117,45 @@ function App() {
       .catch((error) => console.log("error: ", error));
 
     // set horrorMovies
-    await fetch(
-      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror.id}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setHorrorMovies(horrorMovies.concat(data.results));
-      })
-      .catch((error) => console.log("error: ", error));
+    // await fetch(
+    //   `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.horror.id}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setHorrorMovies(horrorMovies.concat(data.results));
+    //   })
+    //   .catch((error) => console.log("error: ", error));
     // comedyMovies
-    await fetch(
-      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy.id}`
-    )
-      .then((response) => response.json())
-      .then((data) => setComedyMovies(comedyMovies.concat(data.results)))
-      .catch((error) => console.log("error: ", error));
+    // await fetch(
+    //   `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.comedy.id}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => setComedyMovies(comedyMovies.concat(data.results)))
+    //   .catch((error) => console.log("error: ", error));
     // Animation Movies
-    await fetch(
-      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.animation.id}`
-    )
-      .then((response) => response.json())
-      .then((data) => setAnimationMovies(animationMovies.concat(data.results)))
-      .catch((error) => console.log("error: ", error));
+    // await fetch(
+    //   `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.animation.id}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => setAnimationMovies(animationMovies.concat(data.results)))
+    //   .catch((error) => console.log("error: ", error));
     // Documentary Movies
-    await fetch(
-      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.documentary.id}`
-    )
-      .then((response) => response.json())
-      .then((data) =>
-        setDocumentaryMovies(documentaryMovies.concat(data.results))
-      )
-      .catch((error) => console.log("error: ", error));
+    // await fetch(
+    //   `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.documentary.id}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) =>
+    //     setDocumentaryMovies(documentaryMovies.concat(data.results))
+    //   )
+    //   .catch((error) => console.log("error: ", error));
     // Sci-Fi Movies
-    await fetch(
-      `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.scifi.id}`
-    )
-      .then((response) => response.json())
-      .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
-      .catch((error) => console.log("error: ", error));
+    // await fetch(
+    //   `${fetchURL}/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${MOVIE_GENRES.scifi.id}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => setscifiMovies(scifiMovies.concat(data.results)))
+    //   .catch((error) => console.log("error: ", error));
+
     //  Tv Series - top_rated
     await fetch(
       `${fetchURL}/tv/top_rated?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
@@ -219,18 +220,15 @@ function App() {
                   <HomePage
                     randomMovie={randomMovie}
                     recentMovies={recentMovies}
-                    horrorMovies={horrorMovies}
-                    comedyMovies={comedyMovies}
-                    animationMovies={animationMovies}
-                    documentaryMovies={documentaryMovies}
-                    scifiMovies={scifiMovies}
                     topRatedTvSeries={topRatedTvSeries}
                   />
                 }
               />
               <Route
                 path="movies"
-                element={<Movies movies={filteredMovies} />}
+                // element={<Movies movies={filteredMovies} />}
+                // TODO: Send a filtered Array of all movies
+                element={<Movies movies={[...allMovies]} />}
               />
               <Route
                 path="tvseries"
