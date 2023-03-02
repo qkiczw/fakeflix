@@ -10,19 +10,8 @@ import { AllMoviesContext } from "../utils/pageContexts";
 // utils
 import { filterMoviesByGenre, MOVIE_GENRES, TV_GENRES } from "../utils/helpers";
 
-export function HomePage({
-  randomMovie,
-  recentMovies,
-  horrorMovies,
-  comedyMovies,
-  animationMovies,
-  documentaryMovies,
-  scifiMovies,
-  topRatedTvSeries,
-}) {
+export function HomePage({ randomMovie, recentMovies, topRatedTvSeries }) {
   const allMovies = useContext(AllMoviesContext);
-
-  // TODO Filtered function works, now i have to add fieltered array to every movie row componenet via props => filterMoviesByGenre(allMovies, MOVIE_GENRES.fantasy.id)
 
   return (
     <>
@@ -33,11 +22,22 @@ export function HomePage({
           rowTitle={MOVIE_GENRES.horror.name}
           movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.horror.id)}
         />
-        ;{/* <MovieRow rowTitle={"Horror"} movies={horrorMovies} /> */}
-        <MovieRow rowTitle={"Sci-Fi"} movies={scifiMovies} />
-        <MovieRow rowTitle={"Comedy"} movies={comedyMovies} />
-        <MovieRow rowTitle={"Animation"} movies={animationMovies} />
-        <MovieRow rowTitle={"Documentary"} movies={documentaryMovies} />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.scifi.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.scifi.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.comedy.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.comedy.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.animation.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.animation.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.documentary.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.documentary.id)}
+        />
         <MovieRow
           rowTitle={"Tv-Series - Top Rated"}
           movies={topRatedTvSeries}
