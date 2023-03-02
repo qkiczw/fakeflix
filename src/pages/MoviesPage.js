@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import MovieCard from "../components/MovieCard/MovieCard;";
 import Genres from "../components/Genres/Genres";
 
+// Utils
+import { filterMovies } from "../utils/helpers";
+
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -31,7 +34,7 @@ export function Movies({ movies }) {
         <Container fluid className="movies-page">
           <Row>
             {isFiltered
-              ? movies
+              ? filterMovies(movies)
                   .filter((movie) =>
                     movie["genre_ids"].some((n) => n === movieGenre)
                   )
@@ -40,7 +43,7 @@ export function Movies({ movies }) {
                       <MovieCard movieData={movie} />
                     </Col>
                   ))
-              : movies.map((movie) => (
+              : filterMovies(movies).map((movie) => (
                   <Col key={movie.id} xs={6} md={4} lg={2} className="mb-3">
                     <MovieCard key={movie.id} movieData={movie} />
                   </Col>

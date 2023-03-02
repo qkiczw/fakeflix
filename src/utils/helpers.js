@@ -158,6 +158,17 @@ export const isMovieReleased = (date) => {
   }
 };
 
+export const filterMovies = (movies) => {
+  const filteredArray = movies.reduce((movies, currentMovie) => {
+    if (!movies.some((movie) => movie.id === currentMovie.id)) {
+      movies.push(currentMovie);
+    }
+    return movies;
+  }, []);
+
+  return filteredArray;
+};
+
 // Filter movies by genre
 export const filterMoviesByGenre = (movies, movieGenre) => {
   const moviesArrayWithoutDuplicates = movies.reduce((movies, currentMovie) => {
