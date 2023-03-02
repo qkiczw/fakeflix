@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Api calls helpers
-import { MOVIE_GENRES } from "../../apicalls/apicalls";
+import { MOVIE_GENRES } from "../../utils/helpers";
 
 // Bootstrap components
 import { Container, Row, Col } from "react-bootstrap";

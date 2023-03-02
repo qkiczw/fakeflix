@@ -39,66 +39,66 @@ export const TV_GENRES = {
   western: { id: 37, name: "Western" },
 };
 
-export const genresIDtoNames = (item) => {
-  switch (item) {
-    case 28:
-      return "Action";
+// export const genresIDtoNames = (item) => {
+//   switch (item) {
+//     case 28:
+//       return "Action";
 
-    case 12:
-      return "Adventure";
+//     case 12:
+//       return "Adventure";
 
-    case 16:
-      return "Animation";
+//     case 16:
+//       return "Animation";
 
-    case 35:
-      return "Comedy";
+//     case 35:
+//       return "Comedy";
 
-    case 80:
-      return "Crime";
+//     case 80:
+//       return "Crime";
 
-    case 99:
-      return "Documentation";
+//     case 99:
+//       return "Documentation";
 
-    case 18:
-      return "Drama";
+//     case 18:
+//       return "Drama";
 
-    case 10751:
-      return "Family";
-    case 36:
-      return "History";
-    case 14:
-      return "Fantasy";
-    case 27:
-      return "Horror";
+//     case 10751:
+//       return "Family";
+//     case 36:
+//       return "History";
+//     case 14:
+//       return "Fantasy";
+//     case 27:
+//       return "Horror";
 
-    case 10402:
-      return "Music";
+//     case 10402:
+//       return "Music";
 
-    case 9648:
-      return "Mystery";
+//     case 9648:
+//       return "Mystery";
 
-    case 10749:
-      return "Romance";
+//     case 10749:
+//       return "Romance";
 
-    case 878:
-      return "Sci-Fi";
+//     case 878:
+//       return "Sci-Fi";
 
-    case 10770:
-      return "Tv-Movie";
+//     case 10770:
+//       return "Tv-Movie";
 
-    case 53:
-      return "Thriller";
+//     case 53:
+//       return "Thriller";
 
-    case 10752:
-      return "War";
+//     case 10752:
+//       return "War";
 
-    case 37:
-      return "Western";
+//     case 37:
+//       return "Western";
 
-    default:
-      return "Unknown";
-  }
-};
+//     default:
+//       return "Unknown";
+//   }
+// };
 
 export const freezeAppContainer = () => {
   document.querySelector(".app__container").classList.add("frozen");
