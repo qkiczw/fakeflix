@@ -39,6 +39,22 @@ export function HomePage({ randomMovie, recentMovies, topRatedTvSeries }) {
           movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.documentary.id)}
         />
         <MovieRow
+          rowTitle={MOVIE_GENRES.music.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.music.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.romance.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.romance.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.family.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.family.id)}
+        />
+        <MovieRow
+          rowTitle={MOVIE_GENRES.drama.name}
+          movies={filterMoviesByGenre(allMovies, MOVIE_GENRES.drama.id)}
+        />
+        <MovieRow
           rowTitle={"Tv-Series - Top Rated"}
           movies={topRatedTvSeries}
           tvSeries={true}

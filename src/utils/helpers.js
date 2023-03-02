@@ -12,7 +12,7 @@ export const MOVIE_GENRES = {
   horror: { id: 27, name: "Horror" },
   music: { id: 10402, name: "Music" },
   mystery: { id: 9648, name: "Mystery" },
-  romance: { id: 10749, name: "Romancer" },
+  romance: { id: 10749, name: "Romance" },
   scifi: { id: 878, name: "Sci-Fi" },
   "tv-movie": { id: 10770, name: "TV-Movie" },
   thriller: { id: 53, name: "Thriller" },
